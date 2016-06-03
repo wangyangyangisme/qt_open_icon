@@ -3,6 +3,9 @@
 
 #include "iconhelper.h"
 
+/**
+ * @brief 测试类
+ */
 class TestWidget : public QWidget
 {
     Q_OBJECT

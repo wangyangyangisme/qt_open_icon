@@ -4,12 +4,15 @@
 #include<QtWidgets>
 #include "fonts.h"
 
+/**
+ * @brief 使用字体库核心类
+ */
 class IconHelper:public QObject
 {
     Q_OBJECT
 
 public:
-    //单例模式
+    //运用单例模式，保证只有一个实体
     static IconHelper* Instance()
     {
         static QMutex mutex;
@@ -32,7 +35,7 @@ private:
     QFont iconFont;
 };
 
-//核心non-member函数
+//核心non-member模板函数
 template<typename WidgetType>
 void setIcon(WidgetType *wig, int iconIndex)
 {

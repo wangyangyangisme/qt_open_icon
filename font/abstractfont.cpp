@@ -11,6 +11,10 @@ AbstractFont::AbstractFont()
     assert(p != NULL);  //防止子类使用默认构造
 }
 
+/**
+ * @brief 所有子类都要调用这个构造
+ * @param _name 字体库名称，也是代表ttf文件名称，会根据此名称加载字体库
+ */
 AbstractFont::AbstractFont(const QString &_name)
 {
     name = _name;

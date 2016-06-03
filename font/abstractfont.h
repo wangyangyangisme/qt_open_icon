@@ -3,6 +3,9 @@
 
 #include <QtWidgets>
 
+/**
+ * @brief 抽象字体库基类
+ */
 class AbstractFont : public QObject
 {
     Q_OBJECT
