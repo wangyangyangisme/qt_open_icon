@@ -10,9 +10,21 @@
 
 基于qt5.2.1编译，需要把项目resourse下的ttf字体库文件放到运行目录下
 
+
+**欢迎加入更多字体库**
+
 **我们的最终目标是做一个漂亮的开源QT组件库，所以希望志同道合的战友们能贡献图库和组件源码**
 
 ## 以下是我们使用的开源矢量图库地址： ##
 1. 阿里巴巴矢量图库 [http://iconfont.cn/](http://iconfont.cn/ "阿里巴巴矢量图库 ")
 2. Awesome [http://fontawesome.io/cheatsheet/](http://fontawesome.io/cheatsheet/ "Awesome")
 3. mui图库 [http://dev.dcloud.net.cn/mui/ui/#icon](http://dev.dcloud.net.cn/mui/ui/#icon "mui图库") (*这个团队应该也是使用阿里巴巴矢量图，字体文件名称都是iconfont，这样会造成两个库同时使用时其中后加载失效，所以最好以阿里矢量库为主，更全一些*)
+
+## 效果展示: ##
+原始字体库：
+
+![](http://git.oschina.net/coffeeLVeris/images/raw/master/mui.png)
+
+按钮效果：
+
+![](http://git.oschina.net/coffeeLVeris/images/raw/master/icon1.png)
