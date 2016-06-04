@@ -7,7 +7,7 @@ TestWidget::TestWidget(QWidget *parent) :
     //默认使用MUI库
     lab = new QLabel;
     lab->setAlignment(Qt::AlignCenter);
-    setIcon(lab,MuiFont::ICON_WEINXIN);
+    iconhelp::setIcon(lab,MuiFont::ICON_WEINXIN);
     lab->setStyleSheet("\
                        QLabel{\
                            color:red;\
@@ -18,7 +18,7 @@ TestWidget::TestWidget(QWidget *parent) :
                        ");
     IconHelper::Instance()->setNewIcon(FontawesomeWebfont());  //使用新的图标库
     lock = new QPushButton;
-    setIcon(lock,FontawesomeWebfont::ICON_LOCK);
+    iconhelp::setIcon(lock,FontawesomeWebfont::ICON_LOCK);
     connect(lock,SIGNAL(released()),this,SLOT(btnStateChange()));
     lock->setStyleSheet("\
                        QPushButton{\
@@ -35,7 +35,7 @@ TestWidget::TestWidget(QWidget *parent) :
 
     IconHelper::Instance()->setNewIcon(MuiFont());  //使用自定义图标库
     btn = new QPushButton;
-    setIcon(btn,MuiFont::ICON_PENGYOUQUAN);
+    iconhelp::setIcon(btn,MuiFont::ICON_PENGYOUQUAN);
     btn->setStyleSheet("\
                        QPushButton{\
                            color:red;\
@@ -65,10 +65,10 @@ void TestWidget::btnStateChange()
     //最后一个按钮已经替换了图标库
     IconHelper::Instance()->setNewIcon(FontawesomeWebfont());
     if(isLock){
-        setIcon(lock,FontawesomeWebfont::ICON_UNLOCK);
+        iconhelp::setIcon(lock,FontawesomeWebfont::ICON_UNLOCK);
         isLock = false;
     }else{
-        setIcon(lock,FontawesomeWebfont::ICON_LOCK);
+        iconhelp::setIcon(lock,FontawesomeWebfont::ICON_LOCK);
         isLock = true;
     }
 

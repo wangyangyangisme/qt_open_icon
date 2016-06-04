@@ -11,18 +11,25 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = qt_open_icon
 TEMPLATE = app
 
-INCLUDEPATH += font
+INCLUDEPATH += font core utils utils/button
 SOURCES += main.cpp\
+    core/iconhelper.cpp \
     font/abstractfont.cpp \
     font/fontawesomewebfont.cpp \
     font/muifont.cpp \
-    iconhelper.cpp \
-    testwidget.cpp
+    testwidget.cpp \
+    utils/button/basebutton.cpp \
+    utils/button/buttontest.cpp
 
 HEADERS  += \
-    iconhelper.h \
+    core/iconhelper.h \
     font/abstractfont.h \
     font/fontawesomewebfont.h \
     font/muifont.h \
     font/fonts.h \
-    testwidget.h
+    testwidget.h \
+    utils/button/basebutton.h \
+    utils/button/buttontest.h
+
+OTHER_FILES += \
+    utils/abc.txt

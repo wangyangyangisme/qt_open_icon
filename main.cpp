@@ -1,11 +1,11 @@
-#include "testwidget.h"
+#include "buttontest.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    TestWidget *w = new TestWidget;
+    ButtonTest *w = new ButtonTest;
     w->show();
 
     return a.exec();
