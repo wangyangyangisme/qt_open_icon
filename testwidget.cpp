@@ -19,7 +19,7 @@ TestWidget::TestWidget(QWidget *parent) :
     IconHelper::Instance()->setNewIcon(FontawesomeWebfont());  //使用新的图标库
     lock = new QPushButton;
     setIcon(lock,FontawesomeWebfont::ICON_LOCK);
-    connect(lock,SIGNAL(pressed()),this,SLOT(btnStateChange()));
+    connect(lock,SIGNAL(released()),this,SLOT(btnStateChange()));
     lock->setStyleSheet("\
                        QPushButton{\
                            color:#DDDDDD;\

@@ -11,3 +11,6 @@
 基于qt5.2.1编译，需要把项目resourse下的ttf字体库文件放到运行目录下，也可以自己在程序中指定字体库目录。如果想自定义图标，可以借助阿里巴巴矢量图库平台：http://iconfont.cn/
 
 **欢迎加入更多字体库**
+
+![](http://git.oschina.net/coffeeLVeris/images/blob/master/mui.png)
+![](http://git.oschina.net/coffeeLVeris/images/raw/master/icon1.png)
