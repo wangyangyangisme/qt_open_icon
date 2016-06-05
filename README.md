@@ -8,11 +8,23 @@
 
 ## 说明文档 ##
 **1. 使用字体库生成图标**
+
 提供了*IconHelper*类，使用这个类可以方便的在widget上加入图标,比如我们想要在一个button上增加一个微信图标，那么可以这么写：
 
     IconHelper::Instance()->setNewIcon(MuiFont());  //选择含有微信图标的字体库
     QPushButton *btn = new QPushButton;
     iconhelp::setIcon(btn,MuiFont::ICON_WEINXIN);
+
+这样就能得到微信图标按钮：
+
+![](http://git.oschina.net/coffeeLVeris/qt_open_icon/raw/master/resourse/web_res/1.png)
+
+因为按钮中图标实际上是字体形式，所以我们可以方便的用样式表修改它的颜色、大小等：
+
+    btn->setStyleSheet("font:100px;color:red");
+如上面代码，就可以把图标规定为100px大小，颜色为红色，效果不再展示。
+
+这种方式非常方便，传统的贴图方式一旦状态方生变化，比如需要颜色改变，就需要重新贴图，不仅图片难维护，代码也比较混乱。而这种方式，我们仅仅需要修改样式表就能做到。
 
 字体库需要从网上去找或者团队UI制作，这部分文档可以参照后面提供的*阿里巴巴矢量图库*文档使用。
 
