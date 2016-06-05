@@ -1,30 +1,34 @@
 # qt_open_icon #
 
-有木有在做QT项目时候为了一个按钮不同状态贴图而烦恼，命名只需要变化图标几种颜色，却必须贴若干个图，即难维护又浪费存储资源。这个小项目就能帮到你。我们脱离笨重的贴图，仅仅使用非常小的字体库。这样做有如下优点：
+## 项目特色 ##
+借鉴WEB前端开发中图标使用字体库的方式生成，把这种方法也运用到QT开发中，摒弃传统的贴图方式，让你在QT开发中从繁琐的图片维护中解放出来。以此为核心，再增加各种常用组件。**我们旨在开发一个全面而又方便使用的QT组件库，所以希望志同道合的码友们能贡献自己的图库和组件源码。**
 
- - 多个图标字体合成一个字体文件，避免每张图片都需要联网请求；
- - 字体可任意缩放，而图片放大会失真、缩小则浪费像素；
- - 可通过css任意改变颜色、大小等
+## 运行说明 ##
+基于qt5.2.1编译，需要把项目resourse下的ttf字体库文件放到运行目录下或重新指定字体库路径；如果是其它版本qt库，可能需要更改头文件。
 
-**运行说明**
+## 说明文档 ##
+**1. 使用字体库生成图标**
+提供了*IconHelper*类，使用这个类可以方便的在widget上加入图标,比如我们想要在一个button上增加一个微信图标，那么可以这么写：
 
-基于qt5.2.1编译，需要把项目resourse下的ttf字体库文件放到运行目录下
+    IconHelper::Instance()->setNewIcon(MuiFont());  //选择含有微信图标的字体库
+    QPushButton *btn = new QPushButton;
+    iconhelp::setIcon(btn,MuiFont::ICON_WEINXIN);
+
+字体库需要从网上去找或者团队UI制作，这部分文档可以参照后面提供的*阿里巴巴矢量图库*文档使用。
 
 
-**欢迎加入更多字体库**
 
-**我们的最终目标是做一个漂亮的开源QT组件库，所以希望志同道合的战友们能贡献图库和组件源码**
+
+
+
+
+
+
+
+
+
 
 ## 以下是我们使用的开源矢量图库地址： ##
 1. 阿里巴巴矢量图库 [http://iconfont.cn/](http://iconfont.cn/ "阿里巴巴矢量图库 ")
 2. Awesome [http://fontawesome.io/cheatsheet/](http://fontawesome.io/cheatsheet/ "Awesome")
 3. mui图库 [http://dev.dcloud.net.cn/mui/ui/#icon](http://dev.dcloud.net.cn/mui/ui/#icon "mui图库") (*这个团队应该也是使用阿里巴巴矢量图，字体文件名称都是iconfont，这样会造成两个库同时使用时其中后加载失效，所以最好以阿里矢量库为主，更全一些*)
-
-## 效果展示: ##
-原始字体库：
-
-![](http://git.oschina.net/coffeeLVeris/images/raw/master/mui.png)
-
-按钮效果：
-
-![](http://git.oschina.net/coffeeLVeris/images/raw/master/icon1.png)
