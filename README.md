@@ -8,7 +8,5 @@
 基于qt5.2.1编译，需要把项目resourse下的ttf字体库文件放到运行目录下或重新指定字体库路径；如果是其它版本qt库，可能需要更改头文件。
 
 ## 项目文档 ##
-1. 使用字体库生成图标
-[http://git.oschina.net/coffeeLVeris/qt_open_icon.wiki.git](http://git.oschina.net/coffeeLVeris/qt_open_icon.wiki.git "使用字体库生成图标")
-2. 组件 [http://git.oschina.net/coffeeLVeris/qt_open_icon.wiki.git](http://git.oschina.net/coffeeLVeris/qt_open_icon.wiki.git "组件")
-3. 开源矢量图库[http://git.oschina.net/coffeeLVeris/qt_open_icon.wiki.git](http://git.oschina.net/coffeeLVeris/qt_open_icon.wiki.git "开源矢量图库")
+请移步wiki页面查看：
+[http://git.oschina.net/coffeeLVeris/qt_open_icon/wikis/Home](http://git.oschina.net/coffeeLVeris/qt_open_icon/wikis/Home "项目文档")
