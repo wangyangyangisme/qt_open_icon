@@ -3,8 +3,10 @@
 ButtonTest::ButtonTest(QWidget *parent) :
     QWidget(parent)
 {
-    btn = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
+    QLabel baseButtonLab("basebutton:");
+    baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
 
-    lay = new QVBoxLayout(this);
-    lay->addWidget(btn);
+    lay = new QGridLayout(this);
+    lay->addWidget(&baseButtonLab, 0, 0);
+    lay->addWidget(baseButton, 0, 1);
 }

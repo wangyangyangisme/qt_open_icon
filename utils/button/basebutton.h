@@ -18,7 +18,7 @@ public:
     explicit BaseButton(const AbstractFont &fontLib, int iconIndex, \
                         int w, int h, const QString &style = QString());
 
-private slots:
+protected slots:
     virtual void pressSlot(){}  //按下后需要扩展的功能
     virtual void releaseSlot(){}  //松开后需要扩展的功能
 

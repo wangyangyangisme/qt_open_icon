@@ -1,7 +1,7 @@
 #ifndef BUTTONTEST_H
 #define BUTTONTEST_H
 
-#include <basebutton.h>
+#include "basebutton.h"
 
 class ButtonTest : public QWidget
 {
@@ -14,11 +14,8 @@ signals:
 private slots:
 
 private:
-    QLabel *lab;
-    BaseButton *btn;
-    QPushButton *lock;
-    QVBoxLayout *lay;
-
+    BaseButton *baseButton;
+    QGridLayout *lay;
 };
 
 #endif // BUTTONTEST_H
