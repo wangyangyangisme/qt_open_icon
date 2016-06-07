@@ -1,5 +1,14 @@
 #include "switchbutton.h"
 
+/**
+ * @brief SwitchButton::SwitchButton
+ * @param fontLib 需要的字体库
+ * @param iconIndex1 转换图标1（默认）
+ * @param iconIndex2 转换图标2
+ * @param w 长
+ * @param h 宽
+ * @param style 样式
+ */
 SwitchButton::SwitchButton(const AbstractFont &fontLib, int iconIndex1, int iconIndex2, int w, int h, const QString &style):
     BaseButton(fontLib, iconIndex1, w, h, style),
     flag(true)
@@ -9,14 +18,15 @@ SwitchButton::SwitchButton(const AbstractFont &fontLib, int iconIndex1, int icon
     connect(this,SIGNAL(released()),this,SLOT(releaseSlot()));
 }
 
+
 void SwitchButton::releaseSlot()
 {
-    IconHelper::Instance()->setNewIcon(AbstractFont(fontName));
+    restoreFont();
     if(flag){
-        iconhelp::setIcon(this,index1);
+        iconhelp::setIcon(this,index2);
         flag = false;
     }else{
-        iconhelp::setIcon(this,index2);
+        iconhelp::setIcon(this,index1);
         flag = true;
     }
 }

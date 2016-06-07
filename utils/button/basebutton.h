@@ -23,6 +23,7 @@ protected slots:
     virtual void releaseSlot(){}  //松开后需要扩展的功能
 
 protected:
+    void restoreFont();  //恢复字体库，防止别的组件更改字体库
     QString fontName;  //存储字体库名称
 };
 

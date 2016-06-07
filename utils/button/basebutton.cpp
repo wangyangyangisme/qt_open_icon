@@ -41,3 +41,11 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
         setStyleSheet(DEFULT_BUTTON_STYLE);
     }
 }
+
+/**
+ * @brief 恢复字体库，防止别的组件更改字体库
+ */
+void BaseButton::restoreFont()
+{
+    IconHelper::Instance()->setNewIcon(AbstractFont(fontName));
+}

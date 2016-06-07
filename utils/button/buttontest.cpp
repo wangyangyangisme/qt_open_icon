@@ -4,15 +4,15 @@ ButtonTest::ButtonTest(QWidget *parent) :
     QWidget(parent)
 {
     //BaseButton
-    QLabel *baseButtonLab = new QLabel("basebutton:");
+    QLabel *baseButtonLab = new QLabel("BaseButton:");
     BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
 
     //switchbutton
-    QLabel *switchButtonLab = new QLabel("switchButtonLab:");
+    QLabel *switchButtonLab = new QLabel("SwitchButton:");
     SwitchButton *switchButton = new SwitchButton(FontawesomeWebfont(), \
                                                   FontawesomeWebfont::ICON_UNLOCK,
-                                                  FontawesomeWebfont::ICON_UNLOCK,
-                                                  1, 200, 100);
+                                                  FontawesomeWebfont::ICON_LOCK,
+                                                  200, 100);
 
 
     lay = new QGridLayout(this);
