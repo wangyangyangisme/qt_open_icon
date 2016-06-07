@@ -9,7 +9,10 @@ ButtonTest::ButtonTest(QWidget *parent) :
 
     //switchbutton
     QLabel *switchButtonLab = new QLabel("switchButtonLab:");
-    SwitchButton *switchButton = new SwitchButton(MuiFont(), MuiFont::ICON_WEINXIN, 1, 200, 100);
+    SwitchButton *switchButton = new SwitchButton(FontawesomeWebfont(), \
+                                                  FontawesomeWebfont::ICON_UNLOCK,
+                                                  FontawesomeWebfont::ICON_UNLOCK,
+                                                  1, 200, 100);
 
 
     lay = new QGridLayout(this);

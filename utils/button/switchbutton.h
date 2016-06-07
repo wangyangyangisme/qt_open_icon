@@ -12,8 +12,13 @@ public:
 
 signals:
 
-public slots:
+protected slots:
+    virtual void releaseSlot();  //松开后需要扩展的功能
 
+protected:
+    int index1;
+    int index2;
+    bool flag;
 };
 
 #endif // SWITCHBUTTON_H

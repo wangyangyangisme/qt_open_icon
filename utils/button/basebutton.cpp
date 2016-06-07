@@ -27,6 +27,7 @@ QPushButton:pressed{\
 BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
                        int w, int h, const QString &style)
 {
+    fontName = fontLib.getIconName();
     IconHelper::Instance()->setNewIcon(fontLib);
     iconhelp::setIcon(this,iconIndex);  //正好跟button类的命名冲突
     setFixedSize(w, h);

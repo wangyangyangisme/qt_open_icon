@@ -6,18 +6,12 @@
 /**
  * @brief 抽象字体库基类
  */
-class AbstractFont : public QObject
+class AbstractFont
 {
-    Q_OBJECT
 public:
-    explicit AbstractFont(){qDebug()<<"AbstractFont";}
     explicit AbstractFont(const QString &_name);
     QFont getIconFont()const{return iconFont;}
     QString getIconName()const{return name;}
-
-signals:
-
-public slots:
 
 private:
     QFont iconFont;

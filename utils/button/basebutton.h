@@ -22,8 +22,8 @@ protected slots:
     virtual void pressSlot(){}  //按下后需要扩展的功能
     virtual void releaseSlot(){}  //松开后需要扩展的功能
 
-private:
-
+protected:
+    QString fontName;  //存储字体库名称
 };
 
 #endif // BASEBUTTON_H
