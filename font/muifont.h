@@ -11,7 +11,7 @@ public:
         ICON_WEINXIN = 0xe261,
         ICON_PENGYOUQUAN = 0xe262,
     };
-    MuiFont();
+    explicit MuiFont();
 };
 
 #endif // MUIFONT_H

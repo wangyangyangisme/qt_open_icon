@@ -11,7 +11,7 @@ public:
         ICON_LOCK = 0xf023,
         ICON_UNLOCK = 0xf09c,
     };
-    FontawesomeWebfont();
+    explicit FontawesomeWebfont();
 };
 
 #endif // FONTAWESOMEWEBFONT_H

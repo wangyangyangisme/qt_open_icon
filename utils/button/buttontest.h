@@ -2,6 +2,7 @@
 #define BUTTONTEST_H
 
 #include "basebutton.h"
+#include "switchbutton.h"
 
 class ButtonTest : public QWidget
 {
@@ -14,7 +15,6 @@ signals:
 private slots:
 
 private:
-    BaseButton *baseButton;
     QGridLayout *lay;
 };
 

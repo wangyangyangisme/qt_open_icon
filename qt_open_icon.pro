@@ -20,7 +20,7 @@ SOURCES += main.cpp\
     testwidget.cpp \
     utils/button/basebutton.cpp \
     utils/button/buttontest.cpp \
-#    utils/button/switchbutton.cpp
+    utils/button/switchbutton.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -31,7 +31,7 @@ HEADERS  += \
     testwidget.h \
     utils/button/basebutton.h \
     utils/button/buttontest.h \
-#    utils/button/switchbutton.h
+    utils/button/switchbutton.h
 
 OTHER_FILES += \
     utils/abc.txt

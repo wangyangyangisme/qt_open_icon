@@ -10,6 +10,7 @@ class AbstractFont : public QObject
 {
     Q_OBJECT
 public:
+    explicit AbstractFont(){qDebug()<<"AbstractFont";}
     explicit AbstractFont(const QString &_name);
     QFont getIconFont()const{return iconFont;}
     QString getIconName()const{return name;}
