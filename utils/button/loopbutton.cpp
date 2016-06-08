@@ -1,10 +1,9 @@
 #include "loopbutton.h"
 
-LoopButton::LoopButton(const AbstractFont &fontLib, QList<int> iconList, int w, int h, const QString &style):
-    BaseButton(fontLib, iconList.at(0), w, h, style),
+LoopButton::LoopButton(const AbstractFont &fontLib, int iconIndex, int w, int h, const QString &style):
+    BaseButton(fontLib, iconIndex, w, h, style),
     curIndex(0)
 {
-    this->iconList = iconList;
 }
 
 /**

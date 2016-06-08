@@ -15,16 +15,16 @@ class LoopButton : public BaseButton
 {
     Q_OBJECT
 public:
-    LoopButton(const AbstractFont &fontLib, QList<int> iconList, int w, int h, const QString &style);
+    explicit LoopButton(const AbstractFont &fontLib, int iconIndex,\
+                        int w, int h, const QString &style = QString());
 signals:
 
 protected slots:
-    virtual void releaseSlot();  //松开后需要扩展的功能
 
 protected:
     void switchIndex(int index);
     QList<int> iconList;
-    int curIndex;
+    int curIndex;  //表示当前显示哪个图标
 };
 
 #endif // LOOPBUTTON_H

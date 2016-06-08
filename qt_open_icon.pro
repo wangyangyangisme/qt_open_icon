@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     utils/button/basebutton.cpp \
     utils/button/buttontest.cpp \
     utils/button/switchbutton.cpp \
-    utils/button/loopbutton.cpp
+    utils/button/loopbutton.cpp \
+    utils/button/batterybutton.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -31,7 +32,8 @@ HEADERS  += \
     utils/button/basebutton.h \
     utils/button/buttontest.h \
     utils/button/switchbutton.h \
-    utils/button/loopbutton.h
+    utils/button/loopbutton.h \
+    utils/button/batterybutton.h
 
 OTHER_FILES += \
     utils/abc.txt

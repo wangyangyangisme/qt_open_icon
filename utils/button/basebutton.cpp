@@ -40,6 +40,8 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
         }
         setStyleSheet(DEFULT_BUTTON_STYLE);
     }
+
+    connect(this,SIGNAL(released()),this,SLOT(releaseSlot()));
 }
 
 /**

@@ -15,7 +15,6 @@ SwitchButton::SwitchButton(const AbstractFont &fontLib, int iconIndex1, int icon
 {
     index1 = iconIndex1;
     index2 = iconIndex2;
-    connect(this,SIGNAL(released()),this,SLOT(releaseSlot()));
 }
 
 
