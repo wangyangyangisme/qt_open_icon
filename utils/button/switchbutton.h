@@ -3,7 +3,7 @@
  ** @file:	   switchbutton.h
  ** @author:	   浓咖啡
  ** @date:	   2016.6.7
- ** @brief:      适用于点击后图标发生变化的按钮
+ ** @brief:      适用于点击后两个图标来回切换的按钮
  */
 
 #ifndef SWITCHBUTTON_H

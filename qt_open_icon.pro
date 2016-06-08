@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     font/muifont.cpp \
     utils/button/basebutton.cpp \
     utils/button/buttontest.cpp \
-    utils/button/switchbutton.cpp
+    utils/button/switchbutton.cpp \
+    utils/button/loopbutton.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -29,7 +30,8 @@ HEADERS  += \
     font/fonts.h \
     utils/button/basebutton.h \
     utils/button/buttontest.h \
-    utils/button/switchbutton.h
+    utils/button/switchbutton.h \
+    utils/button/loopbutton.h
 
 OTHER_FILES += \
     utils/abc.txt

@@ -3,6 +3,7 @@
 
 #include "basebutton.h"
 #include "switchbutton.h"
+#include "loopbutton.h"
 
 class ButtonTest : public QWidget
 {
