@@ -17,7 +17,6 @@ SOURCES += main.cpp\
     font/abstractfont.cpp \
     font/fontawesomewebfont.cpp \
     font/muifont.cpp \
-    testwidget.cpp \
     utils/button/basebutton.cpp \
     utils/button/buttontest.cpp \
     utils/button/switchbutton.cpp
@@ -28,7 +27,6 @@ HEADERS  += \
     font/fontawesomewebfont.h \
     font/muifont.h \
     font/fonts.h \
-    testwidget.h \
     utils/button/basebutton.h \
     utils/button/buttontest.h \
     utils/button/switchbutton.h
