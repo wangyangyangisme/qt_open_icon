@@ -7,15 +7,16 @@ ButtonTest::ButtonTest(QWidget *parent) :
     QLabel *baseButtonLab = new QLabel("BaseButton:");
     BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
 
+    //batteryButtonLab
+    QLabel *batteryButtonLab = new QLabel("BatteryButton:");
+    BatteryButton *batteryButton = new BatteryButton(BatteryButton::EMPTY, EMPTY_BATTERY_STYLE);
+
     //switchbutton
     QLabel *switchButtonLab = new QLabel("SwitchButton:");
     SwitchButton *switchButton = new SwitchButton(FontawesomeWebfont(), \
                                                   FontawesomeWebfont::ICON_UNLOCK,
                                                   FontawesomeWebfont::ICON_LOCK,
                                                   200, 100);
-    //loopbutton
-    QLabel *batteryButtonLab = new QLabel("BatteryButton:");
-    BatteryButton *batteryButton = new BatteryButton(BatteryButton::EMPTY, EMPTY_BATTERY_STYLE);
 
     lay = new QGridLayout(this);
     lay->addWidget(baseButtonLab, 0, 0);
