@@ -15,13 +15,13 @@ ButtonTest::ButtonTest(QWidget *parent) :
                                                   200, 100);
     //loopbutton
     QLabel *batteryButtonLab = new QLabel("BatteryButton:");
-    BatteryButton *batteryButton = new BatteryButton(BatteryButton::FULL, FULL_BATTERY_STYLE);
+    BatteryButton *batteryButton = new BatteryButton(BatteryButton::EMPTY, EMPTY_BATTERY_STYLE);
 
     lay = new QGridLayout(this);
     lay->addWidget(baseButtonLab, 0, 0);
     lay->addWidget(baseButton, 0, 1);
+    lay->addWidget(batteryButtonLab, 0, 2);
+    lay->addWidget(batteryButton, 0, 3);
     lay->addWidget(switchButtonLab, 1, 0);
     lay->addWidget(switchButton, 1, 1);
-    lay->addWidget(batteryButtonLab, 2, 0);
-    lay->addWidget(batteryButton, 2, 1);
 }

@@ -8,8 +8,13 @@
 BatteryButton::BatteryButton(POWER power, const QString curStateStyle):
     BaseButton(FontawesomeWebfont(), power, 200, 100, curStateStyle)
 {
+    curIndex = 0;
 }
 
+/**
+ * @brief 更改当前电量显示
+ * @param power
+ */
 void BatteryButton::changePower(POWER power)
 {
     switch (power) {
@@ -21,6 +26,8 @@ void BatteryButton::changePower(POWER power)
         setStyleSheet(HALF_BATTERY_STYLE);
         break;
     case THREE_QUARTER:
+        setStyleSheet(THREE_QUARTER_BATTERY_STYLE);
+        break;
     case FULL:
         setStyleSheet(FULL_BATTERY_STYLE);
         break;
@@ -30,6 +37,9 @@ void BatteryButton::changePower(POWER power)
     iconhelp::setIcon(this,power);
 }
 
+/**
+ * @brief 只是为了示例
+ */
 void BatteryButton::releaseSlot()
 {
     curIndex = (++curIndex) % 5;  //电池有5种状态

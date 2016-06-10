@@ -17,7 +17,7 @@ QPushButton{\
     font:100px;\
     border:0px;\
     border-radius:0;\
-    background-color:#FFFFFF;\
+    background-color:#CCDDFF;\
 }\
 "
 
@@ -27,7 +27,17 @@ QPushButton{\
     font:100px;\
     border:0px;\
     border-radius:5;\
-    background-color:#FFFFFF;\
+    background-color:#CCDDFF;\
+}\
+"
+
+#define THREE_QUARTER_BATTERY_STYLE "\
+QPushButton{\
+    color:#88AA00 ;\
+    font:100px;\
+    border:0px;\
+    border-radius:5;\
+    background-color:#CCDDFF;\
 }\
 "
 
@@ -37,7 +47,7 @@ QPushButton{\
     font:100px;\
     border:0px;\
     border-radius:5;\
-    background-color:#FFFFFF;\
+    background-color:#CCDDFF;\
 }\
 "
 
