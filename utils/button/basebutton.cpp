@@ -41,7 +41,7 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
         setStyleSheet(DEFULT_BUTTON_STYLE);
     }
 
-    connect(this,SIGNAL(released()),this,SLOT(releaseSlot()));
+    connect(this,SIGNAL(btnReleased()),this,SLOT(releaseSlot()));
 }
 
 /**
@@ -50,4 +50,16 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
 void BaseButton::restoreFont()
 {
     IconHelper::Instance()->setNewIcon(AbstractFont(fontName));
+}
+
+/**
+ * @brief 重新定义松开事件，实现误按后滑出按钮不会触发事件效果
+ * @param e
+ */
+void BaseButton::mouseReleaseEvent(QMouseEvent *e)
+{
+    if (hitButton(e->pos())){  //松开时候光标仍在按钮区域
+        emit btnReleased();
+        QPushButton::mouseReleaseEvent(e); //继续默认处理
+    }
 }
