@@ -1,4 +1,5 @@
 #include "dialogtest.h"
+#include "common/common.h"
 
 DialogTest::DialogTest()
 {
@@ -13,7 +14,7 @@ DialogTest::DialogTest()
 
 void DialogTest::toastSlot()
 {
-    Toast *w = new Toast(this, 1, 1, "abcdfaffgasdfsdfsfdfe");
+    Toast *w = new Toast(this, "我们");
     w->show();
     w->toast();
 }

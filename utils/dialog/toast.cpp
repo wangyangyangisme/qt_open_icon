@@ -1,26 +1,17 @@
 #include "toast.h"
 
-#define DEFULT_TOAST_STYLE "\
-QLabel{\
-    color:#FFFFFF;\
-    font:15px bold;\
-    background-color:rgb(0,0,0,90);\
-    padding:3px;\
-    border-radius:5;\
-}\
-"
-
-Toast::Toast(QWidget *parent, int w, int h, const QString &message):
+Toast::Toast(QWidget *parent, const QString &message,\
+             int w, int h, const QString &style):
     QLabel(parent)
 {
     setText(message);
-//    adjustSize();
-    setFixedSize(200, 25);
+    //adjustSize();
+    setFixedSize(w, h);
     setAlignment(Qt::AlignCenter);
     startx = (parent->width()-width()) / 2;
     starty = parent->height();
-    endy = parent->height() / 2;
-    setStyleSheet(DEFULT_TOAST_STYLE);
+    endy = parent->height()*3/4;
+    setStyleSheet(style);
 
     QGraphicsDropShadowEffect *wndShadow = new QGraphicsDropShadowEffect;
     wndShadow->setBlurRadius(9.0);
