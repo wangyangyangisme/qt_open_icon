@@ -3,7 +3,7 @@
 #include "dialogtest.h"
 
 
-#define DIALOGTEST
+#define BUTTONTEST
 
 int main(int argc, char *argv[])
 {

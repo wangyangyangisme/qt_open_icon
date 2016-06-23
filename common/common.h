@@ -5,7 +5,8 @@
 
 namespace utilscommon {
 
-int setShadow(QWidget *w, );
+//设置阴影
+void setShadow(QWidget *w, qreal blurRadius=10, qreal dx=5, qreal dy=5);
 
 }
 

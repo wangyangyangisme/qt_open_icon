@@ -1,12 +1,14 @@
 #include "dialogtest.h"
-#include "common/common.h"
+#include "common.h"
 
 DialogTest::DialogTest()
 {
     QVBoxLayout *lay = new QVBoxLayout(this);
     QPushButton *toastBtn = new QPushButton("toast");
+    toastBtn->setFixedWidth(50);
+    utilscommon::setShadow(toastBtn);
     lay->addWidget(toastBtn);
-    setFixedSize(500, 500);
+    setFixedSize(300, 300);
 
     connect(toastBtn,SIGNAL(released()),this,SLOT(toastSlot()));
 }
@@ -15,6 +17,5 @@ DialogTest::DialogTest()
 void DialogTest::toastSlot()
 {
     Toast *w = new Toast(this, "我们");
-    w->show();
     w->toast();
 }

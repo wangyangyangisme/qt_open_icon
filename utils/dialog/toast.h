@@ -1,3 +1,10 @@
+/**
+ ** @file:	   toast.cpp
+ ** @author:	   浓咖啡
+ ** @date:	   2016.6.23
+ ** @brief:      自动消失提示框
+ */
+
 #ifndef TOAST_H
 #define TOAST_H
 
@@ -6,7 +13,8 @@
 #define DEFULT_TOAST_STYLE "\
 QLabel{\
     color:#FFFFFF;\
-    font:15px bold;\
+    font:15px;\
+    font-weight:500;\
     background-color:rgb(0,0,0,90);\
     padding:3px;\
     border-radius:5;\

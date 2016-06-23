@@ -24,6 +24,7 @@ protected slots:
 
 signals:
     void btnReleased();  //这个信号只有在松开时光标仍在按钮时候才会发送
+    //按钮原先pressed和released信号不受影响，可继续使用
 
 protected:
     virtual void mouseReleaseEvent(QMouseEvent *e);
