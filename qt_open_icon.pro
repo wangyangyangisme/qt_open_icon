@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = qt_open_icon
 TEMPLATE = app
 
-INCLUDEPATH += font core utils utils/button utils/animation
+INCLUDEPATH += font core utils utils/button utils/animation utils/dialog
 SOURCES += main.cpp\
     core/iconhelper.cpp \
     font/abstractfont.cpp \
@@ -29,7 +29,9 @@ SOURCES += main.cpp\
     utils/animation/animationsharp.cpp \
     utils/animation/animationslide.cpp \
     utils/animation/animationtest.cpp \
-    utils/animation/animationwidget.cpp
+    utils/animation/animationwidget.cpp \
+    utils/dialog/toast.cpp \
+    utils/dialog/dialogtest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -59,7 +61,9 @@ HEADERS  += \
     utils/animation/animationsharp.h \
     utils/animation/animationslide.h \
     utils/animation/animationtest.h \
-    utils/animation/animationwidget.h
+    utils/animation/animationwidget.h \
+    utils/dialog/toast.h \
+    utils/dialog/dialogtest.h
 
 OTHER_FILES += \
     utils/abc.txt

@@ -1,7 +1,9 @@
 #include "buttontest.h"
 #include "animationtest.h"
+#include "dialogtest.h"
 
-#define ANIMATIONTEST
+
+#define DIALOGTEST
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +14,9 @@ int main(int argc, char *argv[])
     w->show();
 #elif defined ANIMATIONTEST
     AnimationTest *w = new AnimationTest;
+    w->show();
+#elif defined DIALOGTEST
+    DialogTest *w = new DialogTest;
     w->show();
 #endif
 
