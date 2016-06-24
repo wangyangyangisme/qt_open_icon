@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/font">
+        <file>resourse/font/fontawesome-webfont.ttf</file>
+        <file>resourse/font/mui.ttf</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>resourse/images/animation/1.PNG</file>
+        <file>resourse/images/animation/2.PNG</file>
+        <file>resourse/images/animation/3.PNG</file>
+    </qresource>
+</RCC>

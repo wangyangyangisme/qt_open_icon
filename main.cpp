@@ -2,8 +2,8 @@
 #include "animationtest.h"
 #include "dialogtest.h"
 
-
 #define BUTTONTEST
+
 
 int main(int argc, char *argv[])
 {

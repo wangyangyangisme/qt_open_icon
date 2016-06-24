@@ -7,7 +7,7 @@
 
 #include "animationtest.h"
 
-#define BACK_GROUND QString("background-image: url(")
+#define BACK_GROUND QString("background-image: url(:/images/resourse/images/animation/")
 
 AnimationTest::AnimationTest(QWidget *parent) :
     QMainWindow(parent)
@@ -46,13 +46,13 @@ void AnimationTest::initToolBar()
 void AnimationTest::initCenterWidget()
 {
     wig1 = new QWidget();
-    wig1->setStyleSheet(BACK_GROUND + "1.png)");
+    wig1->setStyleSheet(BACK_GROUND + "1.PNG)");
     wig1->resize(w, h);
     wig2 = new QWidget();
-    wig2->setStyleSheet(BACK_GROUND + "2.png)");
+    wig2->setStyleSheet(BACK_GROUND + "2.PNG)");
     wig2->resize(w, h);
     wig3 = new QWidget();
-    wig3->setStyleSheet(BACK_GROUND + "3.png)");
+    wig3->setStyleSheet(BACK_GROUND + "3.PNG)");
     wig3->resize(w, h);
 
     list.append(wig1);

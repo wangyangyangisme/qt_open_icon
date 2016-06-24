@@ -69,3 +69,6 @@ HEADERS  += \
 
 OTHER_FILES += \
     utils/abc.txt
+
+RESOURCES += \
+    resource.qrc
