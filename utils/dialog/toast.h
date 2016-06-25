@@ -29,8 +29,6 @@ public:
                    int w = 200, int h = 25, const QString &style = DEFULT_TOAST_STYLE);
     void toast();
 
-signals:
-
 private slots:
     void animationFinished();
     void delSelf();

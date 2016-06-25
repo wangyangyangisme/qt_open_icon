@@ -19,7 +19,7 @@ QPushButton:pressed{\
 /**
  * @brief 按钮基类
  * @param fontLib 选择字体库
- * @param iconIndex 选择字体库图标
+ * @param iconIndex 选择字体库图标索引
  * @param w 长
  * @param h 宽
  * @param style 样式

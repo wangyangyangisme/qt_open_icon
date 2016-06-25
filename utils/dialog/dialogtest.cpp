@@ -16,6 +16,6 @@ DialogTest::DialogTest()
 
 void DialogTest::toastSlot()
 {
-    Toast *w = new Toast(this, "我们");
+    Toast *w = new Toast(this, "这是一个好的组件库");
     w->toast();
 }

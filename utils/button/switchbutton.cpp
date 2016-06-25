@@ -3,8 +3,8 @@
 /**
  * @brief SwitchButton::SwitchButton
  * @param fontLib 需要的字体库
- * @param iconIndex1 转换图标1（默认）
- * @param iconIndex2 转换图标2
+ * @param iconIndex1 转换图标1索引（默认）
+ * @param iconIndex2 转换图标2索引
  * @param w 长
  * @param h 宽
  * @param style 样式
