@@ -2,8 +2,9 @@
 #include "animationtest.h"
 #include "dialogtest.h"
 #include "baselabel.h"
+#include "headutils.h"
 
-#define LABELTEST
+#define TIMESETTEST
 
 
 int main(int argc, char *argv[])
@@ -11,7 +12,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 #ifdef LABELTEST
-    BaseLabel *w = new BaseLabel(MuiFont(), MuiFont::ICON_PENGYOUQUAN, 200, 100);
+    BaseLabel *w = new BaseLabel(TimeFont(), TimeFont::ICON_BACK, 200, 100);
     w->show();
 #elif defined ANIMATIONTEST
     ButtonTest *w = new ButtonTest;
@@ -21,6 +22,9 @@ int main(int argc, char *argv[])
     w->show();
 #elif defined DIALOGTEST
     DialogTest *w = new DialogTest;
+    w->show();
+#elif defined TIMESETTEST
+    HeadUtils *w = new HeadUtils;
     w->show();
 #endif
 

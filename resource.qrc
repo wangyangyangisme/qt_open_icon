@@ -2,6 +2,7 @@
     <qresource prefix="/font">
         <file>resourse/font/fontawesome-webfont.ttf</file>
         <file>resourse/font/mui.ttf</file>
+        <file>resourse/font/timefont.ttf</file>
     </qresource>
     <qresource prefix="/images">
         <file>resourse/images/animation/1.PNG</file>
