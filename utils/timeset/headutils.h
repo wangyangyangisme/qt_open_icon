@@ -8,7 +8,7 @@ class HeadUtils : public QWidget
 {
     Q_OBJECT
 public:
-    explicit HeadUtils(QWidget *parent = 0);
+    explicit HeadUtils(const QString &title, QWidget *parent = 0);
 
 signals:
 
@@ -17,6 +17,8 @@ public slots:
 private:
     QHBoxLayout *hBoxLayout;
     BaseButton *back;
+    BaseLabel *picLab;
+    QLabel *titleLab;
 };
 
 #endif // HEADUTILS_H

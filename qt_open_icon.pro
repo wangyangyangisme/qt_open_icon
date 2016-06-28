@@ -35,7 +35,10 @@ SOURCES += main.cpp\
     common/common.cpp \
     utils/label/baselabel.cpp \
     utils/timeset/headutils.cpp \
-    font/timefont.cpp
+    font/timefont.cpp \
+    utils/timeset/timetotal.cpp \
+    utils/timeset/timedisplay.cpp \
+    utils/timeset/switchwidget.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -71,7 +74,10 @@ HEADERS  += \
     common/common.h \
     utils/label/baselabel.h \
     utils/timeset/headutils.h \
-    font/timefont.h
+    font/timefont.h \
+    utils/timeset/timetotal.h \
+    utils/timeset/timedisplay.h \
+    utils/timeset/switchwidget.h
 
 OTHER_FILES += \
     utils/abc.txt

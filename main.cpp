@@ -3,6 +3,8 @@
 #include "dialogtest.h"
 #include "baselabel.h"
 #include "headutils.h"
+#include "timetotal.h"
+#include "switchwidget.h"
 
 #define TIMESETTEST
 
@@ -10,6 +12,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QTextCodec *codec = QTextCodec::codecForName("utf-8");
+    QTextCodec::setCodecForLocale(codec);
 
 #ifdef LABELTEST
     BaseLabel *w = new BaseLabel(TimeFont(), TimeFont::ICON_BACK, 200, 100);
@@ -24,7 +28,8 @@ int main(int argc, char *argv[])
     DialogTest *w = new DialogTest;
     w->show();
 #elif defined TIMESETTEST
-    HeadUtils *w = new HeadUtils;
+    CSwitchWidget *w = new CSwitchWidget;
+    w->setFixedSize(100,50);
     w->show();
 #endif
 
