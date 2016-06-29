@@ -39,11 +39,15 @@ void CSwitchWidget::mousePressEvent(QMouseEvent * event)
 
     if (event->button() == Qt::LeftButton) {
         if (x < width() / 2.0){
-            emit StateChanged(1);
-            m_state = 1;
+            if(m_state != 1){
+                emit StateChanged(1);
+                m_state = 1;
+            }
         }else{
-            emit StateChanged(0);
-            m_state = 0;
+            if(m_state != 0){
+                emit StateChanged(0);
+                m_state = 0;
+            }
         }
 
     }

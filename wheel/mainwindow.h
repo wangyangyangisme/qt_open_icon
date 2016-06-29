@@ -28,12 +28,34 @@ public:
         QGridLayout *grid = new QGridLayout(m_slotMachine);
         grid->setSpacing(0);
 
-        QStringList colors;
-        colors << "Red" << "Magenta" << "Peach" << "Orange" << "Yellow" << "Citro" << "Green" << "Cyan" << "Blue" << "Violet";
+        QStringList dayList;
+
+        QDate nextDay, preDay;
+        QDate today = QDate::currentDate();
+        dayList.append("今天");
+        nextDay = today.addDays(1);
+        preDay = today.addDays(-1);
+        int curYear = today.year();
+        while(curYear == nextDay.year()){
+            dayList.append(nextDay.toString("MM-dd"));
+            nextDay = nextDay.addDays(1);
+        }
+
+        int todayIndex=0;
+        while(curYear == preDay.year()){
+            dayList.prepend(preDay.toString("MM-dd"));
+            preDay = preDay.addDays(-1);
+            todayIndex++;
+        }
+
+
+        qDebug()<<dayList;
 
         m_wheel1 = new StringWheelWidget(touch);
-        m_wheel1->setItems( colors );
+        m_wheel1->setItems( dayList );
+        m_wheel1->setCurrentIndex(todayIndex);
         grid->addWidget( m_wheel1, 0, 0 );
+//        m_wheel1->setFixedSize(100,100);
 
         QStringList hours;
         hours << "1" << "2" << "3" << "4" << "5" << "6" << "7" << "8" << "9" << "10"<< "11"<< "12";
@@ -69,12 +91,20 @@ public:
 private slots:
     void rotateRandom()
     {
-        QStringList colors = m_wheel3->items();
-        colors << "abc" << "def" << "gjh";
-        m_wheel3->setItems(colors);
+//        QStringList colors = m_wheel3->items();
+//        colors << "abc" << "def" << "gjh";
+//        m_wheel3->setItems(colors);
 //        m_wheel1->scrollTo(m_wheel1->currentIndex() + (qrand() % 200));
 //        m_wheel2->scrollTo(m_wheel2->currentIndex() + (qrand() % 200));
 //        m_wheel3->scrollTo(m_wheel3->currentIndex() + (qrand() % 200));
+        QStringList colors = m_wheel3->items();
+//        colors << "abc" << "def" << "gjh";
+
+        colors.prepend("def");
+        colors.prepend("ghh");
+        m_wheel3->setItems(colors);
+//        int index = m_wheel3->currentIndex();
+//        qDebug()<<"index="<<m_wheel3->currentContent();
     }
 
 private:

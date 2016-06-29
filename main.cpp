@@ -5,8 +5,10 @@
 #include "headutils.h"
 #include "timetotal.h"
 #include "switchwidget.h"
+#include "timedisplay.h"
+#include "wheeltest.h"
 
-#define TIMESETTEST
+#define WHEELWIDGET
 
 
 int main(int argc, char *argv[])
@@ -27,9 +29,12 @@ int main(int argc, char *argv[])
 #elif defined DIALOGTEST
     DialogTest *w = new DialogTest;
     w->show();
+#elif defined WHEELWIDGET
+    bool touch = a.arguments().contains(QLatin1String("--touch"));
+    WheelTest *w = new WheelTest(touch);
+    w->show();
 #elif defined TIMESETTEST
-    CSwitchWidget *w = new CSwitchWidget;
-    w->setFixedSize(100,50);
+    TimeTotal *w = new TimeTotal;
     w->show();
 #endif
 

@@ -14,6 +14,9 @@ int main(int argc, char **argv)
 #ifdef Q_WS_MAC
     mw.raise();
 #endif
+    QDateTime timeOfSystem = QDateTime::currentDateTime();
+    QString str = timeOfSystem.toString("yyyy-MM-dd hh:mm:ss dddd");
+    qDebug()<<str;
     return a.exec();
 }
 

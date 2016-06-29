@@ -11,10 +11,12 @@ public:
     explicit HeadUtils(const QString &title, QWidget *parent = 0);
 
 signals:
+    void backSignal();
 
 public slots:
 
 private:
+    void paintEvent(QPaintEvent *);
     QHBoxLayout *hBoxLayout;
     BaseButton *back;
     BaseLabel *picLab;

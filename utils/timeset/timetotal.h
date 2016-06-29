@@ -1,7 +1,9 @@
 #ifndef TIMETOTAL_H
 #define TIMETOTAL_H
 
-#include "headutils.h"
+#include "timedisplay.h"
+#include "timeset.h"
+#include "zoneset.h"
 #include "animationwidget.h"
 
 class TimeTotal : public QWidget
@@ -13,14 +15,16 @@ public:
 signals:
 
 public slots:
-    void test();
+    void showZoneWigSlot();
+    void showTimeSetWigSlot();
+    void backSlot();
 
 private:
     AnimationWidget *total;
     QList<QWidget *> list;
-    QWidget *wig1;
-    QWidget *wig2;
-    QWidget *wig3;
+    TimeDisplay *timeDisplay;
+    TimeSet *timeSet;
+    ZoneSet *zoneSet;
     int curWig;
     static const int w=355;
     static const int h=200;

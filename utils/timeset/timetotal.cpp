@@ -8,29 +8,37 @@ TimeTotal::TimeTotal(QWidget *parent) :
 {
     setFixedSize(w, h);
 
-    wig1 = new QWidget();
-    wig1->setStyleSheet(BACK_GROUND + "1.PNG)");
-    wig1->resize(w, h);
-    wig2 = new QWidget();
-    wig2->setStyleSheet(BACK_GROUND + "2.PNG)");
-    wig2->resize(w, h);
-    wig3 = new QWidget();
-    wig3->setStyleSheet(BACK_GROUND + "3.PNG)");
-    wig3->resize(w, h);
+    timeDisplay = new TimeDisplay;
+    timeSet = new TimeSet;
+    zoneSet = new ZoneSet;
 
-    list.append(wig1);
-    list.append(wig2);
-    list.append(wig3);
+    list.append(timeDisplay);
+    list.append(timeSet);
+    list.append(zoneSet);
 
-    total = new AnimationWidget(list, "cover");
+    total = new AnimationWidget(list, "cover", 200, QEasingCurve::OutQuad);
     total->setParent(this);
     total->raise(0);
 
-    QTimer::singleShot(400, this, SLOT(test()));
+    connect(timeDisplay, SIGNAL(showZoneWig()), this, SLOT(showZoneWigSlot()));
+    connect(timeDisplay, SIGNAL(showTimeSetWig()), this, SLOT(showTimeSetWigSlot()));
+    connect(timeSet, SIGNAL(backDisp()), this, SLOT(backSlot()));
+    connect(zoneSet, SIGNAL(backDisp()), this, SLOT(backSlot()));
 
+    setStyleSheet("background-color:#FFFFFF;");
 }
 
-void TimeTotal::test()
+void TimeTotal::showZoneWigSlot()
 {
-    total->animationShow(2, AnimationWidget::ANIMATION_RIGHT);
+    total->animationShow(1, AnimationWidget::ANIMATION_LEFT);
+}
+
+void TimeTotal::showTimeSetWigSlot()
+{
+    total->animationShow(2, AnimationWidget::ANIMATION_LEFT);
+}
+
+void TimeTotal::backSlot()
+{
+    total->animationShow(0, AnimationWidget::ANIMATION_RIGHT);
 }

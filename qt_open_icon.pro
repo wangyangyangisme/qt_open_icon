@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = qt_open_icon
 TEMPLATE = app
 
-INCLUDEPATH += font core utils common utils/label utils/button utils/animation utils/dialog utils/timeset
+INCLUDEPATH += font core utils common utils/label utils/button utils/animation utils/dialog utils/timeset utils/wheel
 SOURCES += main.cpp\
     core/iconhelper.cpp \
     font/abstractfont.cpp \
@@ -38,7 +38,12 @@ SOURCES += main.cpp\
     font/timefont.cpp \
     utils/timeset/timetotal.cpp \
     utils/timeset/timedisplay.cpp \
-    utils/timeset/switchwidget.cpp
+    utils/timeset/switchwidget.cpp \
+    utils/timeset/timeset.cpp \
+    utils/timeset/zoneset.cpp \
+    utils/wheel/wheelwidget.cpp \
+    utils/wheel/stringwheelwidget.cpp \
+    utils/wheel/wheeltest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -77,7 +82,12 @@ HEADERS  += \
     font/timefont.h \
     utils/timeset/timetotal.h \
     utils/timeset/timedisplay.h \
-    utils/timeset/switchwidget.h
+    utils/timeset/switchwidget.h \
+    utils/timeset/timeset.h \
+    utils/timeset/zoneset.h \
+    utils/wheel/wheelwidget.h \
+    utils/wheel/stringwheelwidget.h \
+    utils/wheel/wheeltest.h
 
 OTHER_FILES += \
     utils/abc.txt
