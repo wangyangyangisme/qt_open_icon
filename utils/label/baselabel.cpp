@@ -5,7 +5,7 @@ QLabel{\
     color:#000000;\
     font:100px;\
     border:1px solid #AAAAAA;\
-    background-color:#FFFFFF;\
+    background-color:rgb(0,0,0,0);\
 }\
 "
 

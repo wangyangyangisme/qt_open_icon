@@ -6,7 +6,7 @@ class StringWheelWidget : public AbstractWheelWidget {
     Q_OBJECT
 
 public:
-    StringWheelWidget(bool touch);
+    StringWheelWidget(bool touch = false);
 
     QStringList items() const;
     void setItems( const QStringList &items );

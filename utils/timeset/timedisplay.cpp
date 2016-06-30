@@ -1,5 +1,10 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.6.29
+ ** @brief:      时间日期显示界面
+ */
+
 #include "timedisplay.h"
-#include "toast.h"
 
 #define LABEL_STYLE "\
 QLabel{\
@@ -25,12 +30,11 @@ QPushButton{\
 }\
 "
 
-
-//显示界面
 TimeDisplay::TimeDisplay(QWidget *parent) :
     QWidget(parent),
     is24Fmt(true),
-    isAuto(true)
+    isAuto(true),
+    isFirst(true)
 {
     head = new HeadUtils("时间和日期");
     setFixedSize(355, 200);
@@ -91,7 +95,9 @@ TimeDisplay::TimeDisplay(QWidget *parent) :
 
 }
 
-
+/**
+ * @brief 同步时间
+ */
 void TimeDisplay::syncTime(int state)
 {
     if(state == 0){  //自动获取打开
@@ -99,8 +105,11 @@ void TimeDisplay::syncTime(int state)
         zoneDispBtn->setStyleSheet(DISABLE_BUTTON_STYLE);
         dateTimeDispBtn->setStyleSheet(DISABLE_BUTTON_STYLE);
         updateDispTime(QDateTime::currentDateTime());
-        Toast *w = new Toast(this, "时间已更新", 180, 20);
-        w->toast();
+        if(!isFirst){
+            Toast *w = new Toast(this, "时间已更新", 180, 20);
+            w->toast();
+        }
+        isFirst = false;  //以后打开自动更新就会提示了
     }else{  //自动获取关闭
         zoneDispBtn->setStyleSheet(DISP_BUTTON_STYLE);
         dateTimeDispBtn->setStyleSheet(DISP_BUTTON_STYLE);
@@ -108,6 +117,9 @@ void TimeDisplay::syncTime(int state)
     }
 }
 
+/**
+ * @brief 根据24小时制式按钮状态更改时间显示格式
+ */
 void TimeDisplay::timeFmtChange(int state)
 {
     QString str;
@@ -142,12 +154,19 @@ void TimeDisplay::showTimeSetWigSlot()
     }
 }
 
+/**
+ * @brief 每60s更新一次时间
+ */
 void TimeDisplay::updateTime()
 {
     curTime = curTime.addSecs(60);
     updateDispTime(curTime);
 }
 
+/**
+ * @brief 设置新的时间显示
+ * @param newTime
+ */
 void TimeDisplay::updateDispTime(const QDateTime &newTime)
 {
     QString str;

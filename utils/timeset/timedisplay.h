@@ -1,14 +1,23 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.6.29
+ ** @brief:      时间日期显示界面
+ */
+
 #ifndef TIMEDISPLAY_H
 #define TIMEDISPLAY_H
 
 #include "headutils.h"
 #include "switchwidget.h"
+#include "toast.h"
 
 class TimeDisplay : public QWidget
 {
     Q_OBJECT
 public:
     explicit TimeDisplay(QWidget *parent = 0);
+    QDateTime getCurTime() const{return curTime;}
+    void updateDispTime(const QDateTime&);
 
 private slots:
     void syncTime(int);
@@ -22,8 +31,7 @@ signals:
     void showTimeSetWig();
 
 private:
-    void updateDispTime(const QDateTime&);
-
+    bool isFirst;  //第一次打开要不要提示时间更新
     HeadUtils *head;
     CSwitchWidget *hourFormatBtn;
     CSwitchWidget *autoTimeBtn;

@@ -7,8 +7,9 @@
 #include "switchwidget.h"
 #include "timedisplay.h"
 #include "wheeltest.h"
+#include "zonetable.h"
 
-#define WHEELWIDGET
+#define TIMETOTAL
 
 
 int main(int argc, char *argv[])
@@ -20,7 +21,7 @@ int main(int argc, char *argv[])
 #ifdef LABELTEST
     BaseLabel *w = new BaseLabel(TimeFont(), TimeFont::ICON_BACK, 200, 100);
     w->show();
-#elif defined ANIMATIONTEST
+#elif defined BUTTONTEST
     ButtonTest *w = new ButtonTest;
     w->show();
 #elif defined ANIMATIONTEST
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
     bool touch = a.arguments().contains(QLatin1String("--touch"));
     WheelTest *w = new WheelTest(touch);
     w->show();
-#elif defined TIMESETTEST
+#elif defined TIMETOTAL
     TimeTotal *w = new TimeTotal;
     w->show();
 #endif

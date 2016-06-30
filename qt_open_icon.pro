@@ -43,7 +43,8 @@ SOURCES += main.cpp\
     utils/timeset/zoneset.cpp \
     utils/wheel/wheelwidget.cpp \
     utils/wheel/stringwheelwidget.cpp \
-    utils/wheel/wheeltest.cpp
+    utils/wheel/wheeltest.cpp \
+    utils/timeset/zonetable.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -87,7 +88,8 @@ HEADERS  += \
     utils/timeset/zoneset.h \
     utils/wheel/wheelwidget.h \
     utils/wheel/stringwheelwidget.h \
-    utils/wheel/wheeltest.h
+    utils/wheel/wheeltest.h \
+    utils/timeset/zonetable.h
 
 OTHER_FILES += \
     utils/abc.txt

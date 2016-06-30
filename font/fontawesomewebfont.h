@@ -13,7 +13,8 @@ public:
         BATTERY_1 = 0xf243,
         BATTERY_2 = 0xf242,
         BATTERY_3 = 0xf241,
-        BATTERY_4 = 0xf240
+        BATTERY_4 = 0xf240,
+        ICON_CHECK = 0xf00c,
     };
     explicit FontawesomeWebfont();
 };

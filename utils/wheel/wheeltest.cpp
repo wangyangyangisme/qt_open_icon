@@ -10,7 +10,6 @@ WheelTest::WheelTest(bool touch)
 
     QStringList colors;
     colors << "Red" << "Magenta" << "Peach" << "Orange" << "Yellow" << "Citro" << "Green" << "Cyan" << "Blue" << "Violet";
-//    colors << "1" << "2" << "3" << "4";
     stringWheelWidget = new StringWheelWidget(touch);
     stringWheelWidget->setItems(colors);
     stringWheelWidget->setParent(this);
