@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = qt_open_icon
 TEMPLATE = app
@@ -44,7 +44,8 @@ SOURCES += main.cpp\
     utils/wheel/wheelwidget.cpp \
     utils/wheel/stringwheelwidget.cpp \
     utils/wheel/wheeltest.cpp \
-    utils/timeset/zonetable.cpp
+    utils/timeset/zonetable.cpp \
+    utils/qcustomplot/qcustomplot.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -89,7 +90,8 @@ HEADERS  += \
     utils/wheel/wheelwidget.h \
     utils/wheel/stringwheelwidget.h \
     utils/wheel/wheeltest.h \
-    utils/timeset/zonetable.h
+    utils/timeset/zonetable.h \
+    utils/qcustomplot/qcustomplot.h
 
 OTHER_FILES += \
     utils/abc.txt
