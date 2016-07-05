@@ -15,6 +15,7 @@ class BaseButton : public QPushButton
 {
     Q_OBJECT
 public:
+    explicit BaseButton(QWidget *parent=0);
     explicit BaseButton(const AbstractFont &fontLib, int iconIndex, \
                         int w, int h, const QString &style = QString());
 

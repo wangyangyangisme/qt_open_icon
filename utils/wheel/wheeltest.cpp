@@ -14,4 +14,5 @@ WheelTest::WheelTest(bool touch)
     stringWheelWidget->setItems(colors);
     stringWheelWidget->setParent(this);
     stringWheelWidget->setFixedSize(100, 200);
+    setStyleSheet("background-color:#FFE4C4");
 }

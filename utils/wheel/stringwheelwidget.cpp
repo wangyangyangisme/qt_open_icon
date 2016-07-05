@@ -9,7 +9,7 @@ QStringList StringWheelWidget::items() const
     return m_items;
 }
 
-void StringWheelWidget::setItems( const QStringList &items )
+void StringWheelWidget::setItems(const QStringList &items)
 {
     m_items = items;
     if (m_currentItem >= items.count())

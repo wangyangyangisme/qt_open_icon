@@ -11,7 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 TARGET = qt_open_icon
 TEMPLATE = app
 
-INCLUDEPATH += font core utils common utils/label utils/button utils/animation utils/dialog utils/timeset utils/wheel
+INCLUDEPATH += font core utils common utils/label utils/button utils/animation \
+utils/dialog utils/timeset utils/wheel utils/navbar
 SOURCES += main.cpp\
     core/iconhelper.cpp \
     font/abstractfont.cpp \
@@ -45,7 +46,9 @@ SOURCES += main.cpp\
     utils/wheel/stringwheelwidget.cpp \
     utils/wheel/wheeltest.cpp \
     utils/timeset/zonetable.cpp \
-    utils/qcustomplot/qcustomplot.cpp
+    utils/qcustomplot/qcustomplot.cpp \
+    utils/navbar/navbar.cpp \
+    utils/navbar/test.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -91,7 +94,9 @@ HEADERS  += \
     utils/wheel/stringwheelwidget.h \
     utils/wheel/wheeltest.h \
     utils/timeset/zonetable.h \
-    utils/qcustomplot/qcustomplot.h
+    utils/qcustomplot/qcustomplot.h \
+    utils/navbar/navbar.h \
+    utils/navbar/test.h
 
 OTHER_FILES += \
     utils/abc.txt

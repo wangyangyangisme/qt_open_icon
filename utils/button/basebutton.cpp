@@ -17,6 +17,14 @@ QPushButton:pressed{\
 //background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));
 
 /**
+ * @brief 相当于产生一般的按钮
+ */
+BaseButton::BaseButton(QWidget *parent):QPushButton(parent)
+{
+    connect(this,SIGNAL(btnReleased()),this,SLOT(releaseSlot()));
+}
+
+/**
  * @brief 按钮基类
  * @param fontLib 选择字体库
  * @param iconIndex 选择字体库图标索引

@@ -8,9 +8,9 @@
 #include "timedisplay.h"
 #include "wheeltest.h"
 #include "zonetable.h"
+#include "navbar.h"
 
-#define TIMETOTAL
-
+#define NAVBAR
 
 int main(int argc, char *argv[])
 {
@@ -34,8 +34,15 @@ int main(int argc, char *argv[])
     bool touch = a.arguments().contains(QLatin1String("--touch"));
     WheelTest *w = new WheelTest(touch);
     w->show();
-#elif defined TIMETOTAL
+#elif defined TIMESET
     TimeTotal *w = new TimeTotal;
+    w->show();
+#elif defined HEADUTILS
+    HeadUtils *w = new HeadUtils("abc");
+    w->show();
+#elif defined NAVBAR
+    BaseButton *btn = new BaseButton(TimeFont(), TimeFont::ICON_BACK, 200, 100);
+    Navbar *w = new Navbar(btn);
     w->show();
 #endif
 
