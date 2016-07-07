@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
@@ -12,7 +14,7 @@ TARGET = qt_open_icon
 TEMPLATE = app
 
 INCLUDEPATH += font core utils common utils/label utils/button utils/animation \
-utils/dialog utils/timeset utils/wheel utils/navbar
+utils/dialog utils/timeset utils/wheel utils/navbar utils/desktop
 SOURCES += main.cpp\
     core/iconhelper.cpp \
     font/abstractfont.cpp \
@@ -49,7 +51,9 @@ SOURCES += main.cpp\
     utils/navbar/navbar.cpp \
     utils/navbar/test.cpp \
     utils/dialog/basemessagebox.cpp \
-    common/utilscommon.cpp
+    common/utilscommon.cpp \
+    utils/desktop/desktop.cpp \
+    utils/desktop/procedure.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -98,10 +102,10 @@ HEADERS  += \
     utils/navbar/navbar.h \
     utils/navbar/test.h \
     utils/dialog/basemessagebox.h \
-    common/utilscommon.h
+    common/utilscommon.h \
+    utils/desktop/desktop.h \
+    utils/desktop/procedure.h
 
-OTHER_FILES += \
-    utils/abc.txt
 
 RESOURCES += \
     resource.qrc
