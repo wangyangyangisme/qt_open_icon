@@ -33,7 +33,6 @@ SOURCES += main.cpp\
     utils/animation/animationwidget.cpp \
     utils/dialog/toast.cpp \
     utils/dialog/dialogtest.cpp \
-    common/common.cpp \
     utils/label/baselabel.cpp \
     utils/timeset/headutils.cpp \
     font/timefont.cpp \
@@ -48,7 +47,9 @@ SOURCES += main.cpp\
     utils/timeset/zonetable.cpp \
     utils/qcustomplot/qcustomplot.cpp \
     utils/navbar/navbar.cpp \
-    utils/navbar/test.cpp
+    utils/navbar/test.cpp \
+    utils/dialog/basemessagebox.cpp \
+    common/utilscommon.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -81,7 +82,6 @@ HEADERS  += \
     utils/animation/animationwidget.h \
     utils/dialog/toast.h \
     utils/dialog/dialogtest.h \
-    common/common.h \
     utils/label/baselabel.h \
     utils/timeset/headutils.h \
     font/timefont.h \
@@ -96,7 +96,9 @@ HEADERS  += \
     utils/timeset/zonetable.h \
     utils/qcustomplot/qcustomplot.h \
     utils/navbar/navbar.h \
-    utils/navbar/test.h
+    utils/navbar/test.h \
+    utils/dialog/basemessagebox.h \
+    common/utilscommon.h
 
 OTHER_FILES += \
     utils/abc.txt

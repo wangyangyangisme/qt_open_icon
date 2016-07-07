@@ -2,6 +2,7 @@
 #define DIALOGTEST_H
 
 #include "toast.h"
+#include "basemessagebox.h"
 
 class DialogTest : public QWidget
 {
@@ -15,6 +16,9 @@ public slots:
 
 private slots:
     void toastSlot();
+
+private:
+
 };
 
 #endif // DIALOGTEST_H

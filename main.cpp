@@ -2,15 +2,12 @@
 #include "animationtest.h"
 #include "dialogtest.h"
 #include "baselabel.h"
-#include "headutils.h"
 #include "timetotal.h"
-#include "switchwidget.h"
-#include "timedisplay.h"
 #include "wheeltest.h"
-#include "zonetable.h"
 #include "navbar.h"
+#include "basemessagebox.h"
 
-#define NAVBAR
+#define DIALOGTEST
 
 int main(int argc, char *argv[])
 {
@@ -28,7 +25,7 @@ int main(int argc, char *argv[])
     AnimationTest *w = new AnimationTest;
     w->show();
 #elif defined DIALOGTEST
-    DialogTest *w = new DialogTest;
+    BaseMessageBox *w = new BaseMessageBox(NULL, "ABC", "def", 300, 200);
     w->show();
 #elif defined WHEELWIDGET
     bool touch = a.arguments().contains(QLatin1String("--touch"));
@@ -36,9 +33,6 @@ int main(int argc, char *argv[])
     w->show();
 #elif defined TIMESET
     TimeTotal *w = new TimeTotal;
-    w->show();
-#elif defined HEADUTILS
-    HeadUtils *w = new HeadUtils("abc");
     w->show();
 #elif defined NAVBAR
     BaseButton *btn = new BaseButton(TimeFont(), TimeFont::ICON_BACK, 200, 100);

@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef UTILSCOMMON_H
+#define UTILSCOMMON_H
 
 #include <QtWidgets>
 
@@ -11,4 +11,4 @@ void setShadow(QWidget *w, qreal blurRadius=10, qreal dx=5, qreal dy=5);
 }
 
 
-#endif // COMMON_H
+#endif // UTILSCOMMON_H

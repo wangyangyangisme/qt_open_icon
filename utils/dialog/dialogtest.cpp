@@ -1,14 +1,37 @@
 #include "dialogtest.h"
-#include "common.h"
+#include "utilscommon.h"
+
+#define QMESSAGEBOX_STYLE "\
+QMessageBox{\
+    color:#000000;\
+    font:10px;\
+    border:1px solid #AAAAAA;\
+    border-radius:5;\
+    background-color:#FFFFFF;\
+}\
+QMessageBox QPushButton{\
+    color:#FFFFFF;\
+    background-color:#AAAAAA;\
+}\
+"
 
 DialogTest::DialogTest()
 {
     QVBoxLayout *lay = new QVBoxLayout(this);
+
+    //toast演示
     QPushButton *toastBtn = new QPushButton("toast");
     toastBtn->setFixedWidth(50);
     utilscommon::setShadow(toastBtn);
+
+    //messagebox
+    QMessageBox *messageBox = new QMessageBox(QMessageBox::NoIcon,\
+                "title", "content", QMessageBox::Ok|QMessageBox::Cancel);
+    messageBox->setStyleSheet(QMESSAGEBOX_STYLE);
+
     lay->addWidget(toastBtn);
-    setFixedSize(300, 300);
+    lay->addWidget(messageBox);
+//    setFixedSize(300, 300);
 
     connect(toastBtn,SIGNAL(released()),this,SLOT(toastSlot()));
 }
