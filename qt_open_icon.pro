@@ -53,7 +53,8 @@ SOURCES += main.cpp\
     utils/dialog/basemessagebox.cpp \
     common/utilscommon.cpp \
     utils/desktop/desktop.cpp \
-    utils/desktop/procedure.cpp
+    utils/desktop/procedure.cpp \
+    utils/desktop/widgetanimation.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -104,7 +105,8 @@ HEADERS  += \
     utils/dialog/basemessagebox.h \
     common/utilscommon.h \
     utils/desktop/desktop.h \
-    utils/desktop/procedure.h
+    utils/desktop/procedure.h \
+    utils/desktop/widgetanimation.h
 
 
 RESOURCES += \

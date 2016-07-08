@@ -11,27 +11,35 @@
 #include <QLocalServer>
 #include <QLocalSocket>
 
+
 class Procedure : public QObject
 {
     Q_OBJECT
 public:
-    explicit Procedure(const QString &name);
+    explicit Procedure(const QString &_socketname, const QString &_proName, \
+                       const QStringList &_arguments = QStringList());
     bool sendCmd(int cmd);
+    bool startProcedure();
 
 signals:
 
-public slots:
+protected slots:
+    void connectionSlot();
+    void startProSlot();
+
+protected:
+    virtual BaseButton *createIcon();
+    bool startSocketServer();
 
 public:
     BaseButton *proIcon;  //应用图标
     QLocalServer *server;  //本地socket服务端
     QLocalSocket *client;  //本地socket客户端
     QProcess *process;  //进程
-    QString name;  //程序名称
+    QString socketName;  //socket监听名称
+    QString proName;  //可执行程序名称
+    QStringList arguments;  //可执行程序需要参数
     QTimer *timer;
-
-protected:
-    void connectionSlot();
 };
 
 #endif // PROCEDURE_H

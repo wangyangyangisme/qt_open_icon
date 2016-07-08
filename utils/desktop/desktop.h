@@ -7,7 +7,7 @@
 #ifndef DESKTOP_H
 #define DESKTOP_H
 
-#include <QWidget>
+#include "procedure.h"
 
 class Desktop : public QWidget
 {
@@ -19,6 +19,8 @@ signals:
 
 public slots:
 
+private:
+    Procedure *procedure;
 };
 
 #endif // DESKTOP_H

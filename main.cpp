@@ -6,8 +6,9 @@
 #include "wheeltest.h"
 #include "navbar.h"
 #include "basemessagebox.h"
+#include "desktop.h"
 
-#define DIALOGTEST
+#define DESKTOP
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +39,9 @@ int main(int argc, char *argv[])
     BaseButton *btn = new BaseButton(TimeFont(), TimeFont::ICON_BACK, 200, 100);
     Navbar *w = new Navbar(btn);
     w->show();
+#elif defined DESKTOP
+    Desktop *desk = new Desktop;
+    desk->show();
 #endif
 
     return a.exec();
