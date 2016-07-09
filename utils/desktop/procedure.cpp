@@ -8,17 +8,25 @@ Procedure::Procedure(const QString &_socketname, const QString &_proName, \
     client(NULL),
     proIcon(NULL)
 {
-    //初始化图标
-    proIcon = createIcon();
     process = new QProcess;
     server = new QLocalServer();
+}
 
+/**
+ * @brief 把所有虚函数初始化放到这个里边
+ * @return
+ */
+void Procedure::init()
+{
+    //初始化图标
+    proIcon = createIcon();
     connect(proIcon, SIGNAL(btnReleased()), this, SLOT(startProSlot()));
 }
 
 
 BaseButton *Procedure::createIcon()
 {
+    qDebug()<<"Procedure createIcon";
     BaseButton *iconBtn = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN, 100, 100);
     return iconBtn;
 }
@@ -29,18 +37,28 @@ void Procedure::startProSlot()
         qDebug()<<proName<<" has run";
         sendCmd(10);
     }else{
-        startSocketServer();
-        startProcedure();
+        bool startRet = (startSocketServer() && startProcedure());
+        if(startRet){
+            emit startResult(true);
+        }else{
+            emit startResult(false);
+        }
     }
 }
 
 bool Procedure::startSocketServer()
 {
     //初始化服务端
-//    QFile file("/tmp/image");  //linux下处理
-//    if(file.exists()){
-//        file.remove();
-//    }
+#ifdef Q_OS_LINUX
+    //linux下有些特殊，详情参考listen函数帮助文档
+    QFile file("/tmp/image");
+    if(file.exists()){
+        file.remove();
+    }
+#elif defined Q_OS_WIN
+#elif defined Q_OS_MAC
+#endif
+
     if (!server->listen(socketName)) {
         qDebug()<<"server listen err";
         return false;

@@ -54,7 +54,8 @@ SOURCES += main.cpp\
     common/utilscommon.cpp \
     utils/desktop/desktop.cpp \
     utils/desktop/procedure.cpp \
-    utils/desktop/widgetanimation.cpp
+    utils/desktop/widgetanimation.cpp \
+    utils/desktop/qqprocedure.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -106,7 +107,8 @@ HEADERS  += \
     common/utilscommon.h \
     utils/desktop/desktop.h \
     utils/desktop/procedure.h \
-    utils/desktop/widgetanimation.h
+    utils/desktop/widgetanimation.h \
+    utils/desktop/qqprocedure.h
 
 
 RESOURCES += \

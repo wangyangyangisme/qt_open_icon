@@ -20,8 +20,10 @@ public:
                        const QStringList &_arguments = QStringList());
     bool sendCmd(int cmd);
     bool startProcedure();
+    void init();  //执行一些初始化工作
 
 signals:
+    void startResult(bool);
 
 protected slots:
     void connectionSlot();
@@ -33,13 +35,14 @@ protected:
 
 public:
     BaseButton *proIcon;  //应用图标
+
+private:
     QLocalServer *server;  //本地socket服务端
     QLocalSocket *client;  //本地socket客户端
     QProcess *process;  //进程
     QString socketName;  //socket监听名称
     QString proName;  //可执行程序名称
     QStringList arguments;  //可执行程序需要参数
-    QTimer *timer;
 };
 
 #endif // PROCEDURE_H
