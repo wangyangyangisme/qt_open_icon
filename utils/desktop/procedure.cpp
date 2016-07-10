@@ -6,10 +6,9 @@ Procedure::Procedure(const QString &_socketname, const QString &_proName, \
     proName(_proName),
     arguments(_arguments),
     client(NULL),
-    proIcon(NULL)
+    proIcon(NULL),
+    isRun(false)
 {
-    process = new QProcess;
-    server = new QLocalServer();
 }
 
 /**
@@ -23,22 +22,15 @@ void Procedure::init()
     connect(proIcon, SIGNAL(btnReleased()), this, SLOT(startProSlot()));
 }
 
-
-BaseButton *Procedure::createIcon()
-{
-    qDebug()<<"Procedure createIcon";
-    BaseButton *iconBtn = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN, 100, 100);
-    return iconBtn;
-}
-
 void Procedure::startProSlot()
 {
-    if(process->isOpen()){
+    if(isRun){
         qDebug()<<proName<<" has run";
         sendCmd(10);
     }else{
         bool startRet = (startSocketServer() && startProcedure());
         if(startRet){
+            isRun = true;
             emit startResult(true);
         }else{
             emit startResult(false);
@@ -58,7 +50,7 @@ bool Procedure::startSocketServer()
 #elif defined Q_OS_WIN
 #elif defined Q_OS_MAC
 #endif
-
+    server = new QLocalServer();
     if (!server->listen(socketName)) {
         qDebug()<<"server listen err";
         return false;
@@ -76,6 +68,7 @@ bool Procedure::startSocketServer()
  */
 bool Procedure::startProcedure()
 {
+    process = new QProcess;
     process->start(proName, arguments);
     if (!process->waitForStarted())
     {
@@ -83,15 +76,18 @@ bool Procedure::startProcedure()
         return false;
     }else{
         qDebug()<<proName<<" process start success";
+        connect(process, SIGNAL(finished(int,QProcess::ExitStatus)),\
+                this, SLOT(proExitHandler(int,QProcess::ExitStatus)));
         return true;
     }
 }
 
 void Procedure::connectionSlot()
 {
+    qDebug()<<proName<<" socket connect";
     client = server->nextPendingConnection();
-    qDebug()<<"connect to "<<client->serverName();
     connect(client, SIGNAL(disconnected()), client, SLOT(deleteLater()));
+    connect(client, SIGNAL(disconnected()), this, SLOT(disconnectSlot()));
 }
 
 
@@ -115,4 +111,37 @@ bool Procedure::sendCmd(int cmd)
 }
 
 
+void Procedure::proExitHandler(int code, QProcess::ExitStatus status)
+{
+    qDebug()<<proName<<" exit code = "<<code;
+    closeHandler();
+}
 
+/**
+ * @brief 如果子进程和桌面程序断开连接，那么就杀死子进程
+ * 因为此时桌面已经控制不了子进程了
+ */
+void Procedure::disconnectSlot()
+{
+    qDebug()<<proName<<" socket disconnect";
+    //这里处理失败，子程序结束后首先调用这里一次，然后清理掉各个变量
+    //然后傻吊process时候又执行一次，加锁无效
+//    closeHandler();
+}
+
+/**
+ * @brief 关闭子进程一些处理
+ */
+void Procedure::closeHandler()
+{
+//    QMutexLocker locker(&mutex);
+    if(isRun){
+        isRun = false;
+        process->close();
+        server->close();
+        delete server;
+        server = NULL;
+        delete process;
+        process = NULL;
+    }
+}

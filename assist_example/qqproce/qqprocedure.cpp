@@ -20,6 +20,7 @@ QQProcedure::QQProcedure(QWidget *parent) :
 
 void QQProcedure::parseCmd()
 {
+    qDebug()<<"parseCmd";
     QDataStream in(qqsocket);
     QString cmdStr;
     in >> cmdStr;
