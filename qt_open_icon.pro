@@ -14,7 +14,9 @@ TARGET = qt_open_icon
 TEMPLATE = app
 
 INCLUDEPATH += font core utils common utils/label utils/button utils/animation \
-utils/dialog utils/timeset utils/wheel utils/navbar utils/desktop
+utils/dialog utils/timeset utils/wheel utils/navbar utils/desktop \
+utils/desktop/procedure
+
 SOURCES += main.cpp\
     core/iconhelper.cpp \
     font/abstractfont.cpp \
@@ -53,9 +55,9 @@ SOURCES += main.cpp\
     utils/dialog/basemessagebox.cpp \
     common/utilscommon.cpp \
     utils/desktop/desktop.cpp \
-    utils/desktop/procedure.cpp \
     utils/desktop/widgetanimation.cpp \
-    utils/desktop/qqprocedure.cpp
+    utils/desktop/procedure/qqprocedure.cpp \
+    utils/desktop/procedure/procedure.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -106,9 +108,9 @@ HEADERS  += \
     utils/dialog/basemessagebox.h \
     common/utilscommon.h \
     utils/desktop/desktop.h \
-    utils/desktop/procedure.h \
     utils/desktop/widgetanimation.h \
-    utils/desktop/qqprocedure.h
+    utils/desktop/procedure/qqprocedure.h \
+    utils/desktop/procedure/procedure.h
 
 
 RESOURCES += \

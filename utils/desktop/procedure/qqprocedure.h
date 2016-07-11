@@ -7,8 +7,7 @@ class QQProcedure : public Procedure
 {
     Q_OBJECT
 public:
-    QQProcedure(const QString &_socketname, const QString &_proName, \
-                const QStringList &_arguments = QStringList());
+    QQProcedure();
 
 private:
     virtual BaseButton *createIcon();

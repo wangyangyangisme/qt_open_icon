@@ -1,5 +1,33 @@
 #include "procedure.h"
 
+#define PROCEDURE_BUTTON_STYLE "\
+QPushButton{\
+    color:#000000;\
+    font:100px;\
+    border:1px solid #AAAAAA;\
+    border-radius:5;\
+    background-color:#EEE685;\
+}\
+QPushButton:pressed{\
+    color:#FFFFFF;\
+    background-color:#AAAAAA;\
+}\
+"
+
+#define PROCEDURE_RUN_STYLE "\
+QPushButton{\
+    color:#000000;\
+    font:100px;\
+    border:1px solid #AAAAAA;\
+    border-radius:5;\
+    background-color:#9ACD32;\
+}\
+QPushButton:pressed{\
+    color:#FFFFFF;\
+    background-color:#AAAAAA;\
+}\
+"
+
 Procedure::Procedure(const QString &_socketname, const QString &_proName, \
                      const QStringList &_arguments):
     socketName(_socketname),
@@ -19,6 +47,7 @@ void Procedure::init()
 {
     //初始化图标
     proIcon = createIcon();
+    proIcon->setStyleSheet(PROCEDURE_BUTTON_STYLE);
     connect(proIcon, SIGNAL(btnReleased()), this, SLOT(startProSlot()));
 }
 
@@ -31,6 +60,7 @@ void Procedure::startProSlot()
         bool startRet = (startSocketServer() && startProcedure());
         if(startRet){
             isRun = true;
+            proIcon->setStyleSheet(PROCEDURE_RUN_STYLE);
             emit startResult(true);
         }else{
             emit startResult(false);
@@ -43,7 +73,8 @@ bool Procedure::startSocketServer()
     //初始化服务端
 #ifdef Q_OS_LINUX
     //linux下有些特殊，详情参考listen函数帮助文档
-    QFile file("/tmp/image");
+    QString socketTmp = QString("/tmp/") + socketName;
+    QFile file(socketTmp);
     if(file.exists()){
         file.remove();
     }
@@ -143,5 +174,6 @@ void Procedure::closeHandler()
         server = NULL;
         delete process;
         process = NULL;
+        proIcon->setStyleSheet(PROCEDURE_BUTTON_STYLE);
     }
 }

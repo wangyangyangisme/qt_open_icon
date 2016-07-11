@@ -5,9 +5,8 @@ Desktop::Desktop(QWidget *parent) :
     QWidget(parent)
 {
     //这里注意路径适配
-    qq = new QQProcedure("qq", "qqproce.exe");
+    qq = new QQProcedure();
     qq->init();
-    qq->proIcon->setParent(this);
     connect(qq, SIGNAL(startResult(bool)), this, SLOT(startSlot(bool)));
 
     //界面布局
