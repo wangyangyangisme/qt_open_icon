@@ -1,7 +1,6 @@
 #ifndef ICONHELPER_H
 #define ICONHELPER_H
 
-#include<QtWidgets>
 #include "fonts.h"
 
 /**

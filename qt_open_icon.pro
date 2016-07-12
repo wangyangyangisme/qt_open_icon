@@ -110,7 +110,8 @@ HEADERS  += \
     utils/desktop/desktop.h \
     utils/desktop/widgetanimation.h \
     utils/desktop/procedure/qqprocedure.h \
-    utils/desktop/procedure/procedure.h
+    utils/desktop/procedure/procedure.h \
+    common/platformhead.h
 
 
 RESOURCES += \
