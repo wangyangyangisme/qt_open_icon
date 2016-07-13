@@ -110,9 +110,10 @@ HEADERS  += \
     utils/desktop/desktop.h \
     utils/desktop/widgetanimation.h \
     utils/desktop/procedure/qqprocedure.h \
-    utils/desktop/procedure/procedure.h \
-    common/platformhead.h
+    utils/desktop/procedure/procedure.h
 
 
 RESOURCES += \
     resource.qrc
+
+#message(parse over)

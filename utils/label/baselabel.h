@@ -1,7 +1,8 @@
 #ifndef BASELABEL_H
 #define BASELABEL_H
 
-#include <iconhelper.h>
+#include "iconhelper.h"
+
 
 class BaseLabel : public QLabel
 {

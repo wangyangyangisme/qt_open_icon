@@ -9,7 +9,7 @@
 #include "desktop.h"
 #include "platformhead.h"
 
-#define DESKTOP
+#define DIALOGTEST
 
 int main(int argc, char *argv[])
 {
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     AnimationTest *w = new AnimationTest;
     w->show();
 #elif defined DIALOGTEST
-    BaseMessageBox *w = new BaseMessageBox(NULL, "ABC", "def", 300, 200);
+    BaseMessageBox *w = new BaseMessageBox;
     w->show();
 #elif defined WHEELWIDGET
     bool touch = a.arguments().contains(QLatin1String("--touch"));
