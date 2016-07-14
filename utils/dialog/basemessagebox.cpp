@@ -1,83 +1,83 @@
 #include "basemessagebox.h"
 
-#define LABEL_STYLE "\
-QLabel{\
-    color:#000000;\
-    font:20px;\
-    border:1px solid #AAAAAA;\
-    background-color:rgb(0,0,0,0);\
-}\
-"
-
-#define BUTTON_STYLE "\
-QPushButton{\
-    color:#000000;\
-    font:20px;\
-    border:1px solid #AAAAAA;\
-    border-radius:5;\
-    background-color:#FFFFFF;\
-}\
-QPushButton:pressed{\
-    color:#FFFFFF;\
-    background-color:#AAAAAA;\
-}\
-"
-
-BaseMessageBox::BaseMessageBox()
+BaseMessageBox::BaseMessageBox(int w, int h, const QString &info)
 {
-    labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_CHECK, 30, 30);
-    labIcon->setStyleSheet(LABEL_STYLE);
-    labTitle = new QLabel("labTitle");
+    labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_WAINING, 20, 20);
+    labIcon->setObjectName("labIcon");
+    labTitle = new QLabel("警告");
+    labTitle->setObjectName("labTitle");
 
     //标题栏
     titleWig = new QWidget;
-    titleWig->setStyleSheet("background-color:#000000;");
-    titleWig->setFixedSize(400, 30);
-    QSpacerItem* tSpacer = new QSpacerItem(300, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    closeBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_UNLOCK, 30, 30);
-    closeBtn->setStyleSheet(BUTTON_STYLE);
+    titleWig->setObjectName("titleWig");
+    titleWig->setFixedHeight(30);
+
+    closeBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_CLOSE, 40, 30);
+    closeBtn->setObjectName("closeBtn");
     QHBoxLayout *titleLay = new QHBoxLayout(titleWig);
+    titleLay->addSpacing(10);
     titleLay->addWidget(labIcon);
     titleLay->addWidget(labTitle);
-    titleLay->addSpacerItem(tSpacer);
+    titleLay->addStretch(1);
     titleLay->addWidget(closeBtn);
     titleLay->setMargin(0);
     titleLay->setSpacing(0);
 
     //提示信息
     labInfo = new QLabel;
-    labInfo->setFixedSize(400, 120);
-    labInfo->setText("abcd");
+    labInfo->setObjectName("labInfo");
+    labInfo->setMinimumHeight(100);
+    labInfo->setWordWrap(true);
+    labInfo->setText(info);
 
     //按钮部分
     QWidget *btnWig = new QWidget;
-    btnWig->setFixedSize(400, 40);
-    okBtn = new QPushButton("okBtn");
-    okBtn->setFixedSize(80, 30);
-    cancelBtn = new QPushButton("cancelBtn");
-    cancelBtn->setFixedSize(80, 30);
-    QSpacerItem* spacer = new QSpacerItem(200, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    btnWig->setMinimumSize(200, 60);
+    okBtn = new QPushButton("确定");
+    okBtn->setMinimumSize(60, 30);
+    cancelBtn = new QPushButton("取消");
+    cancelBtn->setMinimumSize(60, 30);
+    okBtn->setFocusPolicy(Qt::NoFocus);
+    cancelBtn->setFocusPolicy(Qt::NoFocus);
+    utilscommon::setShadow(okBtn);
+    utilscommon::setShadow(cancelBtn);
     QHBoxLayout *btnLay = new QHBoxLayout(btnWig);
-    btnLay->addSpacerItem(spacer);
-    btnLay->addWidget(okBtn);
+    btnLay->addStretch(1);
     btnLay->addWidget(cancelBtn);
-    btnLay->setMargin(10);
+    btnLay->addSpacing(10);
+    btnLay->addWidget(okBtn);
+    btnLay->setMargin(20);
 
     //主布局
-    mainWig = new QWidget;
-    mainWig->setFixedSize(400, 170);
-    QVBoxLayout *mainLay = new QVBoxLayout(mainWig);
-    mainLay->setMargin(10);
+    QVBoxLayout *mainLay = new QVBoxLayout;
+    mainLay->setMargin(0);
     mainLay->setSpacing(0);
-    mainLay->addWidget(labInfo);
+    mainLay->addWidget(labInfo, 1);
     mainLay->addWidget(btnWig);
 
     //总布局
     QVBoxLayout *totalLay = new QVBoxLayout(this);
     totalLay->addWidget(titleWig);
-    totalLay->addWidget(mainWig);
+    totalLay->addLayout(mainLay);
     totalLay->setMargin(0);
     totalLay->setSpacing(0);
 
-    setFixedSize(400, 200);
+    setStyle();
+    setMinimumSize(250, 150);
+    resize(w, h);
+    setWindowFlags(Qt::FramelessWindowHint);
+}
+
+void BaseMessageBox::setStyle()
+{
+    QFile file(QString(":/qss/resourse/qss/dialog/default.qss"));
+    if(!file.open(QIODevice::ReadOnly)){
+        qDebug()<<"read err";
+        return;
+    }
+
+    QString qss = QLatin1String(file.readAll());
+    this->setStyleSheet(qss);
+    labIcon->setStyleSheet(qss);
+    closeBtn->setStyleSheet(qss);
 }

@@ -9,4 +9,8 @@
         <file>resourse/images/animation/2.PNG</file>
         <file>resourse/images/animation/3.PNG</file>
     </qresource>
+    <qresource prefix="/qss">
+        <file>resourse/qss/dialog/default.qss</file>
+        <file>resourse/qss/dialog/default1.qss</file>
+    </qresource>
 </RCC>

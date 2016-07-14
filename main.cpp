@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     AnimationTest *w = new AnimationTest;
     w->show();
 #elif defined DIALOGTEST
-    BaseMessageBox *w = new BaseMessageBox;
+    BaseMessageBox *w = new BaseMessageBox(100, 100, "确定删除?");
     w->show();
 #elif defined WHEELWIDGET
     bool touch = a.arguments().contains(QLatin1String("--touch"));

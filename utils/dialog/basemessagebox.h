@@ -3,12 +3,13 @@
 
 #include "baselabel.h"
 #include "basebutton.h"
+#include "utilscommon.h"
 
 class BaseMessageBox : public QWidget
 {
     Q_OBJECT
 public:
-    explicit BaseMessageBox();
+    explicit BaseMessageBox(int w, int h, const QString &info);
 
 private:
     QWidget *titleWig;
@@ -21,6 +22,8 @@ private:
     QLabel *labInfo;
     QPushButton *okBtn;
     QPushButton *cancelBtn;
+
+    void setStyle();
 };
 
 #endif // BASEMESSAGEBOX_H

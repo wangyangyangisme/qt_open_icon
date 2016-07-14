@@ -48,6 +48,7 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
         }
         setStyleSheet(DEFULT_BUTTON_STYLE);
     }
+    setFocusPolicy(Qt::NoFocus);
 
     connect(this,SIGNAL(btnReleased()),this,SLOT(releaseSlot()));
 }
