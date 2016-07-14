@@ -11,6 +11,5 @@
     </qresource>
     <qresource prefix="/qss">
         <file>resourse/qss/dialog/default.qss</file>
-        <file>resourse/qss/dialog/default1.qss</file>
     </qresource>
 </RCC>
