@@ -1,14 +1,19 @@
 #include "basemessagebox.h"
+#include "assert.h"
 
-BaseMessageBox::BaseMessageBox(int w, int h, const QString &info)
+BaseMessageBox::BaseMessageBox(BaseLabel *labIcon, const QString &title, \
+                               const QString &info, bool showCancel, int w, int h)
+    :mousePressed(false)
 {
-    labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_WAINING, 20, 20);
+    assert(labIcon != NULL);
+    this->labIcon = labIcon;
+    labIcon->setFixedSize(20, 20);
     labIcon->setObjectName("labIcon");
-    labTitle = new QLabel("警告");
+    QLabel *labTitle = new QLabel(title);
     labTitle->setObjectName("labTitle");
 
     //标题栏
-    titleWig = new QWidget;
+    QWidget *titleWig = new QWidget;
     titleWig->setObjectName("titleWig");
     titleWig->setFixedHeight(30);
 
@@ -24,7 +29,7 @@ BaseMessageBox::BaseMessageBox(int w, int h, const QString &info)
     titleLay->setSpacing(0);
 
     //提示信息
-    labInfo = new QLabel;
+    QLabel *labInfo = new QLabel;
     labInfo->setObjectName("labInfo");
     labInfo->setMinimumHeight(100);
     labInfo->setWordWrap(true);
@@ -48,6 +53,10 @@ BaseMessageBox::BaseMessageBox(int w, int h, const QString &info)
     btnLay->addWidget(okBtn);
     btnLay->setMargin(20);
 
+    if(!showCancel){
+        cancelBtn->hide();
+    }
+
     //主布局
     QVBoxLayout *mainLay = new QVBoxLayout;
     mainLay->setMargin(0);
@@ -66,8 +75,17 @@ BaseMessageBox::BaseMessageBox(int w, int h, const QString &info)
     setMinimumSize(250, 150);
     resize(w, h);
     setWindowFlags(Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_DeleteOnClose);
+    showInCenter();
+
+    connect(closeBtn, SIGNAL(btnReleased()), this, SLOT(close()));
+    connect(cancelBtn, SIGNAL(released()), this, SLOT(close()));
+    connect(okBtn, SIGNAL(released()), this, SLOT(okSlot()));
 }
 
+/**
+ * @brief 设置样式
+ */
 void BaseMessageBox::setStyle()
 {
     QFile file(QString(":/qss/resourse/qss/dialog/default.qss"));
@@ -81,3 +99,46 @@ void BaseMessageBox::setStyle()
     labIcon->setStyleSheet(qss);
     closeBtn->setStyleSheet(qss);
 }
+
+/**
+ * 窗体居中显示
+ */
+void BaseMessageBox::showInCenter()
+{
+    int frmX = width();
+    int frmY = height();
+    QDesktopWidget w;
+    int deskWidth = w.width();
+    int deskHeight = w.height();
+    QPoint movePoint(deskWidth / 2 - frmX / 2, deskHeight / 2 - frmY / 2);
+    this->move(movePoint);
+}
+
+void BaseMessageBox::mouseMoveEvent(QMouseEvent *e)
+{
+    if (mousePressed && (e->buttons() && Qt::LeftButton)) {
+        this->move(e->globalPos() - mousePoint);
+        e->accept();
+    }
+}
+
+void BaseMessageBox::mousePressEvent(QMouseEvent *e)
+{
+    if (e->button() == Qt::LeftButton) {
+        mousePressed = true;
+        mousePoint = e->globalPos() - this->pos();
+        e->accept();
+    }
+}
+
+void BaseMessageBox::mouseReleaseEvent(QMouseEvent *)
+{
+    mousePressed = false;
+}
+
+void BaseMessageBox::okSlot()
+{
+    done(OK);
+    this->close();
+}
+

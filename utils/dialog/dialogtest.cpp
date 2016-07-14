@@ -1,5 +1,4 @@
 #include "dialogtest.h"
-#include "utilscommon.h"
 
 #define QMESSAGEBOX_STYLE "\
 QMessageBox{\
@@ -22,18 +21,16 @@ DialogTest::DialogTest()
     //toast演示
     QPushButton *toastBtn = new QPushButton("toast");
     toastBtn->setFixedWidth(50);
-    utilscommon::setShadow(toastBtn);
-
-    //messagebox
-    QMessageBox *messageBox = new QMessageBox(QMessageBox::NoIcon,\
-                "title", "content", QMessageBox::Ok|QMessageBox::Cancel);
-    messageBox->setStyleSheet(QMESSAGEBOX_STYLE);
+    QPushButton *waningBtn = new QPushButton("警告演示");
+    waningBtn->setFixedWidth(50);
 
     lay->addWidget(toastBtn);
-    lay->addWidget(messageBox);
-//    setFixedSize(300, 300);
+    lay->addWidget(waningBtn);
 
     connect(toastBtn,SIGNAL(released()),this,SLOT(toastSlot()));
+    connect(waningBtn,SIGNAL(released()),this,SLOT(warningSlot()));
+
+    setFixedSize(300, 300);
 }
 
 
@@ -41,4 +38,18 @@ void DialogTest::toastSlot()
 {
     Toast *w = new Toast(this, "这是一个好的组件库");
     w->toast();
+}
+
+void DialogTest::warningSlot()
+{
+    BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_WAINING, 20, 20);
+    BaseMessageBox *w = new BaseMessageBox(labIcon, "警告", "确定删除？");
+    switch (w->exec()) {
+    case BaseMessageBox::OK:
+        qDebug()<<"ok";
+        break;
+    default:
+        qDebug()<<"cancel";
+        break;
+    }
 }

@@ -5,7 +5,7 @@
 #include "timetotal.h"
 #include "wheeltest.h"
 #include "navbar.h"
-#include "basemessagebox.h"
+#include "dialogtest.h"
 #include "desktop.h"
 #include "platformhead.h"
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     AnimationTest *w = new AnimationTest;
     w->show();
 #elif defined DIALOGTEST
-    BaseMessageBox *w = new BaseMessageBox(100, 100, "确定删除?");
+    DialogTest *w = new DialogTest;
     w->show();
 #elif defined WHEELWIDGET
     bool touch = a.arguments().contains(QLatin1String("--touch"));
