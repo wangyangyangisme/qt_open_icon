@@ -1,9 +1,9 @@
 QWidget,QLabel{
-    background-color:#F0F0F0;
+    background-color:#D1D1D1;
 }
 
-#titleWig,#titleWig BaseLabel,#titleWig QLabel,BaseButton,QPushButton{
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #1B89CA, stop:1 #1077B5);
+#titleWig,#titleWig BaseLabel,#titleWig QLabel,BaseButton,QPushButton, QPushButton:hover{
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #FF0000, stop:1 #FF7256);
 }
 
 BaseLabel,#labTitle{
@@ -26,12 +26,12 @@ QPushButton{
     border-radius:5px;
 }
 
-QPushButton:hover{
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #5CACEE, stop:1 #4F94CD);
-}
-
 QPushButton:pressed{
     background-color:#FF3030;
+}
+
+QPushButton:hover{
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #FF7256, stop:1 #FFA07A);
 }
 
 BaseButton{

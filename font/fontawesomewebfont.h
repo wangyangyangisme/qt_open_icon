@@ -17,6 +17,7 @@ public:
         ICON_CHECK = 0xf00c,
         ICON_WAINING = 0xf071,
         ICON_CLOSE = 0xf00d,
+        ICON_INFO = 0xf05a,
     };
     explicit FontawesomeWebfont();
 };

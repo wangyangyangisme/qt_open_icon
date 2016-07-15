@@ -19,11 +19,14 @@ public:
         CANCEL = 0,
         OK
     };
-    explicit BaseMessageBox(BaseLabel *labIcon, const QString &title, \
-                            const QString &info, bool showCancel = true, \
-                            int w=250, int h=150);
+    explicit BaseMessageBox(BaseLabel *labIcon, const QString &title,\
+                            const QString &info, const QString &style = QString(),\
+                            bool showCancel = true, int w=250, int h=150);
 protected slots:
     void okSlot();
+    void cancelSlot();
+    void doneOk();
+    void doneCancel();
 
 protected:
     BaseLabel *labIcon;
@@ -33,7 +36,7 @@ protected:
     bool mousePressed;              //鼠标是否按下
     QPoint mousePoint;              //鼠标拖动自定义标题栏时的坐标
 
-    void setStyle();
+    void setStyle(const QString &style);
     void showInCenter();
     void mouseMoveEvent(QMouseEvent *e);
     void mousePressEvent(QMouseEvent *e);

@@ -1,8 +1,19 @@
 #include "basemessagebox.h"
 #include "assert.h"
 
+/**
+ * @brief 基础提示框组件
+ * @param labIcon 提示框icon图标，需要外部初始化后传入
+ * @param title 标题
+ * @param info 提示信息
+ * @param style 样式，没有用默认
+ * @param showCancel 是否显示cancel按钮
+ * @param w 宽
+ * @param h 高
+ */
 BaseMessageBox::BaseMessageBox(BaseLabel *labIcon, const QString &title, \
-                               const QString &info, bool showCancel, int w, int h)
+                               const QString &info, const QString &style,\
+                               bool showCancel, int w, int h)
     :mousePressed(false)
 {
     assert(labIcon != NULL);
@@ -71,30 +82,30 @@ BaseMessageBox::BaseMessageBox(BaseLabel *labIcon, const QString &title, \
     totalLay->setMargin(0);
     totalLay->setSpacing(0);
 
-    setStyle();
+    setStyle(style);
     setMinimumSize(250, 150);
     resize(w, h);
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_DeleteOnClose);
     showInCenter();
 
-    connect(closeBtn, SIGNAL(btnReleased()), this, SLOT(close()));
-    connect(cancelBtn, SIGNAL(released()), this, SLOT(close()));
+    connect(closeBtn, SIGNAL(btnReleased()), this, SLOT(cancelSlot()));
+    connect(cancelBtn, SIGNAL(released()), this, SLOT(cancelSlot()));
     connect(okBtn, SIGNAL(released()), this, SLOT(okSlot()));
 }
 
 /**
  * @brief 设置样式
  */
-void BaseMessageBox::setStyle()
+void BaseMessageBox::setStyle(const QString &style)
 {
-    QFile file(QString(":/qss/resourse/qss/dialog/default.qss"));
-    if(!file.open(QIODevice::ReadOnly)){
-        qDebug()<<"read err";
-        return;
+    QString qss;
+    if(style == QString()){
+        qss = utilscommon::readFile(":/qss/resourse/qss/dialog/default.qss");
+    }else{
+        qss = style;
     }
 
-    QString qss = QLatin1String(file.readAll());
     this->setStyleSheet(qss);
     labIcon->setStyleSheet(qss);
     closeBtn->setStyleSheet(qss);
@@ -138,7 +149,31 @@ void BaseMessageBox::mouseReleaseEvent(QMouseEvent *)
 
 void BaseMessageBox::okSlot()
 {
+    QPropertyAnimation *animation = new QPropertyAnimation(this, "windowOpacity");
+    animation->setDuration(200);
+    animation->setStartValue(1);
+    animation->setEndValue(0);
+    animation->start();
+    connect(animation, SIGNAL(finished()), this, SLOT(doneOk()));
+}
+
+void BaseMessageBox::cancelSlot()
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(this, "windowOpacity");
+    animation->setDuration(200);
+    animation->setStartValue(1);
+    animation->setEndValue(0);
+    animation->start();
+    connect(animation, SIGNAL(finished()), this, SLOT(doneCancel()));
+}
+
+void BaseMessageBox::doneOk()
+{
     done(OK);
-    this->close();
+}
+
+void BaseMessageBox::doneCancel()
+{
+    done(CANCEL);
 }
 

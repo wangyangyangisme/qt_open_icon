@@ -44,7 +44,7 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
     }else{
         //如果用户提供按钮大小不足以装下字体大小，那么提示一下就好
         if(std::min(w, h) < 100){
-            qDebug()<<"default font is bigger than button";
+//            qDebug()<<"default font is bigger than button";
         }
         setStyleSheet(DEFULT_BUTTON_STYLE);
     }

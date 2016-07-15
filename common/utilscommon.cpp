@@ -19,4 +19,20 @@ void setShadow(QWidget *w, qreal blurRadius, qreal dx, qreal dy)
     w->setGraphicsEffect(shadow);
 }
 
+/**
+ * @brief 从文件读出内容并转为QString
+ * @param path 文件路径
+ * @return 正确返回内容，错误返回QString()
+ */
+QString readFile(const QString &path)
+{
+    QFile file(path);
+    if(!file.open(QIODevice::ReadOnly)){
+        qDebug()<<"open "<<path<<" err";
+        return QString();
+    }else{
+        return QLatin1String(file.readAll());
+    }
+}
+
 }

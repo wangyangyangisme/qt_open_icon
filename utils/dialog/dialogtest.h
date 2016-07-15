@@ -17,6 +17,7 @@ public slots:
 private slots:
     void toastSlot();
     void warningSlot();
+    void messageSlot();
 
 private:
 

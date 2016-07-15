@@ -1,34 +1,20 @@
 #include "dialogtest.h"
 
-#define QMESSAGEBOX_STYLE "\
-QMessageBox{\
-    color:#000000;\
-    font:10px;\
-    border:1px solid #AAAAAA;\
-    border-radius:5;\
-    background-color:#FFFFFF;\
-}\
-QMessageBox QPushButton{\
-    color:#FFFFFF;\
-    background-color:#AAAAAA;\
-}\
-"
-
 DialogTest::DialogTest()
 {
     QVBoxLayout *lay = new QVBoxLayout(this);
 
-    //toast演示
     QPushButton *toastBtn = new QPushButton("toast");
-    toastBtn->setFixedWidth(50);
-    QPushButton *waningBtn = new QPushButton("警告演示");
-    waningBtn->setFixedWidth(50);
+    QPushButton *waningBtn = new QPushButton("确认消息框");
+    QPushButton *messageBtn = new QPushButton("提示框");
 
     lay->addWidget(toastBtn);
     lay->addWidget(waningBtn);
+    lay->addWidget(messageBtn);
 
     connect(toastBtn,SIGNAL(released()),this,SLOT(toastSlot()));
     connect(waningBtn,SIGNAL(released()),this,SLOT(warningSlot()));
+    connect(messageBtn,SIGNAL(released()),this,SLOT(messageSlot()));
 
     setFixedSize(300, 300);
 }
@@ -42,14 +28,26 @@ void DialogTest::toastSlot()
 
 void DialogTest::warningSlot()
 {
+    Toast *toast;
+    QString qss = utilscommon::readFile("default.qss");
     BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_WAINING, 20, 20);
-    BaseMessageBox *w = new BaseMessageBox(labIcon, "警告", "确定删除？");
+    BaseMessageBox *w = new BaseMessageBox(labIcon, "警告", "确定删除？", qss);
     switch (w->exec()) {
     case BaseMessageBox::OK:
-        qDebug()<<"ok";
+        toast = new Toast(this, "选择了确定");
+        toast->toast();
         break;
     default:
-        qDebug()<<"cancel";
+        toast = new Toast(this, "选择了取消");
+        toast->toast();
         break;
     }
+}
+
+void DialogTest::messageSlot()
+{
+    QString qss = utilscommon::readFile(":/qss/resourse/qss/dialog/default.qss");
+    BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_INFO, 20, 20);
+    BaseMessageBox *w = new BaseMessageBox(labIcon, "提示", "这是个好的组件库", qss, false);
+    w->show();
 }
