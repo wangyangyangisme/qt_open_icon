@@ -29,7 +29,7 @@ void DialogTest::toastSlot()
 void DialogTest::warningSlot()
 {
     Toast *toast;
-    QString qss = utilscommon::readFile("default.qss");
+    QString qss = utilscommon::readFile(":/qss/resourse/qss/dialog/default.qss");
     BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_WAINING, 20, 20);
     BaseMessageBox *w = new BaseMessageBox(labIcon, "警告", "确定删除？", qss);
     switch (w->exec()) {

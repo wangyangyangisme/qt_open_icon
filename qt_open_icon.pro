@@ -15,7 +15,7 @@ TEMPLATE = app
 
 INCLUDEPATH += font core utils common utils/label utils/button utils/animation \
 utils/dialog utils/timeset utils/wheel utils/navbar utils/desktop \
-utils/desktop/procedure
+utils/desktop/procedure utils/list
 
 SOURCES += main.cpp\
     core/iconhelper.cpp \
@@ -57,7 +57,10 @@ SOURCES += main.cpp\
     utils/desktop/desktop.cpp \
     utils/desktop/widgetanimation.cpp \
     utils/desktop/procedure/qqprocedure.cpp \
-    utils/desktop/procedure/procedure.cpp
+    utils/desktop/procedure/procedure.cpp \
+    utils/list/baselist.cpp \
+    utils/list/listtest.cpp \
+    utils/list/normallist.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -110,7 +113,10 @@ HEADERS  += \
     utils/desktop/desktop.h \
     utils/desktop/widgetanimation.h \
     utils/desktop/procedure/qqprocedure.h \
-    utils/desktop/procedure/procedure.h
+    utils/desktop/procedure/procedure.h \
+    utils/list/baselist.h \
+    utils/list/listtest.h \
+    utils/list/normallist.h
 
 
 RESOURCES += \

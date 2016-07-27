@@ -7,9 +7,9 @@
 #include "navbar.h"
 #include "dialogtest.h"
 #include "desktop.h"
-#include "platformhead.h"
+#include "listtest.h"
 
-#define DIALOGTEST
+#define LIST
 
 int main(int argc, char *argv[])
 {
@@ -48,6 +48,9 @@ int main(int argc, char *argv[])
 #elif defined DESKTOP
     Desktop *desk = new Desktop;
     desk->show();
+#elif defined LIST
+    ListTest *w = new ListTest;
+    w->show();
 #endif
 
     return a.exec();
