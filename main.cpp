@@ -9,7 +9,7 @@
 #include "desktop.h"
 #include "listtest.h"
 
-#define LIST
+#define DESKTOP
 
 int main(int argc, char *argv[])
 {

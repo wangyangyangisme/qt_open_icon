@@ -156,7 +156,7 @@ void Procedure::disconnectSlot()
 {
     qDebug()<<proName<<" socket disconnect";
     //这里处理失败，子程序结束后首先调用这里一次，然后清理掉各个变量
-    //然后傻吊process时候又执行一次，加锁无效
+    //然后杀掉process时候又执行一次，加锁无效
 //    closeHandler();
 }
 
