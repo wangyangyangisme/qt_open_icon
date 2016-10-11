@@ -116,7 +116,9 @@ HEADERS  += \
     utils/desktop/procedure/procedure.h \
     utils/list/baselist.h \
     utils/list/listtest.h \
-    utils/list/normallist.h
+    utils/list/normallist.h \
+    utils/desktop/desktopcmd.h \
+    utils/desktop/procedure/procedurehead.h
 
 
 RESOURCES += \

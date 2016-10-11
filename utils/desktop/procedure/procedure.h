@@ -1,5 +1,5 @@
 /**
- ** @author:	   浓咖啡
+ ** @author:	   焦岳
  ** @date:	   2016.7.7
  ** @brief:      对单个程序封装
  */
@@ -10,7 +10,7 @@
 #include "basebutton.h"
 #include <QLocalServer>
 #include <QLocalSocket>
-
+#include "desktopcmd.h"
 
 class Procedure : public QObject
 {
@@ -21,23 +21,26 @@ public:
     bool sendCmd(int cmd);
     bool startProcedure();
     void init();  //执行一些初始化工作
+    bool getState() const {return isRun;}
+    void setArguments(const QStringList &_arguments){arguments = _arguments;}
+    void setArgQWS();  //专门为嵌入式使用的参数列表
+    void closeHandler();  //关闭子进程一些处理
+    BaseButton *proIcon;  //应用图标
 
 signals:
     void startResult(bool);
+    void enterPro();  //信号表示程序从后台转为前台运行
 
 protected slots:
     void connectionSlot();
     void startProSlot();
     virtual void proExitHandler(int code, QProcess::ExitStatus status);
     void disconnectSlot();
+    void readSlot();
 
 protected:
     virtual BaseButton *createIcon() = 0;
     bool startSocketServer();
-
-public:
-    BaseButton *proIcon;  //应用图标
-    void closeHandler();  //关闭子进程一些处理
 
 private:
     QLocalServer *server;  //本地socket服务端
@@ -47,6 +50,7 @@ private:
     QString proName;  //可执行程序名称
     QStringList arguments;  //可执行程序需要参数
     bool isRun;  //程序是否已经运行
+    QByteArray procOut;
     QMutex mutex;
 };
 

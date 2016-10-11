@@ -20,7 +20,7 @@ QPushButton{\
     font:100px;\
     border:1px solid #AAAAAA;\
     border-radius:5;\
-    background-color:#9ACD32;\
+    background-color:#A2CD5A;\
 }\
 QPushButton:pressed{\
     color:#FFFFFF;\
@@ -55,7 +55,8 @@ void Procedure::startProSlot()
 {
     if(isRun){
         qDebug()<<proName<<" has run";
-        sendCmd(10);
+        sendCmd(PROCEDURE_SHOW);
+        emit enterPro();
     }else{
         bool startRet = (startSocketServer() && startProcedure());
         if(startRet){
@@ -109,8 +110,16 @@ bool Procedure::startProcedure()
         qDebug()<<proName<<" process start success";
         connect(process, SIGNAL(finished(int,QProcess::ExitStatus)),\
                 this, SLOT(proExitHandler(int,QProcess::ExitStatus)));
+        connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(readSlot()));
+        connect(process, SIGNAL(readyReadStandardError()), this, SLOT(readSlot()));
         return true;
     }
+}
+
+void Procedure::readSlot()
+{
+    procOut = process->readAllStandardError();
+    qDebug(procOut);
 }
 
 void Procedure::connectionSlot()
@@ -176,4 +185,11 @@ void Procedure::closeHandler()
         process = NULL;
         proIcon->setStyleSheet(PROCEDURE_BUTTON_STYLE);
     }
+}
+
+void Procedure::setArgQWS()
+{
+    QStringList arg;
+    arg<<"-qws";
+    setArguments(arg);
 }

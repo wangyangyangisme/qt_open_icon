@@ -2,7 +2,7 @@
 
 QQProcedure::QQProcedure():Procedure("qq", "qqproce.exe")
 {
-
+//    setArgQWS();
 }
 
 BaseButton *QQProcedure::createIcon()

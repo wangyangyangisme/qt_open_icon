@@ -9,6 +9,7 @@
 
 #include <QtWidgets>
 #include <QLocalSocket>
+#include "desktopcmd.h"
 
 class QQProcedure : public QWidget
 {
@@ -21,6 +22,7 @@ private slots:
 
 private:
     QLocalSocket *qqsocket;
+    void changeEvent(QEvent * event);
 };
 
 #endif // QQPROCEDURE_H

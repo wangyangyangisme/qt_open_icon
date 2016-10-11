@@ -1,5 +1,5 @@
 /**
- ** @author:	   浓咖啡
+ ** @author:	   焦岳
  ** @date:	   2016.7.7
  ** @brief:      桌面组件
  */
@@ -7,7 +7,7 @@
 #ifndef DESKTOP_H
 #define DESKTOP_H
 
-#include "qqprocedure.h"
+#include "procedurehead.h"
 
 class Desktop : public QWidget
 {
@@ -17,11 +17,17 @@ public:
 
 signals:
 
+public slots:
+    void laterShowDesk();
+
 private slots:
     void startSlot(bool);
+    void enterProSlot();
 
 private:
-    QQProcedure *qq;
+    void returnDesktop();
+    QQProcedure *qqProcedure;  //qq
+    Procedure *procedure;
 };
 
 #endif // DESKTOP_H
