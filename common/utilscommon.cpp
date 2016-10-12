@@ -35,4 +35,24 @@ QString readFile(const QString &path)
     }
 }
 
+/**
+ * @brief 设置程序自启动
+ * @param AppName 程序名称
+ * @param AppPath 程序路径
+ */
+void autoRunWithSystem(QString AppName, QString AppPath)
+{
+#ifdef Q_OS_LINUX //写入/etc下配置文件即可
+#elif defined Q_OS_WIN
+    QSettings *reg = new QSettings(
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+        QSettings::NativeFormat);
+
+    reg->setValue(AppName, AppPath);
+#elif defined Q_OS_MAC
+
+#endif
+}
+
+
 }

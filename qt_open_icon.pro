@@ -55,7 +55,6 @@ SOURCES += main.cpp\
     utils/dialog/basemessagebox.cpp \
     common/utilscommon.cpp \
     utils/desktop/desktop.cpp \
-    utils/desktop/widgetanimation.cpp \
     utils/desktop/procedure/qqprocedure.cpp \
     utils/desktop/procedure/procedure.cpp \
     utils/list/baselist.cpp \
@@ -111,7 +110,6 @@ HEADERS  += \
     utils/dialog/basemessagebox.h \
     common/utilscommon.h \
     utils/desktop/desktop.h \
-    utils/desktop/widgetanimation.h \
     utils/desktop/procedure/qqprocedure.h \
     utils/desktop/procedure/procedure.h \
     utils/list/baselist.h \
