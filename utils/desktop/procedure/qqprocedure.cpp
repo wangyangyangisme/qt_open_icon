@@ -2,7 +2,7 @@
 
 QQProcedure::QQProcedure():Procedure("qq", "qqproce.exe")
 {
-//    setArgQWS();
+//    setArgQWS();  //嵌入式qt程序需要增加选项
 }
 
 BaseButton *QQProcedure::createIcon()

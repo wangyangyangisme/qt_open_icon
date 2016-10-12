@@ -30,13 +30,14 @@ public:
 signals:
     void startResult(bool);
     void enterPro();  //信号表示程序从后台转为前台运行
+    void recvCmd(u_int);  //收到来自APP的命令
 
 protected slots:
     void connectionSlot();
     void startProSlot();
     virtual void proExitHandler(int code, QProcess::ExitStatus status);
-    void disconnectSlot();
     void readSlot();
+    void parseCmd();
 
 protected:
     virtual BaseButton *createIcon() = 0;
@@ -51,7 +52,6 @@ private:
     QStringList arguments;  //可执行程序需要参数
     bool isRun;  //程序是否已经运行
     QByteArray procOut;
-    QMutex mutex;
 };
 
 #endif // PROCEDURE_H

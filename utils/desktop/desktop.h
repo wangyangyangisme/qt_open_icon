@@ -23,6 +23,7 @@ public slots:
 private slots:
     void startSlot(bool);
     void enterProSlot();
+    void handleCmd(u_int);
 
 private:
     void returnDesktop();

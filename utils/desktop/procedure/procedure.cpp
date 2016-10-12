@@ -28,6 +28,12 @@ QPushButton:pressed{\
 }\
 "
 
+/**
+ * @brief 应用程序基类
+ * @param _socketname 应用程序名称
+ * @param _proName 应用程序可执行文件(包括路径)
+ * @param _arguments 应用程序启动参数，针对嵌入式设备
+ */
 Procedure::Procedure(const QString &_socketname, const QString &_proName, \
                      const QStringList &_arguments):
     socketName(_socketname),
@@ -51,6 +57,9 @@ void Procedure::init()
     connect(proIcon, SIGNAL(btnReleased()), this, SLOT(startProSlot()));
 }
 
+/**
+ * @brief 启动新程序并改变图标状态
+ */
 void Procedure::startProSlot()
 {
     if(isRun){
@@ -69,6 +78,10 @@ void Procedure::startProSlot()
     }
 }
 
+/**
+ * @brief 建立双方的本地通信
+ * @return
+ */
 bool Procedure::startSocketServer()
 {
     //初始化服务端
@@ -95,7 +108,7 @@ bool Procedure::startSocketServer()
 
 
 /**
- * @brief 启动进程
+ * @brief 启动外部程序作为新进程
  * @return 成功返回true，失败返回false
  */
 bool Procedure::startProcedure()
@@ -110,6 +123,8 @@ bool Procedure::startProcedure()
         qDebug()<<proName<<" process start success";
         connect(process, SIGNAL(finished(int,QProcess::ExitStatus)),\
                 this, SLOT(proExitHandler(int,QProcess::ExitStatus)));
+
+        //这两个信号连接是为了嵌入式设备上能够正常在终端输出子进程的打印信息
         connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(readSlot()));
         connect(process, SIGNAL(readyReadStandardError()), this, SLOT(readSlot()));
         return true;
@@ -127,10 +142,26 @@ void Procedure::connectionSlot()
     qDebug()<<proName<<" socket connect";
     client = server->nextPendingConnection();
     connect(client, SIGNAL(disconnected()), client, SLOT(deleteLater()));
-    connect(client, SIGNAL(disconnected()), this, SLOT(disconnectSlot()));
+    connect(client, SIGNAL(readyRead()), this, SLOT(parseCmd()));
 }
 
+/**
+ * @brief 解析来自外部程序命令并通知桌面
+ */
+void Procedure::parseCmd()
+{
+    QDataStream in(client);
+    QByteArray block;
+    in >> block;
+    u_int cmd = block.toInt();
+    emit recvCmd(cmd);
+}
 
+/**
+ * @brief 桌面发命令给子程序
+ * @param cmd
+ * @return
+ */
 bool Procedure::sendCmd(int cmd)
 {
     if(client != NULL){
@@ -150,31 +181,23 @@ bool Procedure::sendCmd(int cmd)
     }
 }
 
-
+/**
+ * @brief 程序退出一些处理
+ * @param code
+ * @param status
+ */
 void Procedure::proExitHandler(int code, QProcess::ExitStatus status)
 {
     qDebug()<<proName<<" exit code = "<<code;
     closeHandler();
 }
 
-/**
- * @brief 如果子进程和桌面程序断开连接，那么就杀死子进程
- * 因为此时桌面已经控制不了子进程了
- */
-void Procedure::disconnectSlot()
-{
-    qDebug()<<proName<<" socket disconnect";
-    //这里处理失败，子程序结束后首先调用这里一次，然后清理掉各个变量
-    //然后杀掉process时候又执行一次，加锁无效
-//    closeHandler();
-}
 
 /**
  * @brief 关闭子进程一些处理
  */
 void Procedure::closeHandler()
 {
-//    QMutexLocker locker(&mutex);
     if(isRun){
         isRun = false;
         process->close();
@@ -187,6 +210,9 @@ void Procedure::closeHandler()
     }
 }
 
+/**
+ * @brief 针对嵌入式设备提供方法
+ */
 void Procedure::setArgQWS()
 {
     QStringList arg;

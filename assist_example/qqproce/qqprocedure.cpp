@@ -18,12 +18,15 @@ QQProcedure::QQProcedure(QWidget *parent) :
     //    QWSServer::setCursorVisible(false);
 }
 
+/**
+ * @brief 解析来自桌面的命令
+ */
 void QQProcedure::parseCmd()
 {
     QDataStream in(qqsocket);
     QByteArray block;
     in >> block;
-    int cmd = block.toInt();
+    u_int cmd = block.toInt();
 
     if(cmd == PROCEDURE_HIDE)
     {
@@ -33,6 +36,7 @@ void QQProcedure::parseCmd()
     if(cmd == PROCEDURE_SHOW)
     {
         this->show();
+        setWindowState(Qt::WindowMaximized);
     }
 }
 
@@ -47,6 +51,11 @@ void QQProcedure::changeEvent(QEvent *event)
 
     if(this->windowState()==Qt::WindowMinimized)
     {
-        qDebug()<<"minium";
+        QString cmdStr = cmdStr.number(PROCEDURE_HIDE);
+        QByteArray cmdStream;
+        QDataStream out(&cmdStream, QIODevice::WriteOnly);
+        out << cmdStr.toLatin1().data();
+
+        qqsocket->write(cmdStream);
     }
 }

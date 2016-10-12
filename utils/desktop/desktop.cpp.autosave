@@ -21,7 +21,7 @@ Desktop::Desktop(QWidget *parent) :
     connect(qqProcedure, SIGNAL(enterPro()), this, SLOT(enterProSlot()));
     connect(qqProcedure, SIGNAL(recvCmd(u_int)), this, SLOT(handleCmd(u_int)));
 
-//    setWindowOpacity(0.9);  //透明度设置
+    setWindowOpacity(0.9);  //透明度设置
     setStyleSheet("background-color:#CDC9C9");
     setWindowFlags(Qt::FramelessWindowHint);
     setFixedSize(800, 480);
