@@ -11,4 +11,4 @@
 [http://git.oschina.net/coffeeLVeris/qt_open_icon/wikis/Home](http://git.oschina.net/coffeeLVeris/qt_open_icon/wikis/Home "项目文档")
 
 ## 招募 ##
-我们旨在开发一个全面、通用、又优美的QT组件库，所以希望志同道合的码友们能贡献自己的图库和组件源码。我们项目的讨论qq群：575356736
+我们旨在开发一个全面、通用、又优美的QT组件库，帮助QT开发者快速开发项目（尤其针对嵌入式QT开发），所以希望志同道合的码友们能贡献自己的图库和组件源码。我们项目的讨论qq群：575356736
