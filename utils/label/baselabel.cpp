@@ -1,3 +1,8 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.5.23
+ ** @brief:      图标基类
+ */
 #include "baselabel.h"
 
 #define DEFULT_LABEL_STYLE "\

@@ -1,3 +1,8 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.10.12
+ ** @brief:      桌面程序
+ */
 #include "desktop.h"
 
 #include "toast.h"

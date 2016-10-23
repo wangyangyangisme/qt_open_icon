@@ -8,8 +8,9 @@
 #include "dialogtest.h"
 #include "desktop.h"
 #include "listtest.h"
+#include "databasetest.h"
 
-#define DESKTOP
+#define DATABASE
 
 int main(int argc, char *argv[])
 {
@@ -51,6 +52,10 @@ int main(int argc, char *argv[])
 #elif defined LIST
     ListTest *w = new ListTest;
     w->show();
+#elif defined DATABASE
+    DatabaseTest *database = new DatabaseTest;
+    database->test();
+    return 0;
 #endif
 
     return a.exec();

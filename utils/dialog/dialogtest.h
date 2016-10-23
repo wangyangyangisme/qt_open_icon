@@ -1,3 +1,8 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.6.23
+ ** @brief:      消息对话框
+ */
 #ifndef DIALOGTEST_H
 #define DIALOGTEST_H
 

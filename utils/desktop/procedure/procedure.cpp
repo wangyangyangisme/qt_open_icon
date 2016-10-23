@@ -1,3 +1,9 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.10.12
+ ** @brief:      应用程序基类
+ */
+
 #include "procedure.h"
 
 #define PROCEDURE_BUTTON_STYLE "\

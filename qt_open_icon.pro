@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += network
+QT       += sql
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
@@ -13,9 +14,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 TARGET = qt_open_icon
 TEMPLATE = app
 
-INCLUDEPATH += font core utils common utils/label utils/button utils/animation \
-utils/dialog utils/timeset utils/wheel utils/navbar utils/desktop \
-utils/desktop/procedure utils/list
+INCLUDEPATH += font core utils common \
+utils/label utils/button utils/animation utils/dialog utils/timeset \
+utils/wheel utils/navbar utils/list \
+utils/desktop utils/desktop/procedure \
+service service/database service/database\connectionpool service/database\dao service/database\entity
 
 SOURCES += main.cpp\
     core/iconhelper.cpp \
@@ -59,7 +62,13 @@ SOURCES += main.cpp\
     utils/desktop/procedure/procedure.cpp \
     utils/list/baselist.cpp \
     utils/list/listtest.cpp \
-    utils/list/normallist.cpp
+    utils/list/normallist.cpp \
+    service/database/connectionpool/connectionpool.cpp \
+    service/database/dao/abstractdao.cpp \
+    service/database/dao/studentdaoimpl.cpp \
+    service/database/entity/studentdata.cpp \
+    service/database/databasetest.cpp
+
 
 HEADERS  += \
     core/iconhelper.h \
@@ -116,7 +125,13 @@ HEADERS  += \
     utils/list/listtest.h \
     utils/list/normallist.h \
     utils/desktop/desktopcmd.h \
-    utils/desktop/procedure/procedurehead.h
+    utils/desktop/procedure/procedurehead.h \
+    service/database/connectionpool/connectionpool.h \
+    service/database/dao/abstractdao.h \
+    service/database/dao/studentdaoimpl.h \
+    service/database/entity/studentdata.h \
+    service/database/databasetest.h
+
 
 
 RESOURCES += \

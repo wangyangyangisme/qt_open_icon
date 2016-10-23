@@ -1,3 +1,8 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.5.23
+ ** @brief:      图标基类
+ */
 #ifndef BASELABEL_H
 #define BASELABEL_H
 
