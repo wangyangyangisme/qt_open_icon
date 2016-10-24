@@ -16,7 +16,7 @@ TEMPLATE = app
 
 INCLUDEPATH += font core utils common \
 utils/label utils/button utils/animation utils/dialog utils/timeset \
-utils/wheel utils/navbar utils/list \
+utils/wheel utils/navbar utils/list utils/qcustomplot\
 utils/desktop utils/desktop/procedure \
 service service/database service/database\connectionpool service/database\dao service/database\entity
 
@@ -67,7 +67,8 @@ SOURCES += main.cpp\
     service/database/dao/abstractdao.cpp \
     service/database/dao/studentdaoimpl.cpp \
     service/database/entity/studentdata.cpp \
-    service/database/databasetest.cpp
+    service/database/databasetest.cpp \
+    utils/qcustomplot/customplottest.cpp
 
 
 HEADERS  += \
@@ -130,7 +131,8 @@ HEADERS  += \
     service/database/dao/abstractdao.h \
     service/database/dao/studentdaoimpl.h \
     service/database/entity/studentdata.h \
-    service/database/databasetest.h
+    service/database/databasetest.h \
+    utils/qcustomplot/customplottest.h
 
 
 

@@ -9,8 +9,9 @@
 #include "desktop.h"
 #include "listtest.h"
 #include "databasetest.h"
+#include "customplottest.h"
 
-#define DATABASE
+#define QCustomPlot
 
 int main(int argc, char *argv[])
 {
@@ -51,6 +52,9 @@ int main(int argc, char *argv[])
     desk->show();
 #elif defined LIST
     ListTest *w = new ListTest;
+    w->show();
+#elif defined QCustomPlot
+    CustomplotTest *w = new CustomplotTest;
     w->show();
 #elif defined DATABASE
     DatabaseTest *database = new DatabaseTest;
