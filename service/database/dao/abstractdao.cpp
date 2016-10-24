@@ -58,3 +58,17 @@ void AbstractDao::viewTable()
 
     file.close();
 }
+
+/**
+ * @brief 删除某条记录，这里抽象层只是提供一个方法，最好仍是针对不同实体单独封装
+ * @param condition 删除条件
+ */
+void AbstractDao::deleteObj(const QString &condition)
+{
+    QSqlQuery query(db);
+    QString cmd = "delete from " + tableName + " where " + condition;
+
+    if(!query.exec(cmd)){
+        qDebug()<<query.lastError();
+    }
+}

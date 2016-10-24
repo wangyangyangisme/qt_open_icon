@@ -18,6 +18,7 @@ public:
 
     bool initTable();  //初始化所需要的表
     void viewTable();  //相当于select * from table,会输出到打印台和控制台，以table名为文件名
+    void deleteObj(const QString &condition);
 
 protected:
     virtual bool createTable() = 0;  //产生表的接口

@@ -55,7 +55,12 @@ bool StudentDaoImpl::insertObj(StudentData &obj)
     query.bindValue(":id", obj.getID());
     query.bindValue(":name", obj.getName());
     query.bindValue(":score", obj.getScore());
-    return query.exec();
+    if(!query.exec()){
+        qDebug()<<query.lastError();
+        return false;
+    }else{
+        return true;
+    }
 }
 
 /**

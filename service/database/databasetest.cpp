@@ -29,6 +29,8 @@ void DatabaseTest::test()
     stuDao.initTable();
     stuDao.insertObj(data1);
     stuDao.insertObj(data2);
+
+    stuDao.deleteObj("id = 2");
     stuDao.viewTable();
 
     ConnectionPool::release(); // 程序结束时关闭连接，以免造成连接泄漏

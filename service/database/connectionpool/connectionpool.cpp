@@ -16,8 +16,8 @@ ConnectionPool::ConnectionPool() {
     // 这里为了演示方便所以写死在了代码里。
     databaseName = "mydb";
     databaseType = "QSQLITE";
-    testOnBorrow = false;
-    testOnBorrowSql = "SELECT 1";
+    testOnBorrow = true;
+    testOnBorrowSql = "select 1";
 
     maxWaitTime  = 5000;
     waitInterval = 200;
