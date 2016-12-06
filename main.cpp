@@ -7,11 +7,11 @@
 #include "navbar.h"
 #include "dialogtest.h"
 #include "desktop.h"
-#include "listtest.h"
 #include "databasetest.h"
 #include "customplottest.h"
+#include "listtest.h"
 
-#define QCustomPlot
+#define LIST
 
 int main(int argc, char *argv[])
 {

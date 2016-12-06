@@ -5,6 +5,7 @@
 
 class NormalList : public BaseList
 {
+    Q_OBJECT
 public:
     NormalList(const QStringList &list);
 };

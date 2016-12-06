@@ -16,7 +16,7 @@ TEMPLATE = app
 
 INCLUDEPATH += font core utils common \
 utils/label utils/button utils/animation utils/dialog utils/timeset \
-utils/wheel utils/navbar utils/list utils/qcustomplot\
+utils/wheel utils/navbar utils/table utils/qcustomplot\
 utils/desktop utils/desktop/procedure \
 service service/database service/database\connectionpool service/database\dao service/database\entity
 
@@ -60,16 +60,16 @@ SOURCES += main.cpp\
     utils/desktop/desktop.cpp \
     utils/desktop/procedure/qqprocedure.cpp \
     utils/desktop/procedure/procedure.cpp \
-    utils/list/baselist.cpp \
-    utils/list/listtest.cpp \
-    utils/list/normallist.cpp \
     service/database/connectionpool/connectionpool.cpp \
     service/database/dao/abstractdao.cpp \
     service/database/dao/studentdaoimpl.cpp \
     service/database/entity/studentdata.cpp \
     service/database/databasetest.cpp \
-    utils/qcustomplot/customplottest.cpp
-
+    utils/qcustomplot/customplottest.cpp \
+    utils/table/baselist.cpp \
+    utils/table/listtest.cpp \
+    utils/table/normallist.cpp \
+    utils/table/linedelegate.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -82,15 +82,6 @@ HEADERS  += \
     utils/button/switchbutton.h \
     utils/button/loopbutton.h \
     utils/button/batterybutton.h \
-    utils/animations/animation/abstractanimation.h \
-    utils/animations/animation/animation.h \
-    utils/animations/animation/animationcenter.h \
-    utils/animations/animation/animationcover.h \
-    utils/animations/animation/animationfly.h \
-    utils/animations/animation/animationsharp.h \
-    utils/animations/animation/animationslide.h \
-    utils/animations/animation/animationwidget.h \
-    utils/animations/mainwindow.h \
     utils/animation/abstractanimation.h \
     utils/animation/animation.h \
     utils/animation/animationcenter.h \
@@ -122,9 +113,6 @@ HEADERS  += \
     utils/desktop/desktop.h \
     utils/desktop/procedure/qqprocedure.h \
     utils/desktop/procedure/procedure.h \
-    utils/list/baselist.h \
-    utils/list/listtest.h \
-    utils/list/normallist.h \
     utils/desktop/desktopcmd.h \
     utils/desktop/procedure/procedurehead.h \
     service/database/connectionpool/connectionpool.h \
@@ -132,9 +120,11 @@ HEADERS  += \
     service/database/dao/studentdaoimpl.h \
     service/database/entity/studentdata.h \
     service/database/databasetest.h \
-    utils/qcustomplot/customplottest.h
-
-
+    utils/qcustomplot/customplottest.h \
+    utils/table/baselist.h \
+    utils/table/listtest.h \
+    utils/table/normallist.h \
+    utils/table/linedelegate.h
 
 RESOURCES += \
     resource.qrc

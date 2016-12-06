@@ -3,9 +3,11 @@
 NormalList::NormalList(const QStringList &list)
 {
     setRowCount(list.length());
-    setColumnCount(1);
+    setColumnCount(2);
+
     for(int i=0; i<list.length(); i++){
         QTableWidgetItem *item = new QTableWidgetItem(list.at(i));
-        setItem(i,1,item);
+//        item->setTextAlignment(Qt::AlignCenter);
+        setItem(i,0,item);
     }
 }

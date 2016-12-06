@@ -7,16 +7,17 @@
 #ifndef BASELIST_H
 #define BASELIST_H
 
-#include "baselabel.h"
+#include "linedelegate.h"
 
 class BaseList : public QTableWidget
 {
+    Q_OBJECT
 public:
     BaseList();
 
 public slots:
     virtual void currentCellChangedSlot(int currentRow, int currentColumn,\
-                            int previousRow, int previousColumn);
+                                        int previousRow, int previousColumn);
 };
 
 #endif // BASELIST_H

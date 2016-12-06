@@ -32,6 +32,8 @@ BaseList::BaseList()
     setShowGrid(false);//网格不显示
     setFocusPolicy(Qt::NoFocus);  //无焦点
 
+    setItemDelegate(new LineDelegate(this));
+
     connect(this, SIGNAL(currentCellChanged(int,int,int,int)),\
             this, SLOT(currentCellChangedSlot(int,int,int,int)));
 }
