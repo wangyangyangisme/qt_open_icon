@@ -3,7 +3,7 @@
 #define DEFAULT_LIST_STYLE "\
 QTableWidget{\
     background:#FFFFFF;\
-    selection-background-color:#FFFFFF;\
+    selection-background-color:#EEEEE0;\
     font:bold;\
     color:#838B8B;\
     selection-color:#838B8B;\
