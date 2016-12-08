@@ -4,14 +4,14 @@
 #include "baselabel.h"
 #include "timetotal.h"
 #include "wheeltest.h"
-#include "navbar.h"
+#include "navbartest.h"
 #include "dialogtest.h"
 #include "desktop.h"
 #include "databasetest.h"
 #include "customplottest.h"
 #include "listtest.h"
 
-#define LIST
+#define NAVBAR
 
 int main(int argc, char *argv[])
 {
@@ -44,8 +44,7 @@ int main(int argc, char *argv[])
     TimeTotal *w = new TimeTotal;
     w->show();
 #elif defined NAVBAR
-    BaseButton *btn = new BaseButton(TimeFont(), TimeFont::ICON_BACK, 200, 100);
-    Navbar *w = new Navbar(btn);
+    NavBarTest *w = new NavBarTest;
     w->show();
 #elif defined DESKTOP
     Desktop *desk = new Desktop;

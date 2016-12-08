@@ -54,7 +54,6 @@ SOURCES += main.cpp\
     utils/timeset/zonetable.cpp \
     utils/qcustomplot/qcustomplot.cpp \
     utils/navbar/navbar.cpp \
-    utils/navbar/test.cpp \
     utils/dialog/basemessagebox.cpp \
     common/utilscommon.cpp \
     utils/desktop/desktop.cpp \
@@ -69,7 +68,9 @@ SOURCES += main.cpp\
     utils/table/baselist.cpp \
     utils/table/listtest.cpp \
     utils/table/normallist.cpp \
-    utils/table/linedelegate.cpp
+    utils/table/linedelegate.cpp \
+    utils/table/navlist.cpp \
+    utils/navbar/navbartest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -107,7 +108,6 @@ HEADERS  += \
     utils/timeset/zonetable.h \
     utils/qcustomplot/qcustomplot.h \
     utils/navbar/navbar.h \
-    utils/navbar/test.h \
     utils/dialog/basemessagebox.h \
     common/utilscommon.h \
     utils/desktop/desktop.h \
@@ -124,7 +124,9 @@ HEADERS  += \
     utils/table/baselist.h \
     utils/table/listtest.h \
     utils/table/normallist.h \
-    utils/table/linedelegate.h
+    utils/table/linedelegate.h \
+    utils/table/navlist.h \
+    utils/navbar/navbartest.h
 
 RESOURCES += \
     resource.qrc

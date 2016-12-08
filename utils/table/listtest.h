@@ -2,6 +2,7 @@
 #define LISTTEST_H
 
 #include "normallist.h"
+#include "navlist.h"
 
 class ListTest : public QWidget
 {
@@ -14,7 +15,8 @@ signals:
 public slots:
 
 private:
-    NormalList *list;
+    NormalList *normalList;
+    NavList *navList;
 };
 
 #endif // LISTTEST_H

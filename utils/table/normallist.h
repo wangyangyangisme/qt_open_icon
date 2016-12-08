@@ -1,3 +1,9 @@
+/**
+ ** @author:	   浓咖啡
+ ** @date:	   2016.7.27
+ ** @brief:      列表组件
+ */
+
 #ifndef NORMALLIST_H
 #define NORMALLIST_H
 
