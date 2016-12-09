@@ -4,10 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-QT       += network
-QT       += sql
+QT       += core gui network sql
 
+CONFIG   += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
@@ -18,7 +17,7 @@ INCLUDEPATH += font core utils common \
 utils/label utils/button utils/animation utils/dialog utils/timeset \
 utils/wheel utils/navbar utils/table utils/qcustomplot\
 utils/desktop utils/desktop/procedure \
-service service/database service/database\connectionpool service/database\dao service/database\entity
+service service/database service/database/connectionpool service/database/dao service/database/entity
 
 SOURCES += main.cpp\
     core/iconhelper.cpp \
@@ -132,7 +131,7 @@ QT_VER_MINOR = $$member(QT_VER_STRING, 1)
 QT_VER_PATCH = $$member(QT_VER_STRING, 2)
 
 win32{
-    equals(QT_VER_MAJOR, 6){
+    equals(QT_VER_MAJOR, 5){
         HEADERS += utils/wheel/wheelwidget.h \
                     utils/wheel/stringwheelwidget.h \
                     utils/wheel/wheeltest.h
