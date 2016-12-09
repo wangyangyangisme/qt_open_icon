@@ -48,9 +48,6 @@ SOURCES += main.cpp\
     utils/timeset/switchwidget.cpp \
     utils/timeset/timeset.cpp \
     utils/timeset/zoneset.cpp \
-    utils/wheel/wheelwidget.cpp \
-    utils/wheel/stringwheelwidget.cpp \
-    utils/wheel/wheeltest.cpp \
     utils/timeset/zonetable.cpp \
     utils/qcustomplot/qcustomplot.cpp \
     utils/navbar/navbar.cpp \
@@ -102,9 +99,6 @@ HEADERS  += \
     utils/timeset/switchwidget.h \
     utils/timeset/timeset.h \
     utils/timeset/zoneset.h \
-    utils/wheel/wheelwidget.h \
-    utils/wheel/stringwheelwidget.h \
-    utils/wheel/wheeltest.h \
     utils/timeset/zonetable.h \
     utils/qcustomplot/qcustomplot.h \
     utils/navbar/navbar.h \
@@ -130,5 +124,27 @@ HEADERS  += \
 
 RESOURCES += \
     resource.qrc
+
+QT_VER_STRING = $$[QT_VERSION];
+QT_VER_STRING = $$split(QT_VER_STRING, ".")
+QT_VER_MAJOR = $$member(QT_VER_STRING, 0)
+QT_VER_MINOR = $$member(QT_VER_STRING, 1)
+QT_VER_PATCH = $$member(QT_VER_STRING, 2)
+
+win32{
+    equals(QT_VER_MAJOR, 6){
+        HEADERS += utils/wheel/wheelwidget.h \
+                    utils/wheel/stringwheelwidget.h \
+                    utils/wheel/wheeltest.h
+
+        SOURCES += utils/wheel/wheelwidget.cpp \
+                    utils/wheel/stringwheelwidget.cpp \
+                    utils/wheel/wheeltest.cpp
+    }
+
+    equals(QT_MAJOR_VERSION, 4){
+
+    }
+}
 
 #message(parse over)
