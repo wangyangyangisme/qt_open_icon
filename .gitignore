@@ -1,6 +1,12 @@
 .svn
-*.user*
-build-*
-*.0-pre1
-*.3-pre1
+*.user
+*.user.*
+*.aps
+build-*/
+*.*-pre1
 *.autosave
+*.*~
+*.uxf
+Thumbs.db
+ehthumbs.db
+Desktop.ini
