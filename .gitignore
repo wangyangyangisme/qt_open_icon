@@ -1,3 +1,6 @@
 .svn
-*.user
-qt_open_icon.pro.user.*
+*.user*
+build-*
+*.0-pre1
+*.3-pre1
+*.autosave
