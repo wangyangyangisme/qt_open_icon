@@ -10,8 +10,9 @@
 #include "databasetest.h"
 #include "customplottest.h"
 #include "listtest.h"
+#include "digitalinputtest.h"
 
-#define NAVBAR
+#define DIGITALINPUT
 
 int main(int argc, char *argv[])
 {
@@ -59,6 +60,9 @@ int main(int argc, char *argv[])
     DatabaseTest *database = new DatabaseTest;
     database->test();
     return 0;
+#elif defined DIGITALINPUT
+    DigitalInputTest *digtest = new DigitalInputTest;
+    digtest->show();
 #endif
 
     return a.exec();

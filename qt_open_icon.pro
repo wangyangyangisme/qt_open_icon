@@ -17,6 +17,7 @@ INCLUDEPATH += font core utils common \
 utils/label utils/button utils/animation utils/dialog utils/timeset \
 utils/wheel utils/navbar utils/table utils/qcustomplot\
 utils/desktop utils/desktop/procedure \
+utils/digitalinput\
 service service/database service/database/connectionpool service/database/dao service/database/entity
 
 SOURCES += main.cpp\
@@ -66,7 +67,9 @@ SOURCES += main.cpp\
     utils/table/normallist.cpp \
     utils/table/linedelegate.cpp \
     utils/table/navlist.cpp \
-    utils/navbar/navbartest.cpp
+    utils/navbar/navbartest.cpp \
+    utils/digitalinput/digitalinput.cpp \
+    utils/digitalinput/digitalinputtest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -119,7 +122,9 @@ HEADERS  += \
     utils/table/normallist.h \
     utils/table/linedelegate.h \
     utils/table/navlist.h \
-    utils/navbar/navbartest.h
+    utils/navbar/navbartest.h \
+    utils/digitalinput/digitalinput.h \
+    utils/digitalinput/digitalinputtest.h
 
 RESOURCES += \
     resource.qrc

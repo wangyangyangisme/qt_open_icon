@@ -38,7 +38,7 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
     fontName = fontLib.getIconName();
     IconHelper::Instance()->setNewIcon(fontLib);
     iconhelp::setIcon(this,iconIndex);  //正好跟button类的命名冲突
-    setFixedSize(w, h);
+    setMinimumSize(w, h);
     if(style != QString()){
         setStyleSheet(style);
     }else{
