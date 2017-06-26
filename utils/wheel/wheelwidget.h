@@ -7,12 +7,7 @@
 #ifndef WHEELWIDGET_H
 #define WHEELWIDGET_H
 
-#include <QObject>
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-#include <QtWidgets>
-#else
-#include <QtGui>
-#endif
+#include "platformhead.h"
 
 class AbstractWheelWidget : public QWidget {
     Q_OBJECT

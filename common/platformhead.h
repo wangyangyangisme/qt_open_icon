@@ -7,6 +7,7 @@
 #ifndef PLATFORMHEAD_H
 #define PLATFORMHEAD_H
 
+#include <QObject>
 #if (QT_VERSION < QT_VERSION_CHECK(5,0,0))
     #include <QtGui>
 #else
