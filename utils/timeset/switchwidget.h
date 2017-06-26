@@ -1,7 +1,12 @@
 #ifndef __SWITCHWIDGET_H__
 #define __SWITCHWIDGET_H__
 
+#include <QObject>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <QtWidgets>
+#else
+#include <QtGui>
+#endif
 
 typedef  unsigned char		uchar;
 #define		GRAPH_PRESSSTYLE_SYSTEM1	0

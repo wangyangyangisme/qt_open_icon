@@ -37,11 +37,11 @@ int main(int argc, char *argv[])
 #elif defined DIALOGTEST
     DialogTest *w = new DialogTest;
     w->show();
-#elif defined WHEELWIDGET
+#elif defined WHEELWIDGET && (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
     bool touch = a.arguments().contains(QLatin1String("--touch"));
     WheelTest *w = new WheelTest(touch);
     w->show();
-#elif defined TIMESET
+#elif defined TIMESET && (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
     TimeTotal *w = new TimeTotal;
     w->show();
 #elif defined NAVBAR

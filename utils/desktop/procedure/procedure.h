@@ -30,7 +30,7 @@ public:
 signals:
     void startResult(bool);
     void enterPro();  //信号表示程序从后台转为前台运行
-    void recvCmd(u_int);  //收到来自APP的命令
+    void recvCmd(uint);  //收到来自APP的命令
 
 protected slots:
     void connectionSlot();

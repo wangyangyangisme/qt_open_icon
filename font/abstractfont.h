@@ -1,7 +1,12 @@
 #ifndef ABSTRACTFONT_H
 #define ABSTRACTFONT_H
 
+#include <QObject>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
 #include <QtWidgets>
+#else
+#include <QtGui>
+#endif
 
 /**
  * @brief 抽象字体库基类

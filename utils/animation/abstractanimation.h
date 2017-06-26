@@ -9,9 +9,13 @@
 #ifndef ABSTRACTANIMATION_H
 #define ABSTRACTANIMATION_H
 
-#include <QtWidgets>
 #include <QEasingCurve>
 #include "assert.h"
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#include <QtWidgets>
+#else
+#include <QtGui>
+#endif
 
 class AbstractAnimation : public QObject
 {
