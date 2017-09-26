@@ -40,6 +40,7 @@ Navbar::Navbar(int w, int h, BaseButton *leftbtn, QLabel *centerLab, BaseButton 
         lay->addWidget(rightbtn);
         this->rightbtn = rightbtn;
         rightbtn->setFixedSize(h, h);
+        rightbtn->setFocusPolicy(Qt::NoFocus);
     }else{
         centerLab->setFixedSize(centerW, h);
         lay->addWidget(centerLab);

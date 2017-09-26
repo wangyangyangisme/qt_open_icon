@@ -71,7 +71,8 @@ SOURCES += main.cpp\
     utils/digitalinput/digitalinput.cpp \
     utils/digitalinput/digitalinputtest.cpp \
     utils/button/groupbutton.cpp \
-    test/colortest.cpp
+    test/colortest.cpp \
+    common/global.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -121,7 +122,8 @@ HEADERS  += \
     utils/digitalinput/digitalinput.h \
     utils/digitalinput/digitalinputtest.h \
     utils/button/groupbutton.h \
-    test/colortest.h
+    test/colortest.h \
+    common/global.h
 
 RESOURCES += \
     resource.qrc

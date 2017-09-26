@@ -10,7 +10,7 @@ QLabel{\
     color:#000000;\
     font:100px;\
     border:1px solid #AAAAAA;\
-    background-color:rgb(0,0,0,0);\
+    background-color:rgb(255,255,255);\
 }\
 "
 

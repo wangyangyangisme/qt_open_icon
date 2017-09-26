@@ -1,3 +1,4 @@
+#include "global.h"
 #include "buttontest.h"
 #include "animationtest.h"
 #include "dialogtest.h"
@@ -12,7 +13,7 @@
 #include "listtest.h"
 #include "digitalinputtest.h"
 
-#define BUTTONTEST
+#define NAVBAR
 
 int main(int argc, char *argv[])
 {
@@ -25,8 +26,13 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(codec);
 #endif
 
+#ifdef RUN_EMBEDDED
+    QWSServer::setCursorVisible(false);
+#endif
+
+
 #ifdef LABELTEST
-    BaseLabel *w = new BaseLabel(TimeFont(), TimeFont::ICON_BACK, 200, 100);
+    BaseLabel *w = new BaseLabel(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
     w->show();
 #elif defined BUTTONTEST
     ButtonTest *w = new ButtonTest;
