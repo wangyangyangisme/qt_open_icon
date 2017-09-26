@@ -5,9 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui network sql
-
-CONFIG   += c++11
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = qt_open_icon
@@ -19,6 +16,16 @@ utils/wheel utils/navbar utils/table utils/qcustomplot\
 utils/desktop utils/desktop/procedure \
 utils/digitalinput\
 service service/database service/database/connectionpool service/database/dao service/database/entity
+
+win32:msvc{
+    CONFIG +=c++11
+}else{
+    QMAKE_CXXFLAGS += -std=c++11
+    QMAKE_CXXFLAGS += -Wunused-function
+    QMAKE_CXXFLAGS += -Wunused-parameter
+    QMAKE_CXXFLAGS += -Wreorder
+    QMAKE_CXXFLAGS += -Wswitch
+}
 
 SOURCES += main.cpp\
     core/iconhelper.cpp \
@@ -41,14 +48,7 @@ SOURCES += main.cpp\
     utils/dialog/toast.cpp \
     utils/dialog/dialogtest.cpp \
     utils/label/baselabel.cpp \
-    utils/timeset/headutils.cpp \
     font/timefont.cpp \
-    utils/timeset/timetotal.cpp \
-    utils/timeset/timedisplay.cpp \
-    utils/timeset/switchwidget.cpp \
-    utils/timeset/timeset.cpp \
-    utils/timeset/zoneset.cpp \
-    utils/timeset/zonetable.cpp \
     utils/qcustomplot/qcustomplot.cpp \
     utils/navbar/navbar.cpp \
     utils/dialog/basemessagebox.cpp \
@@ -95,14 +95,7 @@ HEADERS  += \
     utils/dialog/toast.h \
     utils/dialog/dialogtest.h \
     utils/label/baselabel.h \
-    utils/timeset/headutils.h \
     font/timefont.h \
-    utils/timeset/timetotal.h \
-    utils/timeset/timedisplay.h \
-    utils/timeset/switchwidget.h \
-    utils/timeset/timeset.h \
-    utils/timeset/zoneset.h \
-    utils/timeset/zonetable.h \
     utils/qcustomplot/qcustomplot.h \
     utils/navbar/navbar.h \
     utils/dialog/basemessagebox.h \
@@ -139,13 +132,29 @@ QT_VER_PATCH = $$member(QT_VER_STRING, 2)
 
 win32{
     equals(QT_VER_MAJOR, 5){
-        HEADERS += utils/wheel/wheelwidget.h \
-                    utils/wheel/stringwheelwidget.h \
-                    utils/wheel/wheeltest.h
+        HEADERS += \
+            utils/timeset/headutils.h \
+            utils/timeset/timetotal.h \
+            utils/timeset/timedisplay.h \
+            utils/timeset/switchwidget.h \
+            utils/timeset/timeset.h \
+            utils/timeset/zoneset.h \
+            utils/timeset/zonetable.h \
+            utils/wheel/wheelwidget.h \
+            utils/wheel/stringwheelwidget.h \
+            utils/wheel/wheeltest.h
 
-        SOURCES += utils/wheel/wheelwidget.cpp \
-                    utils/wheel/stringwheelwidget.cpp \
-                    utils/wheel/wheeltest.cpp
+        SOURCES += \
+            utils/timeset/headutils.cpp \
+            utils/timeset/timetotal.cpp \
+            utils/timeset/timedisplay.cpp \
+            utils/timeset/switchwidget.cpp \
+            utils/timeset/timeset.cpp \
+            utils/timeset/zoneset.cpp \
+            utils/timeset/zonetable.cpp \
+            utils/wheel/wheelwidget.cpp \
+            utils/wheel/stringwheelwidget.cpp \
+            utils/wheel/wheeltest.cpp
     }
 
     equals(QT_MAJOR_VERSION, 4){

@@ -1,7 +1,7 @@
 #ifndef __SWITCHWIDGET_H__
 #define __SWITCHWIDGET_H__
 
-#include <QtWidgets>
+#include "platformhead.h"
 
 typedef  unsigned char		uchar;
 #define		GRAPH_PRESSSTYLE_SYSTEM1	0

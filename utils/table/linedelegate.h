@@ -7,7 +7,7 @@
 #ifndef LINEDELEGATE_H
 #define LINEDELEGATE_H
 
-#include <QtWidgets>
+#include "platformhead.h"
 
 class LineDelegate : public QStyledItemDelegate
 {

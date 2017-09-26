@@ -7,7 +7,7 @@
 #ifndef WHEELWIDGET_H
 #define WHEELWIDGET_H
 
-#include <QtWidgets>
+#include "platformhead.h"
 
 class AbstractWheelWidget : public QWidget {
     Q_OBJECT

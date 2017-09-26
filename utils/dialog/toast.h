@@ -8,7 +8,7 @@
 #ifndef TOAST_H
 #define TOAST_H
 
-#include <QtWidgets>
+#include "platformhead.h"
 
 #define DEFULT_TOAST_STYLE "\
 QLabel{\

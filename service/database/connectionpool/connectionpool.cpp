@@ -5,7 +5,7 @@
  ** @brief:          dao层抽象接口
  */
 
-#include "ConnectionPool.h"
+#include "connectionpool.h"
 
 QMutex ConnectionPool::mutex;
 QWaitCondition ConnectionPool::waitConnection;

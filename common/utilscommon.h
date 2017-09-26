@@ -1,7 +1,7 @@
 #ifndef UTILSCOMMON_H
 #define UTILSCOMMON_H
 
-#include <QtWidgets>
+#include "platformhead.h"
 
 namespace utilscommon {
 

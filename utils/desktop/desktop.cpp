@@ -24,7 +24,7 @@ Desktop::Desktop(QWidget *parent) :
     lay->addWidget(qqProcedure->proIcon, 0, 0);
     connect(qqProcedure, SIGNAL(startResult(bool)), this, SLOT(startSlot(bool)));
     connect(qqProcedure, SIGNAL(enterPro()), this, SLOT(enterProSlot()));
-    connect(qqProcedure, SIGNAL(recvCmd(u_int)), this, SLOT(handleCmd(u_int)));
+    connect(qqProcedure, SIGNAL(recvCmd(uint)), this, SLOT(handleCmd(uint)));
 
     setWindowOpacity(0.9);  //透明度设置
     setStyleSheet("background-color:#CDC9C9");
@@ -81,7 +81,7 @@ void Desktop::enterProSlot()
  * @brief 处理来自APP的命令
  * @param cmd
  */
-void Desktop::handleCmd(u_int cmd)
+void Desktop::handleCmd(uint cmd)
 {
     switch (cmd) {
     case PROCEDURE_HIDE:  //应用程序最小化或者隐藏了

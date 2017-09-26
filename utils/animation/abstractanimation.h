@@ -9,9 +9,9 @@
 #ifndef ABSTRACTANIMATION_H
 #define ABSTRACTANIMATION_H
 
-#include <QtWidgets>
 #include <QEasingCurve>
 #include "assert.h"
+#include "platformhead.h"
 
 class AbstractAnimation : public QObject
 {

@@ -159,7 +159,7 @@ void Procedure::parseCmd()
     QDataStream in(client);
     QByteArray block;
     in >> block;
-    u_int cmd = block.toInt();
+    uint cmd = block.toInt();
     emit recvCmd(cmd);
 }
 

@@ -1,7 +1,7 @@
 #ifndef ABSTRACTFONT_H
 #define ABSTRACTFONT_H
 
-#include <QtWidgets>
+#include "platformhead.h"
 
 /**
  * @brief 抽象字体库基类
