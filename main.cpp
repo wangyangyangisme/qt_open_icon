@@ -26,11 +26,6 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(codec);
 #endif
 
-#ifdef RUN_EMBEDDED
-    QWSServer::setCursorVisible(false);
-#endif
-
-
 #ifdef LABELTEST
     BaseLabel *w = new BaseLabel(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
     w->show();
@@ -54,8 +49,8 @@ int main(int argc, char *argv[])
     NavBarTest *w = new NavBarTest;
     w->show();
 #elif defined DESKTOP
-    Desktop *desk = new Desktop;
-    desk->show();
+    Desktop *w = new Desktop;
+    w->show();
 #elif defined LIST
     ListTest *w = new ListTest;
     w->show();
@@ -67,8 +62,14 @@ int main(int argc, char *argv[])
     database->test();
     return 0;
 #elif defined DIGITALINPUT
-    DigitalInputTest *digtest = new DigitalInputTest;
-    digtest->show();
+    DigitalInputTest *w = new DigitalInputTest;
+    w->show();
+#endif
+
+#ifdef RUN_EMBEDDED
+    QWSServer::setCursorVisible(false);
+#else
+    w->move((qApp->desktop()->width()-w->width())/2, (qApp->desktop()->height()-w->height())/2);
 #endif
 
     return a.exec();
