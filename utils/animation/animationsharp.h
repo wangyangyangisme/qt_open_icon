@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   animationsharp.h
  ** @author:	   浓咖啡
  ** @date:	   2015.4.18
  ** @brief:     对角变化

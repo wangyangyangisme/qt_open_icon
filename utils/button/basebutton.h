@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   basebutton.h
  ** @author:	   浓咖啡
  ** @date:	   2016.6.4
  ** @brief:      按钮基类

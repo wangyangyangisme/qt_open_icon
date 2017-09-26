@@ -70,7 +70,8 @@ SOURCES += main.cpp\
     utils/navbar/navbartest.cpp \
     utils/digitalinput/digitalinput.cpp \
     utils/digitalinput/digitalinputtest.cpp \
-    utils/button/groupbutton.cpp
+    utils/button/groupbutton.cpp \
+    test/colortest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -119,7 +120,8 @@ HEADERS  += \
     utils/navbar/navbartest.h \
     utils/digitalinput/digitalinput.h \
     utils/digitalinput/digitalinputtest.h \
-    utils/button/groupbutton.h
+    utils/button/groupbutton.h \
+    test/colortest.h
 
 RESOURCES += \
     resource.qrc
@@ -163,3 +165,6 @@ win32{
 }
 
 #message(parse over)
+
+FORMS += \
+    test/colortest.ui

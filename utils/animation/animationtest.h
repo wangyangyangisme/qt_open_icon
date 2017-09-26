@@ -1,5 +1,4 @@
 /**
- ** @file:	   animationtest.h
  ** @author:	   浓咖啡
  ** @date:	   2015.4.18
  ** @brief:     动画演示窗口，注意要把三幅图路径配置好

@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   animationcenter.cpp
  ** @author:	   浓咖啡
  ** @date:	   2015.4.18
  ** @brief:     中心隐现

@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   batterybutton.h
  ** @author:	   浓咖啡
  ** @date:	   2016.6.8
  ** @brief:      电量显示按钮

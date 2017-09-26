@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   animationwidget.cpp
  ** @author:	   浓咖啡
  ** @date:	   2015.4.15
  ** @brief:    动画窗口容器

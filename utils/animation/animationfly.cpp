@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   animationfly.cpp
  ** @author:	   浓咖啡
  ** @date:	   2015.4.18
  ** @brief:     飞入飞出效果

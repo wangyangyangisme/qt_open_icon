@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   loopbutton.h
  ** @author:	   浓咖啡
  ** @date:	   2016.6.8
  ** @brief:      适用于多个图标切换的按钮

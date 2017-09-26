@@ -1,6 +1,4 @@
-
 /**
- ** @file:	   animationslide.h
  ** @author:	   浓咖啡
  ** @date:	   2015.4.15
  ** @brief:     滑动效果,两个界面同时位移
