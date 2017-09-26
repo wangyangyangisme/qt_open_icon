@@ -15,6 +15,16 @@ QPushButton:pressed{\
 }\
 "
 
+#define DEFULT_LABEL_STYLE "\
+QLabel{\
+    color:#000000;\
+    font:40px;\
+    border:0px;\
+    background-color:rgb(0,0,0,0);\
+}\
+"
+
+
 ButtonTest::ButtonTest(QWidget *parent) :
     QWidget(parent)
 {
@@ -33,6 +43,12 @@ ButtonTest::ButtonTest(QWidget *parent) :
                                                   FontawesomeWebfont::ICON_LOCK,
                                                   200, 100, SWITCH_BUTTON_STYLE);
 
+    //groupbutton
+    QLabel *gourpButtonLab = new QLabel("GourpButton:");
+    GroupButton *groupButton = new GroupButton(MuiFont(), \
+                                                  MuiFont::ICON_WEINXIN,
+                                               200, 100, "微信", "", "");
+
     lay = new QGridLayout(this);
     lay->addWidget(baseButtonLab, 0, 0);
     lay->addWidget(baseButton, 0, 1);
@@ -40,4 +56,6 @@ ButtonTest::ButtonTest(QWidget *parent) :
     lay->addWidget(batteryButton, 0, 3);
     lay->addWidget(switchButtonLab, 1, 0);
     lay->addWidget(switchButton, 1, 1);
+    lay->addWidget(gourpButtonLab, 1, 2);
+    lay->addWidget(groupButton, 1, 3);
 }

@@ -69,7 +69,8 @@ SOURCES += main.cpp\
     utils/table/navlist.cpp \
     utils/navbar/navbartest.cpp \
     utils/digitalinput/digitalinput.cpp \
-    utils/digitalinput/digitalinputtest.cpp
+    utils/digitalinput/digitalinputtest.cpp \
+    utils/button/groupbutton.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -124,7 +125,8 @@ HEADERS  += \
     utils/table/navlist.h \
     utils/navbar/navbartest.h \
     utils/digitalinput/digitalinput.h \
-    utils/digitalinput/digitalinputtest.h
+    utils/digitalinput/digitalinputtest.h \
+    utils/button/groupbutton.h
 
 RESOURCES += \
     resource.qrc

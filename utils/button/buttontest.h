@@ -4,6 +4,7 @@
 #include "basebutton.h"
 #include "switchbutton.h"
 #include "batterybutton.h"
+#include "groupbutton.h"
 
 class ButtonTest : public QWidget
 {

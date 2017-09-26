@@ -12,7 +12,7 @@
 #include "listtest.h"
 #include "digitalinputtest.h"
 
-#define DIGITALINPUT
+#define BUTTONTEST
 
 int main(int argc, char *argv[])
 {
