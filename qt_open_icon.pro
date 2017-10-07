@@ -123,7 +123,8 @@ HEADERS  += \
     utils/digitalinput/digitalinputtest.h \
     utils/button/groupbutton.h \
     test/colortest.h \
-    common/global.h
+    common/global.h \
+    common/platformhead.h
 
 RESOURCES += \
     resource.qrc
