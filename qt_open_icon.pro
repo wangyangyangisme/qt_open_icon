@@ -126,6 +126,7 @@ HEADERS  += \
     test/colortest.h \
     common/global.h \
     utils/radiobutton/radiobutton.h
+    common/platformhead.h
 
 RESOURCES += \
     resource.qrc
