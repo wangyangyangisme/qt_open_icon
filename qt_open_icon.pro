@@ -72,7 +72,8 @@ SOURCES += main.cpp\
     utils/digitalinput/digitalinputtest.cpp \
     utils/button/groupbutton.cpp \
     test/colortest.cpp \
-    common/global.cpp
+    common/global.cpp \
+    utils/radiobutton/radiobutton.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -123,7 +124,8 @@ HEADERS  += \
     utils/digitalinput/digitalinputtest.h \
     utils/button/groupbutton.h \
     test/colortest.h \
-    common/global.h
+    common/global.h \
+    utils/radiobutton/radiobutton.h
 
 RESOURCES += \
     resource.qrc
@@ -169,4 +171,5 @@ win32{
 #message(parse over)
 
 FORMS += \
-    test/colortest.ui
+    test/colortest.ui \
+    utils/radiobutton/radiobutton.ui
