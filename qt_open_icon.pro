@@ -14,8 +14,9 @@ INCLUDEPATH += font core utils common \
 utils/label utils/button utils/animation utils/dialog utils/timeset \
 utils/wheel utils/navbar utils/table utils/qcustomplot\
 utils/desktop utils/desktop/procedure \
-utils/digitalinput\
-service service/database service/database/connectionpool service/database/dao service/database/entity
+utils/digitalinput utils/progressbar\
+service service/database service/database/connectionpool service/database/dao service/database/entity\
+
 
 win32:msvc{
     CONFIG +=c++11
@@ -73,7 +74,8 @@ SOURCES += main.cpp\
     utils/button/groupbutton.cpp \
     test/colortest.cpp \
     common/global.cpp \
-    utils/radiobutton/radiobutton.cpp
+    utils/radiobutton/radiobutton.cpp \
+    utils/progressbar/progressbar2.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -125,7 +127,8 @@ HEADERS  += \
     utils/button/groupbutton.h \
     test/colortest.h \
     common/global.h \
-    utils/radiobutton/radiobutton.h
+    utils/radiobutton/radiobutton.h \
+    utils/progressbar/progressbar2.h
     common/platformhead.h
 
 RESOURCES += \
@@ -173,4 +176,5 @@ win32{
 
 FORMS += \
     test/colortest.ui \
-    utils/radiobutton/radiobutton.ui
+    utils/radiobutton/radiobutton.ui \
+    utils/progressbar/progressbar2.ui

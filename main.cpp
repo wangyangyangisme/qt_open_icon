@@ -12,8 +12,9 @@
 #include "customplottest.h"
 #include "listtest.h"
 #include "digitalinputtest.h"
+#include "progressbar2.h"
 
-#define NAVBAR
+#define PROGRESSBAR2
 
 int main(int argc, char *argv[])
 {
@@ -61,6 +62,9 @@ int main(int argc, char *argv[])
     DatabaseTest *database = new DatabaseTest;
     database->test();
     return 0;
+#elif defined PROGRESSBAR2
+    ProgressBar2 *w = new ProgressBar2;
+    w->show();
 #elif defined DIGITALINPUT
     DigitalInputTest *w = new DigitalInputTest;
     w->show();
