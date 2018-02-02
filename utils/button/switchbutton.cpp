@@ -9,6 +9,13 @@ SwitchButton::SwitchButton(QWidget *parent):BaseButton(parent)
     flag = true;
 }
 
+void SwitchButton::setIndex(int index1, int index2)
+{
+    this->index1 = index1;
+    this->index2 = index2;
+    this->setIcon(index1);
+}
+
 void SwitchButton::releaseSlot()
 {
     restoreFont();
