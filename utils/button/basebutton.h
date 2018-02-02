@@ -13,9 +13,12 @@ class BaseButton : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit BaseButton(QWidget *parent=0);
+    explicit BaseButton(QWidget *parent = 0);
     explicit BaseButton(const AbstractFont &fontLib, int iconIndex, \
-                        int w, int h, const QString &style = QString());
+                        const QString &style = QString(), QWidget *parent = 0);
+    void setIcon(int);
+    void setFontSize(int);
+    void setNewFont(const AbstractFont &);
 
 protected slots:
     virtual void pressSlot(){}  //按下后需要扩展的功能

@@ -5,7 +5,6 @@
 QPushButton{\
     color:QLinearGradient(x1:0, y1:0, x2:0, y2:1,stop:0 #CC00CC, stop:1 #CCFF99);\
     border:1px solid #AAAAAA;\
-    font:100px;\
     border-radius:5;\
     background: QLinearGradient(x1:0, y1:0, x2:0, y2:1,stop:0 #0066FF, stop:1 #33FFFF);\
 }\
@@ -30,18 +29,21 @@ ButtonTest::ButtonTest(QWidget *parent) :
 {
     //BaseButton
     QLabel *baseButtonLab = new QLabel("BaseButton:");
-    BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
+    BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN);
+    baseButton->setFixedSize(200, 100);
+    baseButton->setFontSize(80);
 
     //batteryButtonLab
     QLabel *batteryButtonLab = new QLabel("BatteryButton:");
     BatteryButton *batteryButton = new BatteryButton(BatteryButton::EMPTY, EMPTY_BATTERY_STYLE);
+    batteryButton->resize(200, 100);
 
     //switchbutton
     QLabel *switchButtonLab = new QLabel("SwitchButton:");
-    SwitchButton *switchButton = new SwitchButton(FontawesomeWebfont(), \
-                                                  FontawesomeWebfont::ICON_UNLOCK,
-                                                  FontawesomeWebfont::ICON_LOCK,
-                                                  200, 100, SWITCH_BUTTON_STYLE);
+    SwitchButton *switchButton = new SwitchButton;
+    switchButton->resize(200, 100);
+    switchButton->setStyleSheet(SWITCH_BUTTON_STYLE);
+    switchButton->setFontSize(80);
 
     //groupbutton
     QLabel *gourpButtonLab = new QLabel("GourpButton:");

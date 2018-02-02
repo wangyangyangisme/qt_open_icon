@@ -6,7 +6,7 @@
  * @param curStateStyle 对应当前电量情况的样式
  */
 BatteryButton::BatteryButton(POWER power, const QString curStateStyle):
-    BaseButton(FontawesomeWebfont(), power, 200, 100, curStateStyle)
+    BaseButton(FontawesomeWebfont(), power, curStateStyle)
 {
     curIndex = 0;
 }

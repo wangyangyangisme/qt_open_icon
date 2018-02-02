@@ -3,7 +3,6 @@
 #define DEFULT_BUTTON_STYLE "\
 QPushButton{\
     color:#000000;\
-    font:100px;\
     border:1px solid #AAAAAA;\
     border-radius:5;\
     background-color:#FFFFFF;\
@@ -17,11 +16,21 @@ QPushButton:pressed{\
 //background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));
 
 /**
- * @brief 相当于产生一般的按钮
+ * @brief 会产生示例按钮，默认使用mui字体显示微信图标
  */
 BaseButton::BaseButton(QWidget *parent):QPushButton(parent)
 {
-    connect(this,SIGNAL(btnReleased()),this,SLOT(releaseSlot()));
+    //默认是mui字体
+    fontName = MuiFont().getIconName();
+    iconhelp::setIcon(this, MuiFont::ICON_WEINXIN);
+
+    //字体大小需要单独设置
+    QString finalStyle = DEFULT_BUTTON_STYLE + \
+            QString("QPushButton{font:%1pt;}").arg(this->font().pointSize());
+
+    setStyleSheet(finalStyle);
+
+    connect(this, SIGNAL(btnReleased()), this, SLOT(releaseSlot()));
 }
 
 /**
@@ -33,24 +42,38 @@ BaseButton::BaseButton(QWidget *parent):QPushButton(parent)
  * @param style 样式
  */
 BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
-                       int w, int h, const QString &style)
+                       const QString &style, QWidget *parent):QPushButton(parent)
 {
     fontName = fontLib.getIconName();
     IconHelper::Instance()->setNewIcon(fontLib);
-    iconhelp::setIcon(this,iconIndex);  //正好跟button类的命名冲突
-    setMinimumSize(w, h);
+    iconhelp::setIcon(this,iconIndex);
+
     if(style != QString()){
         setStyleSheet(style);
     }else{
-        //如果用户提供按钮大小不足以装下字体大小，那么提示一下就好
-        if(std::min(w, h) < 100){
-//            qDebug()<<"default font is bigger than button";
-        }
         setStyleSheet(DEFULT_BUTTON_STYLE);
     }
-    setFocusPolicy(Qt::NoFocus);
 
     connect(this,SIGNAL(btnReleased()),this,SLOT(releaseSlot()));
+}
+
+void BaseButton::setIcon(int index)
+{
+    iconhelp::setIcon(this, index);
+}
+
+void BaseButton::setFontSize(int ptSize)
+{
+    QString finalStyle = this->styleSheet() + \
+            QString("QPushButton{font:%1pt;}").arg(ptSize);
+
+    setStyleSheet(finalStyle);
+}
+
+void BaseButton::setNewFont(const AbstractFont &fontLib)
+{
+    fontName = fontLib.getIconName();
+    IconHelper::Instance()->setNewIcon(fontLib);
 }
 
 /**

@@ -34,9 +34,9 @@ private:
     QFont iconFont;
 };
 
-namespace iconhelp {
+namespace iconhelp {  //名字空间
 
-//核心non-member模板函数
+//核心non-member模板函数，会设置wig窗体显示当前字体库中第iconIndex代表的字符
 template<typename WidgetType>
 void setIcon(WidgetType *wig, int iconIndex)
 {

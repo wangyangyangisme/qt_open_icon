@@ -12,6 +12,7 @@ QQProcedure::QQProcedure():Procedure("qq", "qqproce.exe")
 
 BaseButton *QQProcedure::createIcon()
 {
-    BaseButton *iconBtn = new BaseButton(MuiFont(), MuiFont::ICON_QQ, 100, 100);
+    BaseButton *iconBtn = new BaseButton(MuiFont(), MuiFont::ICON_QQ);
+    iconBtn->resize(100, 100);
     return iconBtn;
 }

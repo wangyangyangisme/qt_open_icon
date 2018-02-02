@@ -1,7 +1,7 @@
 #include "loopbutton.h"
 
-LoopButton::LoopButton(const AbstractFont &fontLib, int iconIndex, int w, int h, const QString &style):
-    BaseButton(fontLib, iconIndex, w, h, style),
+LoopButton::LoopButton(const AbstractFont &fontLib, int iconIndex, const QString &style):
+    BaseButton(fontLib, iconIndex, style),
     curIndex(0)
 {
 }

@@ -57,7 +57,8 @@ NavBarTest::NavBarTest(QWidget *parent) :
 
     QLabel *centerLab2 = new QLabel("加返回按钮");
     centerLab2->setStyleSheet(CENTER_STYLE);
-    BaseButton *lbtn1 = new BaseButton(TimeFont(), TimeFont::ICON_BACK, 30, 30, LEFT_STYLE);
+    BaseButton *lbtn1 = new BaseButton(TimeFont(), TimeFont::ICON_BACK, LEFT_STYLE);
+    lbtn1->resize(30, 30);
     connect(lbtn1, SIGNAL(btnReleased()), this, SLOT(lReleased()));
     Navbar *bar2 = new Navbar(300, 30, lbtn1, centerLab2, NULL);
 
@@ -70,9 +71,11 @@ NavBarTest::NavBarTest(QWidget *parent) :
 
     QLabel *centerLab4 = new QLabel("完全展示");
     centerLab4->setStyleSheet(CENTER_STYLE);
-    BaseButton *lbtn4 = new BaseButton(TimeFont(), TimeFont::ICON_BACK, 30, 30, LEFT_STYLE);
+    BaseButton *lbtn4 = new BaseButton(TimeFont(), TimeFont::ICON_BACK, LEFT_STYLE);
+    lbtn4->resize(30, 30);
     connect(lbtn4, SIGNAL(btnReleased()), this, SLOT(lReleased()));
-    BaseButton *rbtn4 = new BaseButton(TimeFont(), TimeFont::ICON_DATE, 30, 30, RIGHT_STYLE);
+    BaseButton *rbtn4 = new BaseButton(TimeFont(), TimeFont::ICON_DATE, RIGHT_STYLE);
+    rbtn4->resize(30, 30);
     connect(lbtn4, SIGNAL(btnReleased()), this, SLOT(rReleased()));
     Navbar *bar4 = new Navbar(300, 30, lbtn4, centerLab4, rbtn4);
 

@@ -53,8 +53,10 @@ DigitalInput::DigitalInput(int w, int h)
 {
     curNum = 0;
 
-    add = new BaseButton(MuiFont(), MuiFont::ICON_PLUS, w, h, LEFT_STYLE);
-    down = new BaseButton(MuiFont(), MuiFont::ICON_MINUS, w, h, RIGHT_STYLE);
+    add = new BaseButton(MuiFont(), MuiFont::ICON_PLUS, LEFT_STYLE);
+    add->resize(w, h);
+    down = new BaseButton(MuiFont(), MuiFont::ICON_MINUS, RIGHT_STYLE);
+    down->resize(w, h);
     textEdit = new QLineEdit();
     textEdit->setMinimumSize(50, 52);
     textEdit->setStyleSheet(EDIT_STYLE);

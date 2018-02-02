@@ -16,6 +16,7 @@ utils/wheel utils/navbar utils/table utils/qcustomplot\
 utils/desktop utils/desktop/procedure \
 utils/digitalinput utils/progressbar\
 service service/database service/database/connectionpool service/database/dao service/database/entity\
+test
 
 
 win32:msvc{

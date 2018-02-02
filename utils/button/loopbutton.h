@@ -14,7 +14,7 @@ class LoopButton : public BaseButton
     Q_OBJECT
 public:
     explicit LoopButton(const AbstractFont &fontLib, int iconIndex,\
-                        int w, int h, const QString &style = QString());
+                        const QString &style = QString());
 signals:
 
 protected slots:

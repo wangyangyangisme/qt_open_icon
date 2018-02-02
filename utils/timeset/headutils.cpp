@@ -31,7 +31,8 @@ HeadUtils::HeadUtils(const QString &title, QWidget *parent) :
     setFixedSize(w, h);
 
     //返回按钮
-    back = new BaseButton(TimeFont(), TimeFont::ICON_BACK, 28, 28, BACK_BUTTON_STYLE);
+    back = new BaseButton(TimeFont(), TimeFont::ICON_BACK, BACK_BUTTON_STYLE);
+    back->resize(28, 28);
     back->setFocusPolicy(Qt::NoFocus);
     back->adjustSize();
 

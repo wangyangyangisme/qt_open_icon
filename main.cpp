@@ -13,8 +13,9 @@
 #include "listtest.h"
 #include "digitalinputtest.h"
 #include "progressbar2.h"
+#include "colortest.h"
 
-#define PROGRESSBAR2
+#define BUTTONTEST
 
 int main(int argc, char *argv[])
 {
@@ -67,6 +68,9 @@ int main(int argc, char *argv[])
     w->show();
 #elif defined DIGITALINPUT
     DigitalInputTest *w = new DigitalInputTest;
+    w->show();
+#elif defined COLOR_TEST
+    ColorTest *w = new ColorTest;
     w->show();
 #endif
 

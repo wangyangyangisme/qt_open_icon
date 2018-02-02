@@ -28,7 +28,8 @@ BaseMessageBox::BaseMessageBox(BaseLabel *labIcon, const QString &title, \
     titleWig->setObjectName("titleWig");
     titleWig->setFixedHeight(30);
 
-    closeBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_CLOSE, 40, 30);
+    closeBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_CLOSE);
+    closeBtn->resize(40, 30);
     closeBtn->setObjectName("closeBtn");
     QHBoxLayout *titleLay = new QHBoxLayout(titleWig);
     titleLay->addSpacing(10);
