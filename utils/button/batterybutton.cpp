@@ -5,8 +5,8 @@
  * @param power 代表当前电量情况
  * @param curStateStyle 对应当前电量情况的样式
  */
-BatteryButton::BatteryButton(POWER power, const QString curStateStyle):
-    BaseButton(FontawesomeWebfont(), power, curStateStyle)
+BatteryButton::BatteryButton(QWidget *parent):
+    BaseButton(FontawesomeWebfont(), EMPTY, EMPTY_BATTERY_STYLE, parent)
 {
     curIndex = 0;
 }

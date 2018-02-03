@@ -14,6 +14,7 @@
 #include "digitalinputtest.h"
 #include "progressbar2.h"
 #include "colortest.h"
+#include "btnedittest.h"
 
 #define BUTTONTEST
 
@@ -32,7 +33,9 @@ int main(int argc, char *argv[])
     BaseLabel *w = new BaseLabel(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
     w->show();
 #elif defined BUTTONTEST
-    ButtonTest *w = new ButtonTest;
+//    ButtonTest *w = new ButtonTest;
+//    w->show();
+    BtnEditTest *w = new BtnEditTest;
     w->show();
 #elif defined ANIMATIONTEST
     AnimationTest *w = new AnimationTest;

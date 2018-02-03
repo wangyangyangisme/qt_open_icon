@@ -35,7 +35,7 @@ void DialogTest::warningSlot()
 {
     Toast *toast;
     QString qss = utilscommon::readFile(":/qss/resourse/qss/dialog/default.qss");
-    BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_WAINING, 20, 20);
+    BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_WAINING);
     BaseMessageBox *w = new BaseMessageBox(labIcon, "警告", "确定删除？", qss);
     switch (w->exec()) {
     case BaseMessageBox::OK:
@@ -52,7 +52,7 @@ void DialogTest::warningSlot()
 void DialogTest::messageSlot()
 {
     QString qss = utilscommon::readFile(":/qss/resourse/qss/dialog/default.qss");
-    BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_INFO, 20, 20);
+    BaseLabel *labIcon = new BaseLabel(FontawesomeWebfont(), FontawesomeWebfont::ICON_INFO);
     BaseMessageBox *w = new BaseMessageBox(labIcon, "提示", "这是个好的组件库", qss, false);
     w->show();
 }

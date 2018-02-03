@@ -14,6 +14,7 @@ class SwitchButton : public BaseButton
     Q_OBJECT
 public:
     explicit SwitchButton(QWidget *parent = 0);
+    void setIndex(int, int);
 
 signals:
 

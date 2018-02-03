@@ -60,7 +60,7 @@ public:
         FULL = FontawesomeWebfont::BATTERY_4
     };
 
-    BatteryButton(POWER power, const QString curStateStyle);
+    BatteryButton(QWidget *parent = 0);
     void changePower(POWER power);
 
 private:

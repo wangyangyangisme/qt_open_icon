@@ -28,9 +28,11 @@ GroupButton::GroupButton(const AbstractFont &fontLib, int iconIndex, \
 {
     //初始化第一个label
     if(!style1.isEmpty()){
-        label1 = new BaseLabel(fontLib, iconIndex, w, h*2/3, style1);
+        label1 = new BaseLabel(fontLib, iconIndex, style1);
+        label1->setFixedSize(w, h*2/3);
     }else{
-        label1 = new BaseLabel(fontLib, iconIndex, w, h*2/3, DEFULT_STYLE1);
+        label1 = new BaseLabel(fontLib, iconIndex, DEFULT_STYLE1);
+        label1->setFixedSize(w, h*2/3);
     }
     label1->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 

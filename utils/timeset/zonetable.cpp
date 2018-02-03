@@ -62,8 +62,9 @@ ZoneTable::ZoneTable(const QStringList &list):
     }
 
     BaseLabel *label = new BaseLabel(FontawesomeWebfont(), \
-                                    FontawesomeWebfont::ICON_CHECK, 30, 50, LABEL_STYLE);
+                                    FontawesomeWebfont::ICON_CHECK, LABEL_STYLE);
 
+    label->setFixedSize(30, 50);
     setCellWidget(0, columnCount-1, label);
     connect(this, SIGNAL(currentCellChanged(int,int,int,int)),\
             this, SLOT(currentCellChangedSlot(int,int,int,int)));
@@ -82,6 +83,7 @@ void ZoneTable::currentCellChangedSlot(int currentRow, int currentColumn, int pr
         }
 
         BaseLabel *label = new BaseLabel(FontawesomeWebfont(), \
-                                        FontawesomeWebfont::ICON_CHECK, 30, 50, LABEL_STYLE);
+                                        FontawesomeWebfont::ICON_CHECK, LABEL_STYLE);
+        label->setFixedSize(30, 50);
         setCellWidget(currentRow, columnCount-1, label);
 }

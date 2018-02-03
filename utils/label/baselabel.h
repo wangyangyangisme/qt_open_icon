@@ -13,9 +13,12 @@ class BaseLabel : public QLabel
 {
     Q_OBJECT
 public:
+    explicit BaseLabel(QWidget *parent = 0);
     explicit BaseLabel(const AbstractFont &fontLib, int iconIndex, \
-                       int w, int h, const QString &style = QString());
-
+                       const QString &style = QString(), QWidget *parent = 0);
+    void setIcon(int);
+    void setFontSize(int);
+    void setNewFont(const AbstractFont &);
     void setNewIcon(int iconIndex, const QString &style = QString());  //设置新的图标
 
 signals:

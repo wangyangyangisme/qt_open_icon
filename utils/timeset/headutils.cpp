@@ -37,7 +37,8 @@ HeadUtils::HeadUtils(const QString &title, QWidget *parent) :
     back->adjustSize();
 
     //中间标题
-    picLab = new BaseLabel(TimeFont(), TimeFont::ICON_DATE, 15, 15, TITLE_LABEL_STYLE);
+    picLab = new BaseLabel(TimeFont(), TimeFont::ICON_DATE, TITLE_LABEL_STYLE);
+    picLab->setFixedSize(15, 15);
     titleLab = new QLabel(title);
     picLab->adjustSize();
     titleLab->adjustSize();

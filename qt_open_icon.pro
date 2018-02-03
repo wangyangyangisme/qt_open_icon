@@ -37,7 +37,6 @@ SOURCES += main.cpp\
     utils/button/basebutton.cpp \
     utils/button/buttontest.cpp \
     utils/button/switchbutton.cpp \
-    utils/button/loopbutton.cpp \
     utils/button/batterybutton.cpp \
     utils/animation/abstractanimation.cpp \
     utils/animation/animationcenter.cpp \
@@ -76,7 +75,8 @@ SOURCES += main.cpp\
     test/colortest.cpp \
     common/global.cpp \
     utils/radiobutton/radiobutton.cpp \
-    utils/progressbar/progressbar2.cpp
+    utils/progressbar/progressbar2.cpp \
+    utils/button/btnedittest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -87,7 +87,6 @@ HEADERS  += \
     utils/button/basebutton.h \
     utils/button/buttontest.h \
     utils/button/switchbutton.h \
-    utils/button/loopbutton.h \
     utils/button/batterybutton.h \
     utils/animation/abstractanimation.h \
     utils/animation/animation.h \
@@ -129,7 +128,8 @@ HEADERS  += \
     test/colortest.h \
     common/global.h \
     utils/radiobutton/radiobutton.h \
-    utils/progressbar/progressbar2.h
+    utils/progressbar/progressbar2.h \
+    utils/button/btnedittest.h
     common/platformhead.h
 
 RESOURCES += \
@@ -178,4 +178,5 @@ win32{
 FORMS += \
     test/colortest.ui \
     utils/radiobutton/radiobutton.ui \
-    utils/progressbar/progressbar2.ui
+    utils/progressbar/progressbar2.ui \
+    utils/button/btnedittest.ui

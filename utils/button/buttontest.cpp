@@ -30,12 +30,12 @@ ButtonTest::ButtonTest(QWidget *parent) :
     //BaseButton
     QLabel *baseButtonLab = new QLabel("BaseButton:");
     BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN);
-    baseButton->setFixedSize(200, 100);
+    baseButton->resize(200, 100);
     baseButton->setFontSize(80);
 
     //batteryButtonLab
     QLabel *batteryButtonLab = new QLabel("BatteryButton:");
-    BatteryButton *batteryButton = new BatteryButton(BatteryButton::EMPTY, EMPTY_BATTERY_STYLE);
+    BatteryButton *batteryButton = new BatteryButton;
     batteryButton->resize(200, 100);
 
     //switchbutton

@@ -51,7 +51,9 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
     if(style != QString()){
         setStyleSheet(style);
     }else{
-        setStyleSheet(DEFULT_BUTTON_STYLE);
+        QString finalStyle = DEFULT_BUTTON_STYLE + \
+                QString("QPushButton{font:%1pt;}").arg(this->font().pointSize());
+        setStyleSheet(finalStyle);
     }
 
     connect(this,SIGNAL(btnReleased()),this,SLOT(releaseSlot()));

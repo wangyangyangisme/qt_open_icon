@@ -8,11 +8,23 @@
 #define DEFULT_LABEL_STYLE "\
 QLabel{\
     color:#000000;\
-    font:100px;\
     border:1px solid #AAAAAA;\
     background-color:rgb(255,255,255);\
 }\
 "
+
+BaseLabel::BaseLabel(QWidget *parent):QLabel(parent)
+{
+    //默认是mui字体
+    fontName = MuiFont().getIconName();
+    iconhelp::setIcon(this, MuiFont::ICON_WEINXIN);
+
+    //字体大小需要单独设置
+    QString finalStyle = DEFULT_LABEL_STYLE + \
+            QString("QLabel{font:%1pt;}").arg(this->font().pointSize());
+
+    setStyleSheet(finalStyle);
+}
 
 /**
  * @brief label基类
@@ -23,21 +35,37 @@ QLabel{\
  * @param style 样式
  */
 BaseLabel::BaseLabel(const AbstractFont &fontLib, int iconIndex, \
-                     int w, int h, const QString &style)
+                     const QString &style, QWidget *parent)
 {
     fontName = fontLib.getIconName();
     IconHelper::Instance()->setNewIcon(fontLib);
     iconhelp::setIcon(this,iconIndex);
-    setFixedSize(w, h);
     if(style != QString()){
         setStyleSheet(style);
     }else{
-        //如果用户提供按钮大小不足以装下字体大小，那么提示一下就好
-        if(std::min(w, h) < 100){
-//            qDebug()<<"default font is bigger than button";
-        }
-        setStyleSheet(DEFULT_LABEL_STYLE);
+        QString finalStyle = DEFULT_LABEL_STYLE + \
+                QString("QLabel{font:%1pt;}").arg(this->font().pointSize());
+        setStyleSheet(finalStyle);
     }
+}
+
+void BaseLabel::setIcon(int index)
+{
+    iconhelp::setIcon(this, index);
+}
+
+void BaseLabel::setFontSize(int ptSize)
+{
+    QString finalStyle = this->styleSheet() + \
+            QString("QLabel{font:%1pt;}").arg(ptSize);
+
+    setStyleSheet(finalStyle);
+}
+
+void BaseLabel::setNewFont(const AbstractFont &fontLib)
+{
+    fontName = fontLib.getIconName();
+    IconHelper::Instance()->setNewIcon(fontLib);
 }
 
 /**
