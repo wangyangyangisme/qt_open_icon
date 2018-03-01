@@ -13,6 +13,10 @@ QLabel{\
 }\
 "
 
+/**
+ * @brief 字体库方式生成label
+ * @param parent
+ */
 BaseLabel::BaseLabel(QWidget *parent):QLabel(parent)
 {
     //默认是mui字体
@@ -24,18 +28,18 @@ BaseLabel::BaseLabel(QWidget *parent):QLabel(parent)
             QString("QLabel{font:%1pt;}").arg(this->font().pointSize());
 
     setStyleSheet(finalStyle);
+    this->setAlignment(Qt::AlignCenter);
 }
 
 /**
  * @brief label基类
  * @param fontLib 选择字体库
  * @param iconIndex 选择字体库图标索引
- * @param w 长
- * @param h 宽
  * @param style 样式
+ * @param parent
  */
 BaseLabel::BaseLabel(const AbstractFont &fontLib, int iconIndex, \
-                     const QString &style, QWidget *parent)
+                     const QString &style, QWidget *parent):QLabel(parent)
 {
     fontName = fontLib.getIconName();
     IconHelper::Instance()->setNewIcon(fontLib);
@@ -49,11 +53,19 @@ BaseLabel::BaseLabel(const AbstractFont &fontLib, int iconIndex, \
     }
 }
 
+/**
+ * @brief 重设图标，等价重调用setText方法
+ * @param index 图标在字体库中索引号
+ */
 void BaseLabel::setIcon(int index)
 {
     iconhelp::setIcon(this, index);
 }
 
+/**
+ * @brief 重设图标大小
+ * @param ptSize
+ */
 void BaseLabel::setFontSize(int ptSize)
 {
     QString finalStyle = this->styleSheet() + \
@@ -62,23 +74,12 @@ void BaseLabel::setFontSize(int ptSize)
     setStyleSheet(finalStyle);
 }
 
+/**
+ * @brief 重设字体库
+ * @param fontLib 新字库
+ */
 void BaseLabel::setNewFont(const AbstractFont &fontLib)
 {
     fontName = fontLib.getIconName();
     IconHelper::Instance()->setNewIcon(fontLib);
-}
-
-/**
- * @brief BaseLabel::setNewIcon
- * @param iconIndex 新字体库图标索引
- * @param style 新样式
- */
-void BaseLabel::setNewIcon(int iconIndex,const QString &style)
-{
-    //恢复字体库，防止别的组件更改字体库
-    IconHelper::Instance()->setNewIcon(AbstractFont(fontName));
-    iconhelp::setIcon(this,iconIndex);
-    if(style != QString()){
-        setStyleSheet(style);
-    }
 }

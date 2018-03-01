@@ -12,6 +12,7 @@
 #include "progressbar2.h"
 #include "databasetest.h"
 #include "navbartest.h"
+#include "labeltest.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -35,13 +36,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_labTest_clicked()
 {
-
+    LabelTest *w = new LabelTest;
+    w->show();
 }
 
 void MainWindow::on_btnTest_clicked()
 {
-    ButtonTest *btnTestWig = new ButtonTest;
-    btnTestWig->show();
+    ButtonTest *w = new ButtonTest;
+    w->show();
 }
 
 void MainWindow::on_dialogTest_clicked()

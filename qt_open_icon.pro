@@ -12,7 +12,7 @@ TEMPLATE = app
 
 INCLUDEPATH += font core utils common \
 utils/label utils/button utils/animation utils/dialog utils/timeset \
-utils/wheel utils/navbar utils/table utils/qcustomplot\
+utils/wheel utils/navbar utils/table\
 utils/desktop utils/desktop/procedure \
 utils/digitalinput utils/progressbar\
 service service/database service/database/connectionpool service/database/dao service/database/entity\
@@ -52,7 +52,6 @@ SOURCES += main.cpp\
     utils/dialog/dialogtest.cpp \
     utils/label/baselabel.cpp \
     font/timefont.cpp \
-    utils/qcustomplot/qcustomplot.cpp \
     utils/navbar/navbar.cpp \
     utils/dialog/basemessagebox.cpp \
     common/utilscommon.cpp \
@@ -64,7 +63,6 @@ SOURCES += main.cpp\
     service/database/dao/studentdaoimpl.cpp \
     service/database/entity/studentdata.cpp \
     service/database/databasetest.cpp \
-    utils/qcustomplot/customplottest.cpp \
     utils/table/baselist.cpp \
     utils/table/listtest.cpp \
     utils/table/normallist.cpp \
@@ -74,12 +72,11 @@ SOURCES += main.cpp\
     utils/digitalinput/digitalinput.cpp \
     utils/digitalinput/digitalinputtest.cpp \
     utils/button/groupbutton.cpp \
-    test/colortest.cpp \
     common/global.cpp \
     utils/radiobutton/radiobutton.cpp \
     utils/progressbar/progressbar2.cpp \
-    utils/button/btnedittest.cpp \
-    test/mainwindow.cpp
+    test/mainwindow.cpp \
+    utils/label/labeltest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -104,7 +101,6 @@ HEADERS  += \
     utils/dialog/dialogtest.h \
     utils/label/baselabel.h \
     font/timefont.h \
-    utils/qcustomplot/qcustomplot.h \
     utils/navbar/navbar.h \
     utils/dialog/basemessagebox.h \
     common/utilscommon.h \
@@ -118,7 +114,6 @@ HEADERS  += \
     service/database/dao/studentdaoimpl.h \
     service/database/entity/studentdata.h \
     service/database/databasetest.h \
-    utils/qcustomplot/customplottest.h \
     utils/table/baselist.h \
     utils/table/listtest.h \
     utils/table/normallist.h \
@@ -128,12 +123,11 @@ HEADERS  += \
     utils/digitalinput/digitalinput.h \
     utils/digitalinput/digitalinputtest.h \
     utils/button/groupbutton.h \
-    test/colortest.h \
     common/global.h \
     utils/radiobutton/radiobutton.h \
     utils/progressbar/progressbar2.h \
-    utils/button/btnedittest.h \
-    test/mainwindow.h
+    test/mainwindow.h \
+    utils/label/labeltest.h
     common/platformhead.h
 
 RESOURCES += \
@@ -180,8 +174,7 @@ win32{
 #message(parse over)
 
 FORMS += \
-    test/colortest.ui \
     utils/radiobutton/radiobutton.ui \
     utils/progressbar/progressbar2.ui \
-    utils/button/btnedittest.ui \
-    test/mainwindow.ui
+    test/mainwindow.ui \
+    utils/label/labeltest.ui

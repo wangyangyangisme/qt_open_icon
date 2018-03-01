@@ -34,7 +34,7 @@ void BatteryButton::changePower(POWER power)
     default:
         break;
     }
-    iconhelp::setIcon(this,power);
+    iconhelp::setIcon(this, power);
 }
 
 /**
@@ -42,6 +42,7 @@ void BatteryButton::changePower(POWER power)
  */
 void BatteryButton::releaseSlot()
 {
+    this->restoreFont();
     curIndex = (++curIndex) % 5;  //电池有5种状态
     switch (curIndex) {
     case 0:

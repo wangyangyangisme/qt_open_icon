@@ -22,7 +22,7 @@ AbstractFont::AbstractFont(const QString &_name)
     name = _name;
     //加载字体，得到字体库中ID
     int fontId = QFontDatabase::addApplicationFont(FONT_PATH + _name + QString(".ttf"));
-    //更加ID得到字体名称
+    //根据ID得到字体名称
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
     iconFont = QFont(fontName);
 }

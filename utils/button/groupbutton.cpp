@@ -1,3 +1,9 @@
+/**
+ ** @author:    浓咖啡
+ ** @date:      2017.6.4
+ ** @brief:     上下结构的组合按钮，上面是图标，下面是文字
+ */
+
 #include "groupbutton.h"
 
 #define DEFULT_STYLE1 "\
@@ -23,6 +29,17 @@ QPushButton:pressed{\
     background-color:#AAAAAA;\
 }\
 "
+
+/**
+ * @brief GroupButton::GroupButton
+ * @param fontLib 使用的图标库
+ * @param iconIndex 上方图标索引
+ * @param w 总宽度
+ * @param h 总高度，图标占2/3,文字占1/3
+ * @param text 文字内容
+ * @param style1 图标样式
+ * @param style2 文字样式
+ */
 GroupButton::GroupButton(const AbstractFont &fontLib, int iconIndex, \
                          int w, int h, const QString &text, const QString &style1, const QString &style2)
 {

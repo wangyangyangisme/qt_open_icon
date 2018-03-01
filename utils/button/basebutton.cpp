@@ -37,9 +37,8 @@ BaseButton::BaseButton(QWidget *parent):QPushButton(parent)
  * @brief 按钮基类
  * @param fontLib 选择字体库
  * @param iconIndex 选择字体库图标索引
- * @param w 长
- * @param h 宽
  * @param style 样式
+ * @param parent
  */
 BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
                        const QString &style, QWidget *parent):QPushButton(parent)
@@ -59,11 +58,19 @@ BaseButton::BaseButton(const AbstractFont &fontLib, int iconIndex, \
     connect(this,SIGNAL(btnReleased()),this,SLOT(releaseSlot()));
 }
 
+/**
+ * @brief 重设图标，等价重调用setText方法
+ * @param index 图标在字体库中索引号
+ */
 void BaseButton::setIcon(int index)
 {
     iconhelp::setIcon(this, index);
 }
 
+/**
+ * @brief 重设图标大小
+ * @param ptSize
+ */
 void BaseButton::setFontSize(int ptSize)
 {
     QString finalStyle = this->styleSheet() + \
@@ -72,6 +79,10 @@ void BaseButton::setFontSize(int ptSize)
     setStyleSheet(finalStyle);
 }
 
+/**
+ * @brief 重设字体库
+ * @param fontLib 新字库
+ */
 void BaseButton::setNewFont(const AbstractFont &fontLib)
 {
     fontName = fontLib.getIconName();
@@ -79,7 +90,8 @@ void BaseButton::setNewFont(const AbstractFont &fontLib)
 }
 
 /**
- * @brief 恢复字体库，防止别的组件更改字体库
+ * @brief 恢复字体库，因为按钮有状态变化，故可能字库被改变，
+ * 调用此方法可还原字体库
  */
 void BaseButton::restoreFont()
 {
