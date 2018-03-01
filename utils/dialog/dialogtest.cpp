@@ -7,6 +7,7 @@
 
 DialogTest::DialogTest()
 {
+    this->setWindowTitle(QString("消息对话框"));
     QVBoxLayout *lay = new QVBoxLayout(this);
 
     QPushButton *toastBtn = new QPushButton("toast");

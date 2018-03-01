@@ -1,22 +1,4 @@
-#include "global.h"
-#include "buttontest.h"
-#include "animationtest.h"
-#include "dialogtest.h"
-#include "baselabel.h"
-#include "timetotal.h"
-#include "wheeltest.h"
-#include "navbartest.h"
-#include "dialogtest.h"
-#include "desktop.h"
-#include "databasetest.h"
-#include "customplottest.h"
-#include "listtest.h"
-#include "digitalinputtest.h"
-#include "progressbar2.h"
-#include "colortest.h"
-#include "btnedittest.h"
-
-#define BUTTONTEST
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,59 +11,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(codec);
 #endif
 
-#ifdef LABELTEST
-    BaseLabel *w = new BaseLabel(MuiFont(), MuiFont::ICON_WEINXIN, 200, 100);
+    MainWindow *w = new MainWindow;
     w->show();
-#elif defined BUTTONTEST
-//    ButtonTest *w = new ButtonTest;
-//    w->show();
-    BtnEditTest *w = new BtnEditTest;
-    w->show();
-#elif defined ANIMATIONTEST
-    AnimationTest *w = new AnimationTest;
-    w->show();
-#elif defined DIALOGTEST
-    DialogTest *w = new DialogTest;
-    w->show();
-#elif defined WHEELWIDGET && (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
-    bool touch = a.arguments().contains(QLatin1String("--touch"));
-    WheelTest *w = new WheelTest(touch);
-    w->show();
-#elif defined TIMESET && (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
-    TimeTotal *w = new TimeTotal;
-    w->show();
-#elif defined NAVBAR
-    NavBarTest *w = new NavBarTest;
-    w->show();
-#elif defined DESKTOP
-    Desktop *w = new Desktop;
-    w->show();
-#elif defined LIST
-    ListTest *w = new ListTest;
-    w->show();
-#elif defined QCustomPlot
-    CustomplotTest *w = new CustomplotTest;
-    w->show();
-#elif defined DATABASE
-    DatabaseTest *database = new DatabaseTest;
-    database->test();
-    return 0;
-#elif defined PROGRESSBAR2
-    ProgressBar2 *w = new ProgressBar2;
-    w->show();
-#elif defined DIGITALINPUT
-    DigitalInputTest *w = new DigitalInputTest;
-    w->show();
-#elif defined COLOR_TEST
-    ColorTest *w = new ColorTest;
-    w->show();
-#endif
-
-#ifdef RUN_EMBEDDED
-    QWSServer::setCursorVisible(false);
-#else
-    w->move((qApp->desktop()->width()-w->width())/2, (qApp->desktop()->height()-w->height())/2);
-#endif
-
     return a.exec();
 }

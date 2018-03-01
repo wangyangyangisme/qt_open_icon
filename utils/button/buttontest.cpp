@@ -27,6 +27,7 @@ QLabel{\
 ButtonTest::ButtonTest(QWidget *parent) :
     QWidget(parent)
 {
+    this->setWindowTitle(QString("基础按钮测试"));
     //BaseButton
     QLabel *baseButtonLab = new QLabel("BaseButton:");
     BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN);

@@ -4,8 +4,8 @@
  ** @brief:     动画演示窗口，注意要把三幅图路径配置好
  */
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef ANIMATIONTEST_H
+#define ANIMATIONTEST_H
 
 #include "animationwidget.h"
 
@@ -59,4 +59,4 @@ private:
     static const int h=305;
 };
 
-#endif // MAINWINDOW_H
+#endif // ANIMATIONTEST_H

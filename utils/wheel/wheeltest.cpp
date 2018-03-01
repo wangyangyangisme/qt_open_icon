@@ -15,4 +15,7 @@ WheelTest::WheelTest(bool touch)
     stringWheelWidget->setParent(this);
     stringWheelWidget->setFixedSize(100, 200);
     setStyleSheet("background-color:#FFE4C4");
+
+    this->resize(200, 400);
+    this->setWindowTitle(QString("滑动选择器"));
 }

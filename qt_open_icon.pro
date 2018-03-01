@@ -18,6 +18,8 @@ utils/digitalinput utils/progressbar\
 service service/database service/database/connectionpool service/database/dao service/database/entity\
 test
 
+#DEFINES += RUN_EMBEDDED  #是否运行于嵌入式设备
+
 
 win32:msvc{
     CONFIG +=c++11
@@ -76,7 +78,8 @@ SOURCES += main.cpp\
     common/global.cpp \
     utils/radiobutton/radiobutton.cpp \
     utils/progressbar/progressbar2.cpp \
-    utils/button/btnedittest.cpp
+    utils/button/btnedittest.cpp \
+    test/mainwindow.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -129,7 +132,8 @@ HEADERS  += \
     common/global.h \
     utils/radiobutton/radiobutton.h \
     utils/progressbar/progressbar2.h \
-    utils/button/btnedittest.h
+    utils/button/btnedittest.h \
+    test/mainwindow.h
     common/platformhead.h
 
 RESOURCES += \
@@ -179,4 +183,5 @@ FORMS += \
     test/colortest.ui \
     utils/radiobutton/radiobutton.ui \
     utils/progressbar/progressbar2.ui \
-    utils/button/btnedittest.ui
+    utils/button/btnedittest.ui \
+    test/mainwindow.ui

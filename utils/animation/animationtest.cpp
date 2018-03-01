@@ -11,6 +11,7 @@
 AnimationTest::AnimationTest(QWidget *parent) :
     QMainWindow(parent)
 {
+    this->setWindowTitle(QString("动画组件"));
     initMenuBar();
     initToolBar();
     initCenterWidget();
