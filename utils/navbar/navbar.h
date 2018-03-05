@@ -18,8 +18,10 @@ public:
     void hideLBtn(){leftbtn->hide();}
     void hideRBtn(){rightbtn->hide();}
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
     void setLBtn(BaseButton *btn);
     void setRBtn(BaseButton *btn);
+#endif
 
     void setTitle(const QString &str){centerLab->setText(str);}
 

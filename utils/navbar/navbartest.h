@@ -15,6 +15,10 @@ public:
     explicit NavbarTest(QWidget *parent = 0);
     ~NavbarTest();
 
+public slots:
+    void lBtnSlot();
+    void rBtnSlot();
+
 private:
     Ui::NavbarTest *ui;
 };
