@@ -12,12 +12,26 @@ class Navbar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Navbar(int w, int h, BaseButton *leftbtn, QLabel *centerLab, BaseButton *rightbtn);
+    explicit Navbar(QWidget *parent = 0, int h = 30);
+    explicit Navbar(int w, int h, BaseButton *leftbtn, \
+                    QLabel *centerLab, BaseButton *rightbtn, QWidget *parent = 0);
+    void hideLBtn(){leftbtn->hide();}
+    void hideRBtn(){rightbtn->hide();}
 
-private:
+    void setLBtn(BaseButton *btn);
+    void setRBtn(BaseButton *btn);
+
+    void setTitle(const QString &str){centerLab->setText(str);}
+
+signals:
+    void lBtnSig();
+    void rBtnSig();
+
+protected:
     BaseButton *leftbtn;
     QLabel *centerLab;
     BaseButton *rightbtn;
+    QHBoxLayout *lay;
 };
 
 #endif // NAVBAR_H

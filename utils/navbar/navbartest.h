@@ -1,19 +1,22 @@
 #ifndef NAVBARTEST_H
 #define NAVBARTEST_H
 
-#include "navbar.h"
+#include <QWidget>
 
-class NavBarTest : public QWidget
+namespace Ui {
+class NavbarTest;
+}
+
+class NavbarTest : public QWidget
 {
     Q_OBJECT
+
 public:
-    explicit NavBarTest(QWidget *parent = 0);
+    explicit NavbarTest(QWidget *parent = 0);
+    ~NavbarTest();
 
-signals:
-
-public slots:
-    void lReleased();
-    void rReleased();
+private:
+    Ui::NavbarTest *ui;
 };
 
 #endif // NAVBARTEST_H

@@ -32,7 +32,7 @@ ButtonTest::ButtonTest(QWidget *parent) :
     QLabel *baseButtonLab = new QLabel("BaseButton:");
     BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN);
     baseButton->resize(200, 100);
-    baseButton->setFontSize(80);
+    baseButton->setIconSize(80);
 
     //batteryButtonLab
     QLabel *batteryButtonLab = new QLabel("BatteryButton:");
@@ -44,7 +44,7 @@ ButtonTest::ButtonTest(QWidget *parent) :
     SwitchButton *switchButton = new SwitchButton;
     switchButton->resize(200, 100);
     switchButton->setStyleSheet(SWITCH_BUTTON_STYLE);
-    switchButton->setFontSize(80);
+    switchButton->setIconSize(80);
 
     //groupbutton
     QLabel *gourpButtonLab = new QLabel("GourpButton:");

@@ -34,13 +34,13 @@ LabelTest::LabelTest(QWidget *parent) :
     //setupUi方法中修改过的属性
     ui->weixinLab->setIcon(MuiFont::ICON_WEINXIN);
     ui->weixinLab->setStyleSheet(LABEL_STYLE);
-    ui->weixinLab->setFontSize(45);
+    ui->weixinLab->setIconSize(45);
 
     //使用一个新的图标库生成一个图标
     ui->lockLab->setNewFont(FontawesomeWebfont());
     ui->lockLab->setIcon(FontawesomeWebfont::ICON_LOCK);
     ui->lockLab->setStyleSheet(LABEL_STYLE2);
-    ui->lockLab->setFontSize(45);
+    ui->lockLab->setIconSize(45);
 }
 
 LabelTest::~LabelTest()

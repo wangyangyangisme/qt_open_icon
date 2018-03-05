@@ -114,6 +114,6 @@ void MainWindow::on_digitalInputTest_clicked()
 
 void MainWindow::on_navBarTest_clicked()
 {
-    NavBarTest *w = new NavBarTest;
+    NavbarTest *w = new NavbarTest;
     w->show();
 }

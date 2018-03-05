@@ -17,7 +17,7 @@ public:
     explicit BaseLabel(const AbstractFont &fontLib, int iconIndex, \
                        const QString &style = QString(), QWidget *parent = 0);
     void setIcon(int);
-    void setFontSize(int);
+    void setIconSize(int);
     void setNewFont(const AbstractFont &);
 
 protected:

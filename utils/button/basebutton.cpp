@@ -71,7 +71,7 @@ void BaseButton::setIcon(int index)
  * @brief 重设图标大小
  * @param ptSize
  */
-void BaseButton::setFontSize(int ptSize)
+void BaseButton::setIconSize(int ptSize)
 {
     QString finalStyle = this->styleSheet() + \
             QString("QPushButton{font:%1pt;}").arg(ptSize);

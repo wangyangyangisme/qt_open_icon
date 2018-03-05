@@ -66,7 +66,7 @@ void BaseLabel::setIcon(int index)
  * @brief 重设图标大小
  * @param ptSize
  */
-void BaseLabel::setFontSize(int ptSize)
+void BaseLabel::setIconSize(int ptSize)
 {
     QString finalStyle = this->styleSheet() + \
             QString("QLabel{font:%1pt;}").arg(ptSize);

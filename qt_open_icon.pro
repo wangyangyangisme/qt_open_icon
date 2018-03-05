@@ -68,7 +68,6 @@ SOURCES += main.cpp\
     utils/table/normallist.cpp \
     utils/table/linedelegate.cpp \
     utils/table/navlist.cpp \
-    utils/navbar/navbartest.cpp \
     utils/digitalinput/digitalinput.cpp \
     utils/digitalinput/digitalinputtest.cpp \
     utils/button/groupbutton.cpp \
@@ -76,7 +75,8 @@ SOURCES += main.cpp\
     utils/radiobutton/radiobutton.cpp \
     utils/progressbar/progressbar2.cpp \
     test/mainwindow.cpp \
-    utils/label/labeltest.cpp
+    utils/label/labeltest.cpp \
+    utils/navbar/navbartest.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -119,7 +119,6 @@ HEADERS  += \
     utils/table/normallist.h \
     utils/table/linedelegate.h \
     utils/table/navlist.h \
-    utils/navbar/navbartest.h \
     utils/digitalinput/digitalinput.h \
     utils/digitalinput/digitalinputtest.h \
     utils/button/groupbutton.h \
@@ -127,7 +126,8 @@ HEADERS  += \
     utils/radiobutton/radiobutton.h \
     utils/progressbar/progressbar2.h \
     test/mainwindow.h \
-    utils/label/labeltest.h
+    utils/label/labeltest.h \
+    utils/navbar/navbartest.h
     common/platformhead.h
 
 RESOURCES += \
@@ -177,4 +177,5 @@ FORMS += \
     utils/radiobutton/radiobutton.ui \
     utils/progressbar/progressbar2.ui \
     test/mainwindow.ui \
-    utils/label/labeltest.ui
+    utils/label/labeltest.ui \
+    utils/navbar/navbartest.ui
