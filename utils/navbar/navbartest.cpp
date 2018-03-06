@@ -1,6 +1,23 @@
 #include "navbartest.h"
 #include "ui_navbartest.h"
 
+#define BTN_STYLE "\
+QPushButton{\
+    color:#0000FF;\
+    border:0px;\
+    border-radius:0;\
+}\
+QPushButton:pressed{\
+    color:#79CDCD;\
+}\
+"
+
+#define TOTAL_STYLE "\
+QWidget{\
+    background-color:#FFEFD5;\
+}\
+"
+
 NavbarTest::NavbarTest(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::NavbarTest)
@@ -21,8 +38,30 @@ NavbarTest::NavbarTest(QWidget *parent) :
     ui->noFunc->setTitle("无功能按钮");
 
     //自定义按钮和样式
+    int barH = ui->userBar->height();
 
+    //左边按钮
+    BaseButton *newBackBtn = new BaseButton(MuiFont(), MuiFont::ICON_BACK);
+    newBackBtn->setMinimumHeight(barH);
+    newBackBtn->setStyleSheet(BTN_STYLE);  //新的按钮样式
+    newBackBtn->setIconSize(2*barH/3);
+    newBackBtn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
+    //右边的按钮
+    BaseButton *newFuncBtn = new BaseButton(MuiFont(), MuiFont::ICON_BARS);
+    newFuncBtn->setMinimumHeight(barH);
+    newFuncBtn->setStyleSheet(BTN_STYLE);  //新的按钮样式
+    newFuncBtn->setIconSize(2*barH/3);
+    newFuncBtn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+
+    //统一替换
+    ui->userBar->setLBtn(newBackBtn);
+    ui->userBar->setRBtn(newFuncBtn);
+
+    //设置新的样式
+    ui->userBar->setStyleSheet(TOTAL_STYLE);
+
+    //信号和槽连接
     connect(ui->total, SIGNAL(lBtnSig()),
                      this, SLOT(lBtnSlot()));
     connect(ui->total, SIGNAL(rBtnSig()),

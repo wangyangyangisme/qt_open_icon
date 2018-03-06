@@ -13,6 +13,8 @@ public:
         ICON_QQ = 0xe264,
         ICON_PLUS = 0xe409,
         ICON_MINUS = 0xe410,
+        ICON_BARS = 0xe563,
+        ICON_BACK = 0xe471,
     };
     explicit MuiFont();
 };
