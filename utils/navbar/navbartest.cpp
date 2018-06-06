@@ -24,6 +24,9 @@ NavbarTest::NavbarTest(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //全部展示
+    ui->total->setTitle("全部展示");
+
     //仅有标题
     ui->onlyTitle->hideLBtn();
     ui->onlyTitle->hideRBtn();
@@ -32,11 +35,13 @@ NavbarTest::NavbarTest(QWidget *parent) :
     //没有返回
     ui->noBack->hideLBtn();
     ui->noBack->setTitle("无返回按钮");
+    ui->noBack->setRText("选项");
 
     //没有功能按钮
     ui->noFunc->hideRBtn();
     ui->noFunc->setTitle("无功能按钮");
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
     //自定义按钮和样式
     int barH = ui->userBar->height();
 
@@ -57,9 +62,11 @@ NavbarTest::NavbarTest(QWidget *parent) :
     //统一替换
     ui->userBar->setLBtn(newBackBtn);
     ui->userBar->setRBtn(newFuncBtn);
+    ui->userBar->setTitle("自定义样式");
 
     //设置新的样式
     ui->userBar->setStyleSheet(TOTAL_STYLE);
+#endif
 
     //信号和槽连接
     connect(ui->total, SIGNAL(lBtnSig()),

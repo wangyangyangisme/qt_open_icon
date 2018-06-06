@@ -23,7 +23,10 @@ public:
     void setRBtn(BaseButton *btn);
 #endif
 
+    //设置标题
     void setTitle(const QString &str){centerLab->setText(str);}
+    //设置右边按钮文字
+    void setRText(const QString &str){rightbtn->setText(str);}
 
 signals:
     void lBtnSig();

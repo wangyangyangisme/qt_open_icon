@@ -23,6 +23,11 @@ QPushButton:pressed{\
 }\
 "
 
+/**
+ * @brief Navbar::Navbar
+ * @param parent
+ * @param h 可不填，默认是30，内部组件可自适应
+ */
 Navbar::Navbar(QWidget *parent, int h):QWidget(parent)
 {
     int iconSize = 2*h/3;  //取总宽度的2/3作为图标大小
@@ -45,7 +50,7 @@ Navbar::Navbar(QWidget *parent, int h):QWidget(parent)
 
     //右边按钮
     rightbtn = new BaseButton;
-    rightbtn->setText(QString("编辑"));
+    rightbtn->setText(QString("功能"));
     rightbtn->setMinimumHeight(h);
     rightbtn->setStyleSheet(BTN_STYLE);
     rightbtn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -64,6 +69,11 @@ Navbar::Navbar(QWidget *parent, int h):QWidget(parent)
 
 //下面replaceWidget接口只有5版本以上才支持
 #if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
+
+/**
+ * @brief 重新设置左边按钮
+ * @param btn 新按钮
+ */
 void Navbar::setLBtn(BaseButton *btn)
 {
     lay->replaceWidget(leftbtn, btn);
@@ -75,6 +85,10 @@ void Navbar::setLBtn(BaseButton *btn)
                      this,  SIGNAL(lBtnSig()));
 }
 
+/**
+ * @brief 重新设置右边按钮
+ * @param btn 新按钮
+ */
 void Navbar::setRBtn(BaseButton *btn)
 {
     lay->replaceWidget(rightbtn, btn);
@@ -83,7 +97,7 @@ void Navbar::setRBtn(BaseButton *btn)
     delete rightbtn;
     rightbtn = btn;
     connect(rightbtn, SIGNAL(btnReleased()),
-                     this,  SIGNAL(lBtnSig()));
+                     this,  SIGNAL(rBtnSig()));
 }
 
 #endif
