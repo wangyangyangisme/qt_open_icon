@@ -18,6 +18,10 @@ public:
         ICON_WAINING = 0xf071,
         ICON_CLOSE = 0xf00d,
         ICON_INFO = 0xf05a,
+        ICON_WINDOW_CLOSE = 0xf2d3,
+        ICON_WINDOW_MAXIMIZE = 0xf2d0,
+        ICON_WINDOW_MINIMIZE = 0xf2d1,
+        ICON_WINDOW_RESTORE = 0xf2d2,
     };
     explicit FontawesomeWebfont();
 };

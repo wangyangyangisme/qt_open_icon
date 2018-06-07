@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>722</width>
+    <width>734</width>
     <height>452</height>
    </rect>
   </property>
@@ -243,7 +243,7 @@
     </widget>
    </item>
    <item row="2" column="2">
-    <widget class="QPushButton" name="btn_6">
+    <widget class="QPushButton" name="titleBtn">
      <property name="minimumSize">
       <size>
        <width>136</width>
@@ -257,7 +257,7 @@
       </size>
      </property>
      <property name="text">
-      <string>new</string>
+      <string>自定义标题栏</string>
      </property>
     </widget>
    </item>

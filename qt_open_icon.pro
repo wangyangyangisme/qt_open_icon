@@ -10,13 +10,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 TARGET = qt_open_icon
 TEMPLATE = app
 
-INCLUDEPATH += font core utils common \
-utils/label utils/button utils/animation utils/dialog utils/timeset \
+INCLUDEPATH += font core utils common test\
+utils/label utils/button utils/animation\
+utils/dialog utils/timeset \
 utils/wheel utils/navbar utils/table\
 utils/desktop utils/desktop/procedure \
 utils/digitalinput utils/progressbar\
-service service/database service/database/connectionpool service/database/dao service/database/entity\
-test
+service service/database service/database/connectionpool\
+service/database/dao service/database/entity\
+utils/titlebar
 
 #DEFINES += RUN_EMBEDDED  #是否运行于嵌入式设备
 
@@ -76,7 +78,8 @@ SOURCES += main.cpp\
     utils/progressbar/progressbar2.cpp \
     test/mainwindow.cpp \
     utils/label/labeltest.cpp \
-    utils/navbar/navbartest.cpp
+    utils/navbar/navbartest.cpp \
+    utils/titlebar/titlebar.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -127,7 +130,8 @@ HEADERS  += \
     utils/progressbar/progressbar2.h \
     test/mainwindow.h \
     utils/label/labeltest.h \
-    utils/navbar/navbartest.h
+    utils/navbar/navbartest.h \
+    utils/titlebar/titlebar.h
     common/platformhead.h
 
 RESOURCES += \
@@ -179,3 +183,5 @@ FORMS += \
     test/mainwindow.ui \
     utils/label/labeltest.ui \
     utils/navbar/navbartest.ui
+
+#更换资源文件内容后，记得重新添加资源文件并编译

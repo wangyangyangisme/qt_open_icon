@@ -51,6 +51,7 @@ BaseLabel::BaseLabel(const AbstractFont &fontLib, int iconIndex, \
                 QString("QLabel{font:%1pt;}").arg(this->font().pointSize());
         setStyleSheet(finalStyle);
     }
+    this->setAlignment(Qt::AlignCenter);
 }
 
 /**

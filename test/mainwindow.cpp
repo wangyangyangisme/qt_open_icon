@@ -13,6 +13,7 @@
 #include "databasetest.h"
 #include "navbartest.h"
 #include "labeltest.h"
+#include "titlebar.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -115,5 +116,14 @@ void MainWindow::on_digitalInputTest_clicked()
 void MainWindow::on_navBarTest_clicked()
 {
     NavbarTest *w = new NavbarTest;
+    w->show();
+}
+
+void MainWindow::on_titleBtn_clicked()
+{
+    QWidget *w = new QWidget;
+    w->resize(300, 300);
+
+    TitleBar *titleWig = new TitleBar(w);
     w->show();
 }

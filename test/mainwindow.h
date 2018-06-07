@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+//https://blog.csdn.net/GoForwardToStep/article/details/53494800
 #include <QtWidgets>
 
 namespace Ui {
@@ -39,6 +39,8 @@ private slots:
     void on_digitalInputTest_clicked();
 
     void on_navBarTest_clicked();
+
+    void on_titleBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
