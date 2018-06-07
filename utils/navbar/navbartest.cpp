@@ -23,6 +23,7 @@ NavbarTest::NavbarTest(QWidget *parent) :
     ui(new Ui::NavbarTest)
 {
     ui->setupUi(this);
+    this->setWindowTitle(QString("通用导航栏"));
 
     //全部展示
     ui->total->setTitle("全部展示");

@@ -3,6 +3,7 @@
 ListTest::ListTest(QWidget *parent) :
     QWidget(parent)
 {
+    this->setWindowTitle(QString("列表组件"));
     QStringList zonelist;
     zonelist<<("北京")<<("香港")<<("首尔");
 

@@ -75,6 +75,7 @@ void MainWindow::on_timeSetTest_clicked()
 {
     if(QT_VERSION >= QT_VERSION_CHECK(5,0,0)){
         TimeTotal *w = new TimeTotal;
+        w->setWindowTitle(QString("时间设置组件"));
         w->show();
     }else{
         Toast *toast = new Toast(this, "当前版本不支持");
@@ -104,6 +105,7 @@ void MainWindow::on_databaseTest_clicked()
 void MainWindow::on_progressBar2Test_clicked()
 {
     ProgressBar2 *w = new ProgressBar2;
+    w->setWindowTitle(QString("双路进度条"));
     w->show();
 }
 
@@ -122,7 +124,8 @@ void MainWindow::on_navBarTest_clicked()
 void MainWindow::on_titleBtn_clicked()
 {
     QWidget *w = new QWidget;
-    w->resize(300, 300);
+    w->setWindowTitle(QString("通用标题栏"));
+    w->resize(500, 500);
 
     TitleBar *titleWig = new TitleBar(w);
     w->show();
