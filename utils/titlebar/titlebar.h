@@ -17,6 +17,8 @@ public:
 
     //这里必须传递父部件指针
     explicit TitleBar(QWidget *parent);
+    bool isPermitMax(){return isPermitMax;}
+    void setPermitMax(bool val){isPermitMax = val;}
 
 signals:
 
@@ -24,6 +26,13 @@ public slots:
 
 protected:
     virtual void paintEvent(QPaintEvent *);
+    void mouseDoubleClickEvent(QMouseEvent *);
+
+private slots:
+    void minSlot();
+    void maxSlot();
+    void restoreSlot();
+    void closeSlot();
 
 private:
     QLabel* m_pIcon;                    // 标题栏图标;
@@ -37,7 +46,14 @@ private:
     QLabel *titleLab;
     BaseButton *minBtn;
     BaseButton *maxBtn;
+    BaseButton *restoreBtn;
     BaseButton *closeBtn;
+
+    bool isMaxState;  //是否已经在最大化状态
+    bool isPermitMax; //是否允许最大化窗口
+
+    void setMaxState();
+    void setNormalState();
 };
 
 #endif // TITLEBAR_H

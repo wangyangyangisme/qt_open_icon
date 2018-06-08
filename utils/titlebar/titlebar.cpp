@@ -57,65 +57,48 @@ TitleBar::TitleBar(QWidget *parent) :
     minBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_WINDOW_MINIMIZE);
     minBtn->setFixedSize(TITLE_HEIGHT, TITLE_HEIGHT);
     minBtn->setStyleSheet(BUTTON_STYLE);
+    minBtn->setToolTip(QStringLiteral("最小化"));
+
+    restoreBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_WINDOW_RESTORE);
+    restoreBtn->setFixedSize(TITLE_HEIGHT, TITLE_HEIGHT);
+    restoreBtn->setStyleSheet(BUTTON_STYLE);
+    restoreBtn->setToolTip(QStringLiteral("还原"));
 
     maxBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_WINDOW_MAXIMIZE);
     maxBtn->setFixedSize(TITLE_HEIGHT, TITLE_HEIGHT);
     maxBtn->setStyleSheet(BUTTON_STYLE);
+    maxBtn->setToolTip(QStringLiteral("最大化"));
 
     closeBtn = new BaseButton(FontawesomeWebfont(), FontawesomeWebfont::ICON_WINDOW_CLOSE);
     closeBtn->setFixedSize(TITLE_HEIGHT, TITLE_HEIGHT);
     closeBtn->setStyleSheet(BUTTON_STYLE);
+    closeBtn->setToolTip(QStringLiteral("关闭"));
 
     QHBoxLayout* totalLay = new QHBoxLayout(this);
     totalLay->addWidget(iconLab);
     totalLay->addWidget(titleLab);
     totalLay->addWidget(minBtn);
+    totalLay->addWidget(restoreBtn);
     totalLay->addWidget(maxBtn);
     totalLay->addWidget(closeBtn);
 
     totalLay->setMargin(0);
     totalLay->setSpacing(0);
+
+    //默认在还原状态
+    setNormalState();
+
+    //信号与槽连接
+    QObject::connect(minBtn, SIGNAL(clicked()),
+                     this,  SLOT(minSlot()));
+    QObject::connect(maxBtn, SIGNAL(clicked()),
+                     this,  SLOT(maxSlot()));
+    QObject::connect(restoreBtn, SIGNAL(clicked()),
+                     this,  SLOT(restoreSlot()));
+    QObject::connect(closeBtn, SIGNAL(clicked()),
+                     this,  SLOT(closeSlot()));
+
     return;
-
-    m_pIcon = new QLabel;
-    m_pTitleContent = new QLabel;
-
-    m_pButtonMin = new QPushButton;
-    m_pButtonRestore = new QPushButton;
-    m_pButtonMax = new QPushButton;
-    m_pButtonClose = new QPushButton;
-
-    m_pButtonMin->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
-    m_pButtonRestore->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
-    m_pButtonMax->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
-    m_pButtonClose->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
-
-    m_pTitleContent->setObjectName("TitleContent");
-    m_pButtonMin->setObjectName("ButtonMin");
-    m_pButtonRestore->setObjectName("ButtonRestore");
-    m_pButtonMax->setObjectName("ButtonMax");
-    m_pButtonClose->setObjectName("ButtonClose");
-
-    m_pButtonMin->setToolTip(QStringLiteral("最小化"));
-    m_pButtonRestore->setToolTip(QStringLiteral("还原"));
-    m_pButtonMax->setToolTip(QStringLiteral("最大化"));
-    m_pButtonClose->setToolTip(QStringLiteral("关闭"));
-
-    QHBoxLayout* mylayout = new QHBoxLayout(this);
-    mylayout->addWidget(m_pIcon);
-    mylayout->addWidget(m_pTitleContent);
-
-    mylayout->addWidget(m_pButtonMin);
-    mylayout->addWidget(m_pButtonRestore);
-    mylayout->addWidget(m_pButtonMax);
-    mylayout->addWidget(m_pButtonClose);
-
-    mylayout->setContentsMargins(5, 0, 0, 0);
-    mylayout->setSpacing(0);
-
-    m_pTitleContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_pTitleContent->setText("test");
-    this->setFixedHeight(TITLE_HEIGHT);
     this->setWindowFlags(Qt::FramelessWindowHint);
     this->resize(this->parentWidget()->width(), TITLE_HEIGHT);
 }
@@ -129,4 +112,57 @@ void TitleBar::paintEvent(QPaintEvent *event)
         this->setFixedWidth(this->parentWidget()->width());
     }
     QWidget::paintEvent(event);
+}
+
+void TitleBar::setMaxState()
+{
+    maxBtn->setVisible(false);
+    restoreBtn->setVisible(true);
+    isMaxState = true;
+}
+
+void TitleBar::setNormalState()
+{
+    maxBtn->setVisible(true);
+    restoreBtn->setVisible(false);
+    isMaxState = false;
+}
+
+void TitleBar::mouseDoubleClickEvent(QMouseEvent *e)
+{
+    //如果不允许最大化
+    if(!isPermitMax){
+        return;
+    }
+
+    //如果已经是在最大化状态
+    if(isMaxState){
+        setNormalState();
+    }else{
+        setMaxState();
+    }
+
+    return QWidget::mouseDoubleClickEvent(event);
+}
+
+void TitleBar::minSlot()
+{
+    emit minSignal();
+}
+
+void TitleBar::maxSlot()
+{
+    emit maxSignal();
+    setMaxState();
+}
+
+void TitleBar::restoreSlot()
+{
+    emit restoreSignal();
+    setNormalState();
+}
+
+void TitleBar::closeSlot()
+{
+    emit closeSignal();
 }
