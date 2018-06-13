@@ -17,10 +17,14 @@ public:
 
     //这里必须传递父部件指针
     explicit TitleBar(QWidget *parent);
-    bool isPermitMax(){return isPermitMax;}
+    bool permitMax(){return isPermitMax;}
     void setPermitMax(bool val){isPermitMax = val;}
 
 signals:
+    void minSignal();
+    void maxSignal();
+    void restoreSignal();
+    void closeSignal();
 
 public slots:
 
@@ -51,6 +55,8 @@ private:
 
     bool isMaxState;  //是否已经在最大化状态
     bool isPermitMax; //是否允许最大化窗口
+
+    QRect storeRect;  //用来记录原始位置和大小
 
     void setMaxState();
     void setNormalState();

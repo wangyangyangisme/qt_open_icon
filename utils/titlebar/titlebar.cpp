@@ -86,6 +86,7 @@ TitleBar::TitleBar(QWidget *parent) :
     totalLay->setSpacing(0);
 
     //默认在还原状态
+    storeRect = this->parentWidget()->geometry();
     setNormalState();
 
     //信号与槽连接
@@ -119,6 +120,9 @@ void TitleBar::setMaxState()
     maxBtn->setVisible(false);
     restoreBtn->setVisible(true);
     isMaxState = true;
+
+    QRect desktopRect = QApplication::desktop()->availableGeometry();
+    this->parentWidget()->setGeometry(desktopRect);
 }
 
 void TitleBar::setNormalState()
@@ -126,6 +130,8 @@ void TitleBar::setNormalState()
     maxBtn->setVisible(true);
     restoreBtn->setVisible(false);
     isMaxState = false;
+
+    this->parentWidget()->setGeometry(storeRect);
 }
 
 void TitleBar::mouseDoubleClickEvent(QMouseEvent *e)
@@ -142,7 +148,7 @@ void TitleBar::mouseDoubleClickEvent(QMouseEvent *e)
         setMaxState();
     }
 
-    return QWidget::mouseDoubleClickEvent(event);
+    return QWidget::mouseDoubleClickEvent(e);
 }
 
 void TitleBar::minSlot()
