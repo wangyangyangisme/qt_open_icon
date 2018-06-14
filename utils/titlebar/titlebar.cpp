@@ -85,9 +85,8 @@ TitleBar::TitleBar(QWidget *parent) :
     totalLay->setMargin(0);
     totalLay->setSpacing(0);
 
-    //默认在还原状态
+    //默认在还原状态:窗体显示之前，位置是在原点，需要继续找方法
     storeRect = this->parentWidget()->geometry();
-    setNormalState();
 
     //信号与槽连接
     QObject::connect(minBtn, SIGNAL(clicked()),
