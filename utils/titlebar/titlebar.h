@@ -20,6 +20,9 @@ public:
     bool permitMax(){return isPermitMax;}
     void setPermitMax(bool val){isPermitMax = val;}
 
+public slots:
+    void show(){this->parentWidget()->show();}
+
 signals:
     void minSignal();
     void maxSignal();

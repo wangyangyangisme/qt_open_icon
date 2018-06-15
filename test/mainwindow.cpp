@@ -128,5 +128,5 @@ void MainWindow::on_titleBtn_clicked()
     w->resize(500, 500);
 
     TitleBar *titleWig = new TitleBar(w);
-    w->show();
+    titleWig->show();
 }
