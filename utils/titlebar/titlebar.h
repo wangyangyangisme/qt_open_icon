@@ -1,3 +1,9 @@
+/**
+ ** @author:   浓咖啡
+ ** @date:	   2018.6.1
+ ** @brief:    重写标题栏:由于作者不懂设计，故望懂设计的码友帮忙重新做下样式
+ */
+
 #ifndef TITLEBAR_H
 #define TITLEBAR_H
 
@@ -17,11 +23,21 @@ public:
 
     //这里必须传递父部件指针
     explicit TitleBar(QWidget *parent);
+
     bool permitMax(){return isPermitMax;}
-    void setPermitMax(bool val){isPermitMax = val;}
+    void setPermitMax(bool);
+    void setUseSysTray(bool val){isSysTray = val;}
+
+    BaseLabel *iconLab;  //图标
+    QLabel *titleLab;  //标题
+    BaseButton *minBtn; //最小化按钮
+    BaseButton *maxBtn;  //最大化按钮
+    BaseButton *restoreBtn; //恢复按钮
+    BaseButton *closeBtn; //关闭按钮
+    QSystemTrayIcon *sysTrayIcon; //托盘图标
 
 public slots:
-    void show(){this->parentWidget()->show();}
+    void show();
 
 signals:
     void minSignal();
@@ -29,40 +45,37 @@ signals:
     void restoreSignal();
     void closeSignal();
 
-public slots:
-
 protected:
     virtual void paintEvent(QPaintEvent *);
-    void mouseDoubleClickEvent(QMouseEvent *);
+    virtual void mouseDoubleClickEvent(QMouseEvent *);
+    virtual void mousePressEvent(QMouseEvent *);
+    virtual void mouseReleaseEvent(QMouseEvent *);
+    virtual void mouseMoveEvent(QMouseEvent *);
 
 private slots:
     void minSlot();
     void maxSlot();
     void restoreSlot();
     void closeSlot();
+    void sysTrayIconSlot(QSystemTrayIcon::ActivationReason);
+    void showMainAction();
+    void exitAppAction();
 
 private:
-    QLabel* m_pIcon;                    // 标题栏图标;
-    QLabel* m_pTitleContent;            // 标题栏内容;
-    QPushButton* m_pButtonMin;          // 最小化按钮;
-    QPushButton* m_pButtonRestore;      // 最大化还原按钮;
-    QPushButton* m_pButtonMax;          // 最大化按钮;
-    QPushButton* m_pButtonClose;        // 关闭按钮;
-
-    BaseLabel *iconLab;
-    QLabel *titleLab;
-    BaseButton *minBtn;
-    BaseButton *maxBtn;
-    BaseButton *restoreBtn;
-    BaseButton *closeBtn;
+    QWidget *parentWig;  //保存父窗体
 
     bool isMaxState;  //是否已经在最大化状态
     bool isPermitMax; //是否允许最大化窗口
+    bool isSysTray; //是否使用系统托盘
 
     QRect storeRect;  //用来记录原始位置和大小
+    QPoint curMousePos;  //记录拖动时候鼠标位置
+    bool isPressed;  //鼠标按下
 
     void setMaxState();
     void setNormalState();
+    void setMinimiState();
+    void initSysTray();
 };
 
 #endif // TITLEBAR_H

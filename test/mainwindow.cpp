@@ -124,7 +124,6 @@ void MainWindow::on_navBarTest_clicked()
 void MainWindow::on_titleBtn_clicked()
 {
     QWidget *w = new QWidget;
-    w->setWindowTitle(QString("通用标题栏"));
     w->resize(500, 500);
 
     TitleBar *titleWig = new TitleBar(w);

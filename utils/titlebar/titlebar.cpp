@@ -1,3 +1,9 @@
+/**
+ ** @author:   浓咖啡
+ ** @date:	   2018.6.1
+ ** @brief:    重写标题栏:由于作者不懂设计，故望懂设计的码友帮忙重新做下样式
+ */
+
 #include "titlebar.h"
 
 #define BUTTON_HEIGHT 30        // 按钮高度;
@@ -19,23 +25,48 @@ QPushButton:hover{\
 }\
 "
 
+#define DISABLE_BUTTON_STYLE "\
+QPushButton{\
+    color:#000000;\
+    border:1px solid #AAAAAA;\
+    background-color:#A9A9A9;\
+}\
+"
+
 #define LABEL_STYLE "\
 QLabel{\
-    color:#9ACD32;\
+    color:#FF00FF;\
     border:0px;\
-    background-color:rgb(255,255,255);\
+    background-color:#8FBC8F;\
 }\
 "
 
 #define TOTAL_STYLE "\
 QWidget{\
-    background-color:#FFFFFF;\
+    background-color:#8FBC8F;\
+}\
+"
+
+#define PARENT_STYLE "\
+#TitleParent{\
+    background-color:#FFFAFA;\
+    border:2px solid rgba(176, 196, 222);\
 }\
 "
 
 TitleBar::TitleBar(QWidget *parent) :
     QWidget(parent)
 {
+    //设置父窗体属性
+    parentWig = parent;
+    parentWig->setWindowFlags(Qt::FramelessWindowHint);
+    parentWig->setObjectName("TitleParent");
+    parentWig->setStyleSheet(PARENT_STYLE);
+
+    //设置托盘显示属性
+    isSysTray = true;
+    initSysTray();
+
     //窗体主属性
     this->setFixedHeight(TITLE_HEIGHT);
     this->setWindowFlags(Qt::FramelessWindowHint);
@@ -50,7 +81,7 @@ TitleBar::TitleBar(QWidget *parent) :
 
     //标题
     titleLab = new QLabel;
-    titleLab->setText(QString("标题"));
+    titleLab->setText(QString("通用标题栏"));
     titleLab->setStyleSheet("font-weight:bold");
 
     //右侧按钮
@@ -85,9 +116,6 @@ TitleBar::TitleBar(QWidget *parent) :
     totalLay->setMargin(0);
     totalLay->setSpacing(0);
 
-    //默认在还原状态:窗体显示之前，位置是在原点，需要继续找方法
-    storeRect = this->parentWidget()->geometry();
-
     //信号与槽连接
     QObject::connect(minBtn, SIGNAL(clicked()),
                      this,  SLOT(minSlot()));
@@ -97,23 +125,29 @@ TitleBar::TitleBar(QWidget *parent) :
                      this,  SLOT(restoreSlot()));
     QObject::connect(closeBtn, SIGNAL(clicked()),
                      this,  SLOT(closeSlot()));
-
-    return;
-    this->setWindowFlags(Qt::FramelessWindowHint);
-    this->resize(this->parentWidget()->width(), TITLE_HEIGHT);
 }
 
-
-// 绘制标题栏背景色;
-void TitleBar::paintEvent(QPaintEvent *event)
+/**
+ * @brief 设置是否允许最大化
+ * @param per
+ */
+void TitleBar::setPermitMax(bool per)
 {
-    if (this->width() != (this->parentWidget()->width()))
-    {
-        this->setFixedWidth(this->parentWidget()->width());
+    isPermitMax = per;
+
+    if(!per){
+        //如果不允许最大化，改变下最大化按钮的样式
+        maxBtn->setStyleSheet(DISABLE_BUTTON_STYLE);
+        maxBtn->setEnabled(false);
+    }else{
+        maxBtn->setStyleSheet(BUTTON_STYLE);
+        maxBtn->setEnabled(true);
     }
-    QWidget::paintEvent(event);
 }
 
+/**
+ * @brief 设置最大化状态
+ */
 void TitleBar::setMaxState()
 {
     maxBtn->setVisible(false);
@@ -121,38 +155,38 @@ void TitleBar::setMaxState()
     isMaxState = true;
 
     QRect desktopRect = QApplication::desktop()->availableGeometry();
-    this->parentWidget()->setGeometry(desktopRect);
+    parentWig->setGeometry(desktopRect);
 }
 
+/**
+ * @brief 设置窗体到普通状态
+ */
 void TitleBar::setNormalState()
 {
     maxBtn->setVisible(true);
     restoreBtn->setVisible(false);
     isMaxState = false;
 
-    this->parentWidget()->setGeometry(storeRect);
+    parentWig->setGeometry(storeRect);
 }
 
-void TitleBar::mouseDoubleClickEvent(QMouseEvent *e)
+/**
+ * @brief 设置窗体到最小状态
+ */
+void TitleBar::setMinimiState()
 {
-    //如果不允许最大化
-    if(!isPermitMax){
-        return;
-    }
-
-    //如果已经是在最大化状态
-    if(isMaxState){
-        setNormalState();
+    if(isSysTray){ //如果允许使用系统托盘
+        parentWig->hide();
+        sysTrayIcon->show();
     }else{
-        setMaxState();
+        parentWig->showMinimized();
     }
-
-    return QWidget::mouseDoubleClickEvent(e);
 }
 
 void TitleBar::minSlot()
 {
     emit minSignal();
+    setMinimiState();
 }
 
 void TitleBar::maxSlot()
@@ -170,4 +204,166 @@ void TitleBar::restoreSlot()
 void TitleBar::closeSlot()
 {
     emit closeSignal();
+    parentWig->close();
 }
+
+/**
+ * @brief 显示父窗体并存储父窗体首次显示的位置
+ * 设置一些初始化参数
+ */
+void TitleBar::show()
+{
+    setPermitMax(true);
+    parentWig->show();
+    storeRect = parentWig->geometry();
+    setNormalState();
+}
+
+/**
+ * @brief 重绘事件需要重设自己宽度和父窗体一样大
+ * @param event
+ */
+void TitleBar::paintEvent(QPaintEvent *event)
+{
+    if (this->width() != (parentWig->width()))
+    {
+        this->setFixedWidth(parentWig->width());
+    }
+    QWidget::paintEvent(event);
+}
+
+/**
+ * @brief 处理双击事件
+ * @param e
+ */
+void TitleBar::mouseDoubleClickEvent(QMouseEvent *e)
+{
+    //如果不允许最大化
+    if(!isPermitMax){
+        return;
+    }
+
+    //如果已经是在最大化状态
+    if(isMaxState){
+        setNormalState();
+    }else{
+        setMaxState();
+    }
+
+    return QWidget::mouseDoubleClickEvent(e);
+}
+
+/**
+ * @brief TitleBar::mousePressEvent
+ * @param event
+ */
+void TitleBar::mousePressEvent(QMouseEvent *event)
+{
+    isPressed = true;
+    curMousePos = event->globalPos();
+
+    return QWidget::mousePressEvent(event);
+}
+
+/**
+ * @brief TitleBar::mouseReleaseEvent
+ * @param event
+ */
+void TitleBar::mouseReleaseEvent(QMouseEvent *event)
+{
+    isPressed = false;
+
+    return QWidget::mouseReleaseEvent(event);
+}
+
+/**
+ * @brief 和鼠标的点击和按下事件共同实现窗体的拖动效果
+ * 先记录鼠标的点击位置，比如(100, 100)
+ * 鼠标移动按下移动到(300, 50)的位置
+ * 那么相对位移就是(200, -50)
+ * 只要用窗体原位置和这个位置相加即可得到窗体拖动后新位置
+ */
+void TitleBar::mouseMoveEvent(QMouseEvent *event)
+{
+    if (isPressed)
+    {
+        //如果窗体已经在最大化状态，那么先让它复原
+        if(isMaxState){
+            //保持鼠标位置在窗体移动一刻时候比例：这个逻辑不要想了，做出来就算了，杀脑细胞
+            int xres = QApplication::desktop()->availableGeometry().width();
+            int xMove = event->globalPos().x();
+            int storeWidth = storeRect.width();
+            int x = xMove - xMove * storeWidth / xres;
+
+            storeRect.moveTo(x, 0);
+            setNormalState();
+            return QWidget::mouseMoveEvent(event);
+        }
+        QPoint movePoint = event->globalPos() - curMousePos;
+        QPoint widgetPos = parentWig->pos();
+        this->parentWidget()->move(movePoint + widgetPos);
+        curMousePos = event->globalPos();
+        storeRect = parentWig->geometry();
+    }
+
+    return QWidget::mouseMoveEvent(event);
+}
+
+#if 1
+//下面代码是托盘显示程序
+void TitleBar::initSysTray()
+{
+    sysTrayIcon = new QSystemTrayIcon(this);
+
+    QIcon icon = QIcon(":/images/resourse/images/icon.png");
+    sysTrayIcon->setIcon(icon);
+    sysTrayIcon->setToolTip("自定义标题栏");
+
+    //给QSystemTrayIcon添加槽函数
+    connect(sysTrayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),\
+            this, SLOT(sysTrayIconSlot(QSystemTrayIcon::ActivationReason)));
+
+    //初始化菜单项
+    QAction *showMainAction = new QAction(QObject::trUtf8("显示主界面"), this);
+    connect(showMainAction, SIGNAL(triggered()), \
+            this, SLOT(showMainAction()));
+
+    QAction *exitAppAction = new QAction(QObject::trUtf8("退出"), this);
+    connect(exitAppAction, SIGNAL(triggered()), \
+            this,SLOT(exitAppAction()));
+
+    //初始化菜单
+    QMenu *menu = new QMenu(this);
+    menu->addAction(showMainAction);
+    menu->addSeparator();
+    menu->addAction(exitAppAction);
+
+    sysTrayIcon->setContextMenu(menu);
+}
+
+void TitleBar::sysTrayIconSlot(QSystemTrayIcon::ActivationReason reason)
+{
+    switch(reason){
+    case QSystemTrayIcon::Trigger:
+        this->show();
+        break;
+    case QSystemTrayIcon::DoubleClick:
+        sysTrayIcon->showMessage(QObject::trUtf8("Message Title"),
+                                 QObject::trUtf8("欢迎使用此程序"),
+                                 QSystemTrayIcon::Information, 1000);
+        break;
+    default:
+        break;
+    }
+}
+
+void TitleBar::showMainAction()
+{
+    parentWig->show();
+}
+
+void TitleBar::exitAppAction()
+{
+    parentWig->close();
+}
+#endif
