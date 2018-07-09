@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>734</width>
+    <width>744</width>
     <height>452</height>
    </rect>
   </property>
@@ -276,7 +276,7 @@
       </size>
      </property>
      <property name="text">
-      <string>new</string>
+      <string>自定义导航栏</string>
      </property>
     </widget>
    </item>

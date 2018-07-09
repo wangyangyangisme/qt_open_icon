@@ -14,6 +14,8 @@
 #include "navbartest.h"
 #include "labeltest.h"
 #include "titlebar.h"
+#include "mylistwidget.h"
+#include "mylistwidgetitem.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -128,4 +130,15 @@ void MainWindow::on_titleBtn_clicked()
 
     TitleBar *titleWig = new TitleBar(w);
     titleWig->show();
+}
+
+void MainWindow::on_btn_5_clicked()
+{
+    MyListWidget* w = new MyListWidget;
+    w->resize(200,this->frameGeometry().height());
+    w->addItem("智能家居");
+    w->addItem("远程控制");
+    w->addItem("环境温度");
+    w->addItem("基础配置");
+    w->show();
 }

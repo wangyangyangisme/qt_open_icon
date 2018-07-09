@@ -18,7 +18,7 @@ utils/desktop utils/desktop/procedure \
 utils/digitalinput utils/progressbar\
 service service/database service/database/connectionpool\
 service/database/dao service/database/entity\
-utils/titlebar
+utils/titlebar utils/animationlist
 
 #DEFINES += RUN_EMBEDDED  #是否运行于嵌入式设备
 
@@ -79,7 +79,9 @@ SOURCES += main.cpp\
     test/mainwindow.cpp \
     utils/label/labeltest.cpp \
     utils/navbar/navbartest.cpp \
-    utils/titlebar/titlebar.cpp
+    utils/titlebar/titlebar.cpp \
+    utils/animationlist/mylistwidget.cpp \
+    utils/animationlist/mylistwidgetitem.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -100,6 +102,8 @@ HEADERS  += \
     utils/animation/animationslide.h \
     utils/animation/animationtest.h \
     utils/animation/animationwidget.h \
+    utils/animationlist/mylistwidgetitem.h \
+    utils/animationlist/mylistwidget.h \
     utils/dialog/toast.h \
     utils/dialog/dialogtest.h \
     utils/label/baselabel.h \

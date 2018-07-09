@@ -42,6 +42,8 @@ private slots:
 
     void on_titleBtn_clicked();
 
+    void on_btn_5_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
