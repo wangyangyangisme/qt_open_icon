@@ -315,7 +315,7 @@ void TitleBar::initSysTray()
 {
     sysTrayIcon = new QSystemTrayIcon(this);
 
-    QIcon icon = QIcon(":/images/resourse/images/icon.png");
+    QIcon icon = QIcon(":/images/resourse/images/titlebar/icon.png");
     sysTrayIcon->setIcon(icon);
     sysTrayIcon->setToolTip("自定义标题栏");
 
