@@ -1,7 +1,7 @@
 /**
  ** @author:	    浓咖啡
  ** @date:            2016.10.21
- ** @brief:          dao层抽象接口
+ ** @brief:          数据库连接池
  */
 
 #include "connectionpool.h"

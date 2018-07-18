@@ -81,7 +81,8 @@ SOURCES += main.cpp\
     utils/navbar/navbartest.cpp \
     utils/titlebar/titlebar.cpp \
     utils/animationlist/mylistwidget.cpp \
-    utils/animationlist/mylistwidgetitem.cpp
+    utils/animationlist/mylistwidgetitem.cpp \
+    service/database/dao/schooldaoimpl.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -135,7 +136,8 @@ HEADERS  += \
     test/mainwindow.h \
     utils/label/labeltest.h \
     utils/navbar/navbartest.h \
-    utils/titlebar/titlebar.h
+    utils/titlebar/titlebar.h \
+    service/database/dao/schooldaoimpl.h
     common/platformhead.h
 
 RESOURCES += \
@@ -188,4 +190,4 @@ FORMS += \
     utils/label/labeltest.ui \
     utils/navbar/navbartest.ui
 
-#更换资源文件内容后，记得重新添加资源文件并编译
+#更换资源文件内容后，记得重新添加资源文件并编�?

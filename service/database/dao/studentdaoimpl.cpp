@@ -71,7 +71,7 @@ bool StudentDaoImpl::insertObjList(QList<StudentData> &objList)
 {
     StudentData obj;
     QSqlQuery query(db);
-    query.prepare(INSERT_CMD);
+
 
     for(int i=0; i<objList.length(); i++){
         obj = objList.at(i);

@@ -7,19 +7,22 @@
 #ifndef ABSTRACTDAO_H
 #define ABSTRACTDAO_H
 
-#include  <QtSql>
+#include "connectionpool.h"
 
 class AbstractDao : public QObject
 {
     Q_OBJECT
 public:
-    explicit AbstractDao(const QSqlDatabase &db, const QString &_tableName);
+    explicit AbstractDao();
+    bool getConn(QSqlDatabase &db);
+    void putConn(const QSqlDatabase &db);
 
-    bool initTable();  //初始化所需要的表
-    void viewTable();  //相当于select * from table,会输出到打印台和控制台，以table名为文件名
-    void deleteObj(const QString &condition);
+    bool initTable();
+
+    bool executeSql(const QString &sql);
 
 protected:
+    bool getConn(QSqlDatabase &db);  //获取数据库连接
     virtual bool createTable() = 0;  //产生表的接口
     virtual void __viewTable() = 0;  //select * from table封装
 
@@ -28,8 +31,6 @@ protected:
     //virtual bool insertObjList(QList<ObjType> &objList) = 0;
 
     QSqlDatabase db;
-    QString tableName;
-    QTextStream out;
 };
 
 #endif // ABSTRACTDAO_H

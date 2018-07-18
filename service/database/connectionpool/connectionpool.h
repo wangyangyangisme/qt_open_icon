@@ -1,3 +1,9 @@
+/**
+ ** @author:	    浓咖啡
+ ** @date:            2016.10.21
+ ** @brief:          数据库连接池
+ */
+
 #ifndef CONNECTIONPOOL_H
 #define CONNECTIONPOOL_H
 
