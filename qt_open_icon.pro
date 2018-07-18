@@ -24,9 +24,9 @@ utils/titlebar utils/animationlist
 
 
 win32:msvc{
-    CONFIG +=c++11
+#    CONFIG +=c++11
 }else{
-    QMAKE_CXXFLAGS += -std=c++11
+#    QMAKE_CXXFLAGS += -std=c++11
     QMAKE_CXXFLAGS += -Wunused-function
     QMAKE_CXXFLAGS += -Wunused-parameter
     QMAKE_CXXFLAGS += -Wreorder
@@ -147,37 +147,37 @@ QT_VER_MAJOR = $$member(QT_VER_STRING, 0)
 QT_VER_MINOR = $$member(QT_VER_STRING, 1)
 QT_VER_PATCH = $$member(QT_VER_STRING, 2)
 
-win32{
-    equals(QT_VER_MAJOR, 5){
-        HEADERS += \
-            utils/timeset/headutils.h \
-            utils/timeset/timetotal.h \
-            utils/timeset/timedisplay.h \
-            utils/timeset/switchwidget.h \
-            utils/timeset/timeset.h \
-            utils/timeset/zoneset.h \
-            utils/timeset/zonetable.h \
-            utils/wheel/wheelwidget.h \
-            utils/wheel/stringwheelwidget.h \
-            utils/wheel/wheeltest.h
 
-        SOURCES += \
-            utils/timeset/headutils.cpp \
-            utils/timeset/timetotal.cpp \
-            utils/timeset/timedisplay.cpp \
-            utils/timeset/switchwidget.cpp \
-            utils/timeset/timeset.cpp \
-            utils/timeset/zoneset.cpp \
-            utils/timeset/zonetable.cpp \
-            utils/wheel/wheelwidget.cpp \
-            utils/wheel/stringwheelwidget.cpp \
-            utils/wheel/wheeltest.cpp
-    }
+equals(QT_VER_MAJOR, 5){
+    HEADERS += \
+        utils/timeset/headutils.h \
+        utils/timeset/timetotal.h \
+        utils/timeset/timedisplay.h \
+        utils/timeset/switchwidget.h \
+        utils/timeset/timeset.h \
+        utils/timeset/zoneset.h \
+        utils/timeset/zonetable.h \
+        utils/wheel/wheelwidget.h \
+        utils/wheel/stringwheelwidget.h \
+        utils/wheel/wheeltest.h
 
-    equals(QT_MAJOR_VERSION, 4){
-
-    }
+    SOURCES += \
+        utils/timeset/headutils.cpp \
+        utils/timeset/timetotal.cpp \
+        utils/timeset/timedisplay.cpp \
+        utils/timeset/switchwidget.cpp \
+        utils/timeset/timeset.cpp \
+        utils/timeset/zoneset.cpp \
+        utils/timeset/zonetable.cpp \
+        utils/wheel/wheelwidget.cpp \
+        utils/wheel/stringwheelwidget.cpp \
+        utils/wheel/wheeltest.cpp
 }
+
+equals(QT_MAJOR_VERSION, 4){
+
+}
+
 
 #message(parse over)
 

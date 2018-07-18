@@ -20,7 +20,7 @@ protected:
 private:
     QPen pen;
     QTableView *view;
-    const int gridGap = 5;  //边框离边线距离
+    int gridGap;  //边框离边线距离
     int colNum;  //列数
 };
 
