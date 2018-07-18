@@ -69,37 +69,37 @@ void MyListWidget::resize(qreal x, qreal y)
 void MyListWidget::drawItem(QPainter *painter)
 {
     int item_num = 0;
-     //画ITEM位置，循环画出
-     for(item_num=0; item_num<myItem.count();item_num++){
-         if(item_num == rectBackGround)
-         {
-             if(rectBackGround != newChooseBackGround){
-                 painter->setPen(Qt::NoPen);
-                 QBrush brush(QColor(50, 50, 50), Qt::SolidPattern);
-                 painter->setBrush(brush);
-                 painter->drawRect(0, rectBackGround*ITEM_HIGHT, length, ITEM_HIGHT);
-             }
+    //画ITEM位置，循环画出
+    for(item_num=0; item_num<myItem.count();item_num++){
+        if(item_num == rectBackGround)
+        {
+            if(rectBackGround != newChooseBackGround){
+                painter->setPen(Qt::NoPen);
+                QBrush brush(QColor(50, 50, 50), Qt::SolidPattern);
+                painter->setBrush(brush);
+                painter->drawRect(0, rectBackGround*ITEM_HIGHT, length, ITEM_HIGHT);
+            }
 
-             QRectF rect(0, rectBackGround*ITEM_HIGHT, length, ITEM_HIGHT);
-             painter->setPen(QPen(QBrush("red"), 3));
-             QFont font("黑体", 13, 10, false);
-             painter->setFont(font);
-             painter->drawText(rect, myItem.at(item_num).getText(), Qt::AlignVCenter|Qt::AlignHCenter);
-             if(item_num+1 < myItem.count())
-                 item_start_y = item_start_y+ITEM_HIGHT;
-             painter->setPen(QPen(QBrush("white"), 3));
-         }
-         else{
-             QFont font("黑体", 13, 10, false);
-             painter->setFont(font);
-             painter->setPen(QPen(QBrush("white"), 3));
-             QRectF rect(0, item_start_y, length, ITEM_HIGHT);
-             painter->drawText(rect, myItem.at(item_num).getText(), Qt::AlignVCenter|Qt::AlignHCenter);
-             if(item_num+1 < myItem.count())
-                 item_start_y = item_start_y+ITEM_HIGHT;
-         }
-     }
-     item_start_y = 0;
+            QRectF rect(0, rectBackGround*ITEM_HIGHT, length, ITEM_HIGHT);
+            painter->setPen(QPen(QBrush("red"), 3));
+            QFont font("黑体", 13, 10, false);
+            painter->setFont(font);
+            painter->drawText(rect, myItem.at(item_num).getText(), Qt::AlignVCenter|Qt::AlignHCenter);
+            if(item_num+1 < myItem.count())
+                item_start_y = item_start_y+ITEM_HIGHT;
+            painter->setPen(QPen(QBrush("white"), 3));
+        }
+        else{
+            QFont font("黑体", 13, 10, false);
+            painter->setFont(font);
+            painter->setPen(QPen(QBrush("white"), 3));
+            QRectF rect(0, item_start_y, length, ITEM_HIGHT);
+            painter->drawText(rect, myItem.at(item_num).getText(), Qt::AlignVCenter|Qt::AlignHCenter);
+            if(item_num+1 < myItem.count())
+                item_start_y = item_start_y+ITEM_HIGHT;
+        }
+    }
+    item_start_y = 0;
 }
 
 void MyListWidget::drawChooseItem(QPainter* painter)
@@ -119,6 +119,7 @@ void MyListWidget::drawListWidget(QPainter* painter)
 {
     QPen pen(Qt::NoPen);
     painter->setPen(pen);
+    //反锯齿
     painter->setRenderHint(QPainter::Antialiasing);
 
     QLinearGradient linerGradient(QPointF(0,0), QPointF(0,this->height));
@@ -139,7 +140,7 @@ void MyListWidget::doSlider()
     }else{
         oldChooseBackGround= newChooseBackGround;
         sliderTimer->stop();
-}
+    }
 
     update();
 
