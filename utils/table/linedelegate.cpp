@@ -2,6 +2,7 @@
 
 LineDelegate::LineDelegate(QTableView *tableView)
 {
+    gridGap = 5;
     //首先拿到表格原来颜色
     int gridHint = tableView->style()->styleHint\
             (QStyle::SH_Table_GridLineColor, new QStyleOptionViewItemV4());

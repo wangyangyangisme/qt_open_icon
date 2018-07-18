@@ -35,6 +35,8 @@ QLabel{\
 ZoneTable::ZoneTable(const QStringList &list):
     first(true)
 {
+    columnCount = 4;
+
     setRowCount(list.length());
     setColumnCount(columnCount);
     setFixedSize(355, 165);

@@ -23,7 +23,7 @@ private slots:
 private:
 
     bool first;
-    const int columnCount = 4;
+    int columnCount;
 };
 
 #endif // ZONETABLE_H
