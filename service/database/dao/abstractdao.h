@@ -15,7 +15,7 @@ class AbstractDao : public QObject
 public:
     explicit AbstractDao();
     bool initTable();
-    void viewTable(const QString &tableName);
+    void viewTable(const QString &);
 
 
 protected:

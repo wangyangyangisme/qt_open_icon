@@ -13,7 +13,7 @@ ConnectionPool* ConnectionPool::instance = NULL;
 ConnectionPool::ConnectionPool() {
     // 创建数据库连接的这些信息在实际开发的时都需要通过读取配置文件得到，
     // 这里为了演示方便所以写死在了代码里。
-    databaseName = "mydb";
+    databaseName = "my.db";
     databaseType = "QSQLITE";
     testOnBorrow = true;
     testOnBorrowSql = "select 1";
@@ -72,7 +72,7 @@ void ConnectionPool::closeConnection(QSqlDatabase connection) {
     // 如果是我们创建的连接，从 used 里删除，放入 unused 里
     if (pool.usedConnectionNames.contains(connectionName)) {
         QMutexLocker locker(&mutex);
-        qDebug()<<"remove "<<connectionName;
+        //qDebug()<<"remove "<<connectionName;
         pool.usedConnectionNames.removeOne(connectionName);
         pool.unusedConnectionNames.enqueue(connectionName);
         waitConnection.wakeOne();
@@ -130,7 +130,7 @@ QSqlDatabase ConnectionPool::getConnection(const QString &connectionName) {
 
         // 返回连接前访问数据库，如果连接断开，重新建立连接
         if (testOnBorrow) {
-            qDebug() << "Test connection on borrow, execute:" << testOnBorrowSql << ", for" << connectionName;
+            //qDebug() << "Test connection on borrow, execute:" << testOnBorrowSql << ", for" << connectionName;
             QSqlQuery query(testOnBorrowSql, db1);
 
             if (query.lastError().type() != QSqlError::NoError && !db1.open()) {

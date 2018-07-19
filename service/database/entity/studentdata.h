@@ -1,3 +1,9 @@
+/**
+ ** @author:	     浓咖啡
+ ** @date:           2016.10.21
+ ** @brief:          实体层:只负责数据定义
+ */
+
 #ifndef STUDENTDATA_H
 #define STUDENTDATA_H
 

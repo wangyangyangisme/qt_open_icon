@@ -1,7 +1,7 @@
 /**
  ** @author:	     浓咖啡
  ** @date:           2016.10.21
- ** @brief:          dao层抽象接口
+ ** @brief:          dao层抽象接口:只负责数据库操作
  ** @update:         增加多表处理，重写设计数据库操作框架 2018.7.18 浓咖啡
  */
 
@@ -64,7 +64,7 @@ bool AbstractDao::executeSql(const QString &sql,const QList<QVariant> &list)
         }
     }
 
-    if(!query.exec(sql)){
+    if(!query.exec()){
         qDebug()<<query.lastError();
         return false;
     }
@@ -76,11 +76,11 @@ bool AbstractDao::executeSql(const QString &sql,const QList<QVariant> &list)
 
 /**
  * @brief 调试使用，显示表的所有信息:select * from table
- * @param tableName
+ * @param logFile:日志文件名字
  */
-void AbstractDao::viewTable(const QString &tableName)
+void AbstractDao::viewTable(const QString &logFile)
 {
-    QFile file(tableName + ".log");
+    QFile file(logFile + ".log");
     file.open(QIODevice::Text | QIODevice::WriteOnly);
     out.setDevice(&file);
     out<<left<<qSetFieldWidth(20);

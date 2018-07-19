@@ -15,6 +15,7 @@
 #include "titlebar.h"
 #include "mylistwidget.h"
 #include "mylistwidgetitem.h"
+#include "databasewig.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
@@ -98,8 +99,9 @@ void MainWindow::on_listTest_clicked()
 
 void MainWindow::on_databaseTest_clicked()
 {
-//    DatabaseTest *database = new DatabaseTest;
-//    database->test();
+    DataBaseWig *w = new DataBaseWig;
+    w->setWindowTitle(QString("数据库测试"));
+    w->show();
     return;
 }
 

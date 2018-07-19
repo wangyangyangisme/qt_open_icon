@@ -18,6 +18,7 @@ utils/desktop utils/desktop/procedure \
 utils/digitalinput utils/progressbar\
 service service/database service/database/connectionpool\
 service/database/dao service/database/entity\
+service/database/logic\
 utils/titlebar utils/animationlist
 
 #DEFINES += RUN_EMBEDDED  #是否运行于嵌入式设备
@@ -80,7 +81,8 @@ SOURCES += main.cpp\
     utils/navbar/navbartest.cpp \
     utils/titlebar/titlebar.cpp \
     utils/animationlist/mylistwidget.cpp \
-    utils/animationlist/mylistwidgetitem.cpp
+    utils/animationlist/mylistwidgetitem.cpp \
+    service/database/logic/databasewig.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -133,7 +135,8 @@ HEADERS  += \
     test/mainwindow.h \
     utils/label/labeltest.h \
     utils/navbar/navbartest.h \
-    utils/titlebar/titlebar.h
+    utils/titlebar/titlebar.h \
+    service/database/logic/databasewig.h
     common/platformhead.h
 
 RESOURCES += \
@@ -184,6 +187,7 @@ FORMS += \
     utils/progressbar/progressbar2.ui \
     test/mainwindow.ui \
     utils/label/labeltest.ui \
-    utils/navbar/navbartest.ui
+    utils/navbar/navbartest.ui \
+    service/database/logic/databasewig.ui
 
-#更换资源文件内容后，记得重新添加资源文件并编�?
+#更换资源文件内容后，记得重新添加资源文件并重新编译
