@@ -14,14 +14,15 @@ class DataBaseWig : public QWidget
 
 public:
     explicit DataBaseWig(QWidget *parent = 0);
-    ~DataBaseWig();
 
 private slots:
-    void on_addBtn_clicked();
+
+    void on_addStuBtn_clicked();
 
 private:
+    void updateStuTable();
     Ui::DataBaseWig *ui;
-    StudentDaoImpl dao;
+    StudentDaoImpl stuDao;
 };
 
 #endif // DATABASEWIG_H

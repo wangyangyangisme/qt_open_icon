@@ -84,7 +84,7 @@ int StudentDaoImpl::querryCommon(QList<StudentData> &objs, const QString &condit
 
     while (query.next()) {
         data.num = query.value(0).toInt();
-        data.name = query.value(1).toInt();
+        data.name = query.value(1).toString();
         data.sex = query.value(2).toBool();
         data.age = query.value(3).toInt();
 
@@ -99,7 +99,7 @@ int StudentDaoImpl::querryCommon(QList<StudentData> &objs, const QString &condit
  * @brief 根据主键查询唯一的记录
  * @param obj 返回实体对象
  * @param num 主键值
- * @return -1:查询出错 0：未查到 >0：实际查询到记录条数
+ * @return -1:查询出错 0：未查到 1：查到记录
  */
 int StudentDaoImpl::querryObj(StudentData &obj, int num)
 {
@@ -177,7 +177,7 @@ void StudentDaoImpl::__viewTable()
 }
 
 /**
-  ---------------------------------------------------
+ *---------------------------------------------------
  * 以下为查询子方法语句
  */
 QString StudentDaoImpl::findByNum(int num)

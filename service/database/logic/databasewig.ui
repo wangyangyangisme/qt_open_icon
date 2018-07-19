@@ -13,10 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="addBtn">
+  <widget class="QPushButton" name="addStuBtn">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>430</x>
      <y>200</y>
      <width>75</width>
      <height>23</height>
@@ -26,7 +26,7 @@
     <string>增加记录</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="stuWig">
+  <widget class="QTableWidget" name="stuTable">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="rowCount">
-    <number>4</number>
+    <number>0</number>
    </property>
    <attribute name="horizontalHeaderVisible">
     <bool>true</bool>
@@ -44,10 +44,6 @@
    <attribute name="verticalHeaderVisible">
     <bool>false</bool>
    </attribute>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
    <column>
     <property name="text">
      <string>学号(主键)</string>
@@ -69,7 +65,7 @@
     </property>
    </column>
   </widget>
-  <widget class="QTableWidget" name="addStuWig">
+  <widget class="QTableWidget" name="addStuTable">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -129,7 +125,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QPushButton" name="delBtn">
+  <widget class="QPushButton" name="delStuBtn">
    <property name="geometry">
     <rect>
      <x>440</x>
@@ -142,7 +138,7 @@
     <string>删除记录(写学号)</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="delStuWig">
+  <widget class="QTableWidget" name="delStuTable">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -202,7 +198,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QPushButton" name="delBtn_2">
+  <widget class="QPushButton" name="updateStuBtn">
    <property name="geometry">
     <rect>
      <x>440</x>
@@ -215,7 +211,7 @@
     <string>更新记录</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="addStuWig_2">
+  <widget class="QTableWidget" name="modStuTable">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -274,6 +270,19 @@
      <string>30</string>
     </property>
    </item>
+  </widget>
+  <widget class="QPushButton" name="randmStuBtn">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>200</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>随机生成</string>
+   </property>
   </widget>
  </widget>
  <resources/>
