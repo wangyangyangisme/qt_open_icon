@@ -10,7 +10,6 @@
 #include "listtest.h"
 #include "digitalinputtest.h"
 #include "progressbar2.h"
-#include "databasetest.h"
 #include "navbartest.h"
 #include "labeltest.h"
 #include "titlebar.h"
@@ -99,8 +98,8 @@ void MainWindow::on_listTest_clicked()
 
 void MainWindow::on_databaseTest_clicked()
 {
-    DatabaseTest *database = new DatabaseTest;
-    database->test();
+//    DatabaseTest *database = new DatabaseTest;
+//    database->test();
     return;
 }
 

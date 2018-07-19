@@ -64,7 +64,6 @@ SOURCES += main.cpp\
     service/database/dao/abstractdao.cpp \
     service/database/dao/studentdaoimpl.cpp \
     service/database/entity/studentdata.cpp \
-    service/database/databasetest.cpp \
     utils/table/baselist.cpp \
     utils/table/listtest.cpp \
     utils/table/normallist.cpp \
@@ -81,8 +80,7 @@ SOURCES += main.cpp\
     utils/navbar/navbartest.cpp \
     utils/titlebar/titlebar.cpp \
     utils/animationlist/mylistwidget.cpp \
-    utils/animationlist/mylistwidgetitem.cpp \
-    service/database/dao/schooldaoimpl.cpp
+    utils/animationlist/mylistwidgetitem.cpp
 
 HEADERS  += \
     core/iconhelper.h \
@@ -121,7 +119,6 @@ HEADERS  += \
     service/database/dao/abstractdao.h \
     service/database/dao/studentdaoimpl.h \
     service/database/entity/studentdata.h \
-    service/database/databasetest.h \
     utils/table/baselist.h \
     utils/table/listtest.h \
     utils/table/normallist.h \
@@ -136,8 +133,7 @@ HEADERS  += \
     test/mainwindow.h \
     utils/label/labeltest.h \
     utils/navbar/navbartest.h \
-    utils/titlebar/titlebar.h \
-    service/database/dao/schooldaoimpl.h
+    utils/titlebar/titlebar.h
     common/platformhead.h
 
 RESOURCES += \

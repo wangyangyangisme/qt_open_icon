@@ -12,6 +12,11 @@ AbstractDao::AbstractDao()
 {
 }
 
+/**
+ * @brief 从连接池获取连接
+ * @param db
+ * @return
+ */
 bool AbstractDao::getConn(QSqlDatabase &db)
 {
     db = ConnectionPool::openConnection();
@@ -37,6 +42,12 @@ bool AbstractDao::initTable()
     }
 }
 
+/**
+ * @brief 通用sql语句执行方法
+ * @param sql 执行的sql语句
+ * @param list 参数列表，没有可以不填
+ * @return
+ */
 bool AbstractDao::executeSql(const QString &sql,const QList<QVariant> &list)
 {
     QSqlDatabase db;
@@ -53,12 +64,14 @@ bool AbstractDao::executeSql(const QString &sql,const QList<QVariant> &list)
         }
     }
 
-    if(!query.exec(cmd)){
+    if(!query.exec(sql)){
         qDebug()<<query.lastError();
         return false;
-    }else{
-        return true;
     }
+
+    putConn(db);
+
+    return true;
 }
 
 /**
@@ -69,11 +82,11 @@ void AbstractDao::viewTable(const QString &tableName)
 {
     QFile file(tableName + ".log");
     file.open(QIODevice::Text | QIODevice::WriteOnly);
-    QTextStream out(&file);
+    out.setDevice(&file);
     out<<left<<qSetFieldWidth(20);
 
     qDebug()<<endl;
-    qDebug()<<"SELECT * FROM "<<tableName;
+
     __viewTable();
     qDebug()<<endl;
 

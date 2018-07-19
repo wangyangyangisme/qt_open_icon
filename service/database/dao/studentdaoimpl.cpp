@@ -6,24 +6,24 @@
 
 #include "studentdaoimpl.h"
 
-#define TABLE_NAME QString("student_table")
+#define STUDENT_TABLE QString("STUDENT_TABLE")
 
-#define CREATE_TABLE_CMD "create table "+TABLE_NAME+"(\
-id int primary key,   \
-name text not null,\
-score real not null)"
+#define CREATE_STUDENT_TABLE_CMD "CREATE TABLE "+STUDENT_TABLE+"(\
+NUM INT PRIMARY KEY,   \
+NAME TEXT NOT NULL,\
+SEX BOOLEAN NOT NULL,\
+AGE INT NOT NULL,\
+)"
 
-#define INSERT_CMD "insert into "+TABLE_NAME+"\
-(id,name,score)\
-values(:id,:name,:score)"
+#define INSERT_STUDENT_CMD "INSERT INTO "+STUDENT_TABLE+\
+    " VALUES(?, ?, ?, ?)"
 
 /**
  * @brief 构造函数
  * @param db 数据库连接
  */
-StudentDaoImpl::StudentDaoImpl(const QSqlDatabase &db) : AbstractDao(db, TABLE_NAME)
+StudentDaoImpl::StudentDaoImpl() : AbstractDao()
 {
-    qDebug()<<CREATE_TABLE_CMD;
 }
 
 /**
@@ -32,14 +32,7 @@ StudentDaoImpl::StudentDaoImpl(const QSqlDatabase &db) : AbstractDao(db, TABLE_N
  */
 bool StudentDaoImpl::createTable()
 {
-    qDebug()<<"StudentDaoImpl::createTable";
-    QSqlQuery query(db);
-    if(!query.exec(CREATE_TABLE_CMD)){
-        qDebug()<<query.lastError();
-        return false;
-    }else{
-        return true;
-    }
+    return executeSql(CREATE_STUDENT_TABLE_CMD);
 }
 
 /**
@@ -47,44 +40,14 @@ bool StudentDaoImpl::createTable()
  * @param obj 学生实体信息
  * @return
  */
-bool StudentDaoImpl::insertObj(StudentData &obj)
+bool StudentDaoImpl::insert(const StudentData &obj)
 {
-    QSqlQuery query(db);
-    query.prepare(INSERT_CMD);
-    query.bindValue(":id", obj.getID());
-    query.bindValue(":name", obj.getName());
-    query.bindValue(":score", obj.getScore());
-    if(!query.exec()){
-        qDebug()<<query.lastError();
-        return false;
-    }else{
-        return true;
-    }
-}
-
-/**
- * @brief 插入多个数据
- * @param 学生信息链表
- * @return
- */
-bool StudentDaoImpl::insertObjList(QList<StudentData> &objList)
-{
-    StudentData obj;
-    QSqlQuery query(db);
-
-
-    for(int i=0; i<objList.length(); i++){
-        obj = objList.at(i);
-        query.bindValue(":id", obj.getID());
-        query.bindValue(":name", obj.getName());
-        query.bindValue(":score", obj.getScore());
-
-        if(!query.exec()){
-            qDebug()<<query.lastError();
-            return false;
-        }
-    }
-    return true;
+    QList<QVariant> list;
+    list.append(obj.num);
+    list.append(obj.name);
+    list.append(obj.sex);
+    list.append(obj.age);
+    return executeSql(CREATE_STUDENT_TABLE_CMD);
 }
 
 /**
@@ -92,11 +55,16 @@ bool StudentDaoImpl::insertObjList(QList<StudentData> &objList)
  */
 void StudentDaoImpl::__viewTable()
 {
-    QString cmd = "select * from " + TABLE_NAME;
+    QString cmd = "SELECT * FROM " + STUDENT_TABLE;
+
+    QSqlDatabase db;
+    if(!getConn(db)){
+        return;
+    }
+
     QSqlQuery query(db);
     query.exec(cmd);
 
-    //输出字段名
     //输出到控制台，这个格式不好控制，如果数据多，可以去文件查看
     qDebug()<<\
                "id"<<\
@@ -115,11 +83,15 @@ void StudentDaoImpl::__viewTable()
         qDebug()<<\
                    query.value(0).toInt()<<\
                    query.value(1).toString()<<\
-                   query.value(2).toInt();
+                   query.value(2).toBool()<<\
+                   query.value(3).toInt();
         //输出到文件
         out<<left<<qSetFieldWidth(20)<<\
-             query.value(0).toInt()<<\
              query.value(1).toString()<<\
-             query.value(2).toInt()<<qSetFieldWidth(0)<<endl;
+             query.value(2).toBool()<<\
+             query.value(3).toInt()\
+          <<qSetFieldWidth(0)<<endl;
     }
+
+    putConn(db);
 }

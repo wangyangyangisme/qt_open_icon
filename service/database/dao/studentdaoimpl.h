@@ -13,9 +13,9 @@
 class StudentDaoImpl : public AbstractDao
 {
 public:
-    StudentDaoImpl(const QSqlDatabase &db);
+    StudentDaoImpl();
 
-    bool insertObj(StudentData &obj);  //这里传值不能用const修饰
+    bool insert(const StudentData &obj);
     bool insertObjList(QList<StudentData> &objList);
 
 private:
