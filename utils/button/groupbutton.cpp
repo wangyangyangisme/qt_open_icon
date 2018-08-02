@@ -5,21 +5,22 @@
  */
 
 #include "groupbutton.h"
+#include "muifont.h"
 
-#define DEFULT_STYLE1 "\
+#define ICON_STYLE "\
 QLabel{\
     font:50px;\
     color:rgb(44, 134, 0);\
 }\
 "
 
-#define DEFULT_STYLE2 "\
+#define TEXT_STYLE "\
 QLabel{\
     font:20px;\
     color:rgb(44, 134, 0);\
 }\
 "
-#define DEFULT_BUTTON_STYLE "\
+#define ALL_STYLE "\
 QPushButton{\
     border:1px solid rgb(44, 134, 0);\
     border-radius:5;\
@@ -29,6 +30,32 @@ QPushButton:pressed{\
     background-color:#AAAAAA;\
 }\
 "
+
+GroupButton::GroupButton(QWidget *parent) : QPushButton(parent)
+{
+    int w = 200;
+    int h = 100;
+
+    labIcon = new BaseLabel(MuiFont(), MuiFont::ICON_WEINXIN, ICON_STYLE);
+    labIcon->setFixedSize(w, h*2/3);
+    labIcon->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
+    labIcon->setStyleSheet(ICON_STYLE);
+
+    labText = new QLabel("微信");
+    labText->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    labText->setFixedSize(w, h*1/3);
+    labText->setStyleSheet(TEXT_STYLE);
+
+    QVBoxLayout *vlay = new QVBoxLayout(this);
+    vlay->setMargin(0);
+    vlay->setSpacing(0);
+
+    vlay->addWidget(labIcon);
+    vlay->addWidget(labText);
+
+    this->setFocusPolicy(Qt::NoFocus);
+    this->setStyleSheet(ALL_STYLE);
+}
 
 /**
  * @brief GroupButton::GroupButton
@@ -45,32 +72,32 @@ GroupButton::GroupButton(const AbstractFont &fontLib, int iconIndex, \
 {
     //初始化第一个label
     if(!style1.isEmpty()){
-        label1 = new BaseLabel(fontLib, iconIndex, style1);
-        label1->setFixedSize(w, h*2/3);
+        labIcon = new BaseLabel(fontLib, iconIndex, style1);
+        labIcon->setFixedSize(w, h*2/3);
     }else{
-        label1 = new BaseLabel(fontLib, iconIndex, DEFULT_STYLE1);
-        label1->setFixedSize(w, h*2/3);
+        labIcon = new BaseLabel(fontLib, iconIndex, ICON_STYLE);
+        labIcon->setFixedSize(w, h*2/3);
     }
-    label1->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
+    labIcon->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
     //初始化第二个label
-    label2 = new QLabel(text);
-    label2->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
-    label2->setFixedSize(w, h*1/3);
+    labText = new QLabel(text);
+    labText->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    labText->setFixedSize(w, h*1/3);
     if(!style2.isEmpty()){
-        label2->setStyleSheet(style2);
+        labText->setStyleSheet(style2);
     }else{
-        label2->setStyleSheet(DEFULT_STYLE2);
+        labText->setStyleSheet(TEXT_STYLE);
     }
 
     QVBoxLayout *vlay = new QVBoxLayout(this);
     vlay->setMargin(0);
     vlay->setSpacing(0);
 
-    vlay->addWidget(label1);
-    vlay->addWidget(label2);
+    vlay->addWidget(labIcon);
+    vlay->addWidget(labText);
 
     this->setFocusPolicy(Qt::NoFocus);
     this->setFixedSize(w, h);
-    this->setStyleSheet(DEFULT_BUTTON_STYLE);
+    this->setStyleSheet(ALL_STYLE);
 }

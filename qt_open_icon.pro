@@ -187,6 +187,5 @@ FORMS += \
     test/mainwindow.ui \
     utils/label/labeltest.ui \
     utils/navbar/navbartest.ui \
-    service/database/logic/databasewig.ui
-
-#更换资源文件内容后，记得重新添加资源文件并重新编�?
+    service/database/logic/databasewig.ui \
+    utils/button/buttontest.ui

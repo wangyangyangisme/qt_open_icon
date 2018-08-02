@@ -1,23 +1,22 @@
 #ifndef BUTTONTEST_H
 #define BUTTONTEST_H
 
-#include "basebutton.h"
-#include "switchbutton.h"
-#include "batterybutton.h"
-#include "groupbutton.h"
+#include <QWidget>
+
+namespace Ui {
+class ButtonTest;
+}
 
 class ButtonTest : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit ButtonTest(QWidget *parent = 0);
-
-signals:
-
-private slots:
+    ~ButtonTest();
 
 private:
-    QGridLayout *lay;
+    Ui::ButtonTest *ui;
 };
 
 #endif // BUTTONTEST_H

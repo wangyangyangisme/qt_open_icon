@@ -1,4 +1,5 @@
 #include "buttontest.h"
+#include "ui_buttontest.h"
 #include "muifont.h"
 
 //渐变样式示例
@@ -24,42 +25,65 @@ QLabel{\
 }\
 "
 
+//组合按钮
+
+#define ICON_STYLE "\
+QLabel{\
+    color:rgb(44, 134, 0);\
+}\
+"
+
+#define TEXT_STYLE "\
+QLabel{\
+    font:20px;\
+    color:rgb(44, 134, 0);\
+}\
+"
+#define ALL_STYLE "\
+QPushButton{\
+    border:1px solid rgb(44, 134, 0);\
+    border-radius:5;\
+    background: QLinearGradient(x1:0, y1:0, x2:0, y2:1,stop:0 rgb(255, 255, 255), stop:1 rgb(199, 255, 235));\
+}\
+QPushButton:pressed{\
+    background-color:#AAAAAA;\
+}\
+"
 
 ButtonTest::ButtonTest(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent),
+    ui(new Ui::ButtonTest)
 {
-    this->setWindowTitle(QString("基础按钮测试"));
-    //BaseButton
-    QLabel *baseButtonLab = new QLabel("BaseButton:");
-    BaseButton *baseButton = new BaseButton(MuiFont(), MuiFont::ICON_WEINXIN);
-    baseButton->resize(200, 100);
-    baseButton->setIconSize(80);
+    ui->setupUi(this);
 
-    //batteryButtonLab
-    QLabel *batteryButtonLab = new QLabel("BatteryButton:");
-    BatteryButton *batteryButton = new BatteryButton;
-    batteryButton->resize(200, 100);
+    ui->baseButton->setNewFont(MuiFont());
+    ui->baseButton->setIcon(MuiFont::ICON_WEINXIN);
+    ui->baseButton->setIconSize(70);
 
-    //switchbutton
-    QLabel *switchButtonLab = new QLabel("SwitchButton:");
-    SwitchButton *switchButton = new SwitchButton;
-    switchButton->resize(200, 100);
-    switchButton->setStyleSheet(SWITCH_BUTTON_STYLE);
-    switchButton->setIconSize(80);
+    ui->batteryButton->setNewFont(FontawesomeWebfont());
+    ui->batteryButton->setIcon(BatteryButton::EMPTY);
 
-    //groupbutton
-    QLabel *gourpButtonLab = new QLabel("GourpButton:");
-    GroupButton *groupButton = new GroupButton(MuiFont(), \
-                                                  MuiFont::ICON_WEINXIN,
-                                               200, 100, "微信", "", "");
+    ui->switchButton->setIcon(FontawesomeWebfont::ICON_UNLOCK);
+    ui->switchButton->setStyleSheet(SWITCH_BUTTON_STYLE);
+    ui->switchButton->setIconSize(80);
 
-    lay = new QGridLayout(this);
-    lay->addWidget(baseButtonLab, 0, 0);
-    lay->addWidget(baseButton, 0, 1);
-    lay->addWidget(batteryButtonLab, 0, 2);
-    lay->addWidget(batteryButton, 0, 3);
-    lay->addWidget(switchButtonLab, 1, 0);
-    lay->addWidget(switchButton, 1, 1);
-    lay->addWidget(gourpButtonLab, 1, 2);
-    lay->addWidget(groupButton, 1, 3);
+#if 0
+    int w = ui->groupButton->width();
+    int h = ui->groupButton->height();
+
+    ui->groupButton->getIconLab()->setFixedSize(w, h*2/3);
+    ui->groupButton->getIconLab()->setNewFont(MuiFont());
+    ui->groupButton->getIconLab()->setIcon(MuiFont::ICON_WEINXIN);
+    ui->groupButton->setStyleSheet(ICON_STYLE);
+    ui->groupButton->getIconLab()->setIconSize(30);
+
+    ui->groupButton->getTextLab()->setFixedSize(w, h*1/3);
+    ui->groupButton->setStyleSheet(TEXT_STYLE);
+    ui->groupButton->setStyleSheet(ALL_STYLE);
+#endif
+}
+
+ButtonTest::~ButtonTest()
+{
+    delete ui;
 }
