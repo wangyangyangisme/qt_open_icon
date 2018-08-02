@@ -89,7 +89,6 @@ HEADERS  += \
     font/abstractfont.h \
     font/fontawesomewebfont.h \
     font/muifont.h \
-    font/fonts.h \
     utils/button/basebutton.h \
     utils/button/buttontest.h \
     utils/button/switchbutton.h \
@@ -190,4 +189,4 @@ FORMS += \
     utils/navbar/navbartest.ui \
     service/database/logic/databasewig.ui
 
-#更换资源文件内容后，记得重新添加资源文件并重新编译
+#更换资源文件内容后，记得重新添加资源文件并重新编�?

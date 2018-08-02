@@ -1,4 +1,5 @@
 #include "iconhelper.h"
+#include "muifont.h"
 
 IconHelper *IconHelper::_instance=0;
 

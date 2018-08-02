@@ -1,4 +1,5 @@
 #include "buttontest.h"
+#include "muifont.h"
 
 //渐变样式示例
 #define SWITCH_BUTTON_STYLE "\

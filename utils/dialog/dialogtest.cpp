@@ -4,6 +4,7 @@
  ** @brief:      消息对话框
  */
 #include "dialogtest.h"
+#include "fontawesomewebfont.h"
 
 DialogTest::DialogTest()
 {

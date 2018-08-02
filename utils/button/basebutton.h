@@ -7,7 +7,7 @@
 #ifndef BASEBUTTON_H
 #define BASEBUTTON_H
 
-#include <iconhelper.h>
+#include "iconhelper.h"
 
 class BaseButton : public QPushButton
 {

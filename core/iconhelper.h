@@ -1,7 +1,7 @@
 #ifndef ICONHELPER_H
 #define ICONHELPER_H
 
-#include "fonts.h"
+#include "abstractfont.h"
 
 /**
  * @brief 使用字体库核心类

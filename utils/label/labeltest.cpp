@@ -6,6 +6,8 @@
 
 #include "labeltest.h"
 #include "ui_labeltest.h"
+#include "muifont.h"
+#include "fontawesomewebfont.h"
 
 #define LABEL_STYLE "\
 QLabel{\

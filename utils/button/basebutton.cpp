@@ -1,4 +1,5 @@
 #include "basebutton.h"
+#include "muifont.h"
 
 #define DEFULT_BUTTON_STYLE "\
 QPushButton{\

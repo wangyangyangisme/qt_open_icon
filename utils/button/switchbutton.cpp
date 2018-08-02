@@ -1,4 +1,5 @@
 #include "switchbutton.h"
+#include "fontawesomewebfont.h"
 
 SwitchButton::SwitchButton(QWidget *parent):BaseButton(parent)
 {

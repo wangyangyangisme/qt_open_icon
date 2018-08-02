@@ -1,4 +1,5 @@
 #include "digitalinput.h"
+#include "muifont.h"
 
 #define LEFT_STYLE "\
 QPushButton{\

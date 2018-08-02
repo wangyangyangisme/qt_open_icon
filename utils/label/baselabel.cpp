@@ -4,6 +4,7 @@
  ** @brief:      图标基类
  */
 #include "baselabel.h"
+#include "muifont.h"
 
 #define DEFULT_LABEL_STYLE "\
 QLabel{\

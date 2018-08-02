@@ -5,6 +5,7 @@
  */
 
 #include "navbar.h"
+#include "timefont.h"
 
 #define TOTAL_STYLE "\
 QWidget{\

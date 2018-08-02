@@ -4,6 +4,7 @@
  ** @brief:      qq应用程序示例
  */
 #include "qqprocedure.h"
+#include "muifont.h"
 
 QQProcedure::QQProcedure():Procedure("qq", "qqproce.exe")
 {

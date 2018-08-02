@@ -1,5 +1,6 @@
 #include "basemessagebox.h"
 #include "assert.h"
+#include "fontawesomewebfont.h"
 
 /**
  * @brief 基础提示框组件

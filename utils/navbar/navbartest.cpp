@@ -1,5 +1,6 @@
 #include "navbartest.h"
 #include "ui_navbartest.h"
+#include "muifont.h"
 
 #define BTN_STYLE "\
 QPushButton{\

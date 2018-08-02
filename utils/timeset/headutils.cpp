@@ -5,6 +5,7 @@
  */
 
 #include "headutils.h"
+#include "timefont.h"
 
 #define BACK_BUTTON_STYLE "\
 QPushButton{\

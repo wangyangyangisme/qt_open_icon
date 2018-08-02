@@ -8,6 +8,7 @@
 #define BATTERYBUTTON_H
 
 #include "basebutton.h"
+#include "fontawesomewebfont.h"
 
 #define EMPTY_BATTERY_STYLE "\
 QPushButton{\

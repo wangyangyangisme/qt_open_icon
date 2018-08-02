@@ -5,6 +5,7 @@
  */
 
 #include "zonetable.h"
+#include "fontawesomewebfont.h"
 
 #define QTABLEWIDGET_STYLE "\
 QTableWidget{\
